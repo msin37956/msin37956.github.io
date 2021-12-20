@@ -36,7 +36,7 @@
 .swiper-btn:hover{opacity: 0.6}
 .swiper-next{right:0.75rem;}
 .swiper-prev{left:0.75rem;}
-.swiper-comment {padding:8px 0;font-weight: 400;text-align: center}
+.swiper-comment {max-width: 100%;padding:8px 0;font-weight: 400;text-align: center}
 .swiper-container {width:100%;overflow: hidden}
 .img_container .swiper-slide {width:auto!important}
 .img_container .swiper-slide img {height: 500px;border:1px solid #ddd}
