@@ -10,7 +10,7 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <!-- lightbox -->
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    <link rel="stylesheet" href="js/lib/lightbox2/css/lightbox.min.css"/>
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css" />
     
@@ -22,7 +22,7 @@
     <!-- swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- lightbox -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <script src="js/lib/lightbox2/js/lightbox.min.js"></script>
     
 </head>
 <body clas="web">
@@ -90,43 +90,69 @@
                                             <div class="swiper-next swiper-btn"><i class="fas fa-chevron-right"></i></div>
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/djet_dashboard.png"/>
+                                                    <a href="./img/pmms/pmms_dxline_login.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/pmms_dxline_login.png"/>
+                                                    </a>
+                                                    <p class="swiper-comment">로그인(신분당선)</p>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a href="./img/pmms/djet_dashboard.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/djet_dashboard.png"/>
+                                                    </a>
                                                     <p class="swiper-comment">대시보드 A타입</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/djet_dashboard_popup.png"/>
+                                                    <a href="./img/pmms/djet_dashboard_popup.png"  data-lightbox="pmms">
+                                                        <img src="./img/pmms/djet_dashboard_popup.png"/>
+                                                    </a>
                                                     <p class="swiper-comment">대시보드 A타입 - 팝업펼침</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/slms_dashboard.png"/>
+                                                    <a href="./img/pmms/slms_dashboard.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/slms_dashboard.png"/>    
+                                                    </a>
                                                     <p class="swiper-comment">대시보드 B타입</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/monitoring.png"/>
+                                                    <a href="./img/pmms/monitoring.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/monitoring.png"/>
+                                                    </a>
                                                     <p class="swiper-comment">모니터링</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/report.png"/>
+                                                    <a href="./img/pmms/report.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/report.png"/>    
+                                                    </a>
                                                     <p class="swiper-comment">통계-시간별통계</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/config.png"/>
+                                                    <a href="./img/pmms/config.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/config.png"/>    
+                                                    </a>
                                                     <p class="swiper-comment">설정-역사관리</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/config_popup.png"/>
+                                                    <a href="./img/pmms/config_popup.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/config_popup.png"/>
+                                                    </a>
                                                     <p class="swiper-comment">설정-측정지점 관리-측정지점 수정</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/screen1.png"/>
+                                                    <a href="./img/pmms/screen1.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/screen1.png"/>    
+                                                    </a>
                                                     <p class="swiper-comment">전광판 A타입</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/screen2.png"/>
+                                                    <a href="./img/pmms/screen2.png" data-lightbox="pmms">
+                                                        <img src="./img/pmms/screen2.png"/>
+                                                    </a>
                                                     <p class="swiper-comment">전광판 B타입</p>
                                                 </div>
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/screen3.png"/>
+                                                    <a href="./img/pmms/screen3.png"  data-lightbox="pmms">
+                                                        <img src="./img/pmms/screen3.png"/>    
+                                                    </a>
                                                     <p class="swiper-comment">전광판 C타입</p>
                                                 </div>
                                             </div>
@@ -159,14 +185,34 @@
                                 <div class="card-header"><p class="card_tit">화면</p></div>
                                 <div class="card-body swiper_cont">
                                     <div>
-                                        <div id="pmmsSwiper" class="swiper-container img_container">
+                                        <div id="splatformSwiper" class="swiper-container img_container">
                                             <div class="swiper-pagination"></div>
                                             <div class="swiper-prev swiper-btn"><i class="fas fa-chevron-left"></i></div>
                                             <div class="swiper-next swiper-btn"><i class="fas fa-chevron-right"></i></div>
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <img src="./img/pmms/djet_dashboard.png"/>
-                                                    <p class="swiper-comment">대시보드 A타입</p>
+                                                    <a href="./img/splatform/login.png"  data-lightbox="splatform">
+                                                        <img src="./img/splatform/login.png"/>    
+                                                    </a>
+                                                    <p class="swiper-comment">스마트시티 통합플랫폼 로그인</p>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a href="./img/splatform/monitor_facility.png"  data-lightbox="splatform">
+                                                        <img src="./img/splatform/monitor_facility.png"/>    
+                                                    </a>
+                                                    <p class="swiper-comment">시설물 모니터링. 등록된 시설물(cctv 등)의 목록과 지도상에서 시설물의 위치를 확인 가능</p>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a href="./img/splatform/monitor_event.png"  data-lightbox="splatform">
+                                                        <img src="./img/splatform/monitor_event.png"/>    
+                                                    </a>
+                                                    <p class="swiper-comment">이벤트 모니터링. 발생한 이벤트의 목록과 지도상에서 이벤트 발생의 위치를 확인 가능</p>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a href="./img/splatform/monitor_event_detail.png"  data-lightbox="splatform">
+                                                        <img src="./img/splatform/monitor_event_detail.png"/>    
+                                                    </a>
+                                                    <p class="swiper-comment">이벤트 상세. 이벤트 모니터링에서 특정이벤트를 선택하여 개별 이벤트 관제가 가능하며, 이벤트 관제시 사건 발생지점에서 가장 가까운 시설물(cctv)5개의 목록과 영상화면을 자동으로 표출</p>
                                                 </div>
                                             </div>
                                         </div>
