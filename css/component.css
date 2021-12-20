@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+table{width: 100%;margin:0;border-top: 2px solid #000!important;text-align: center;border-spacing: 0;word-break: break-all}
+table tr:first-child>*{border-width: 0px 1px 1px 1px}
+table th {padding:10px;border:1px solid #D5D7E2;background-color:#F4F4F4;font-size: 16px;color: #000;font-weight: 500}
+table td {padding:10px;border:1px solid #D5D7E2;background-color:#fff;font-size:16px;color:#000;font-weight: 400}
+
+.tbl_hoz{text-align: left}
+
+
+
+
+
+
+#container.docs table:not(.tbl_hoz, .colorscripter-code-table ) tr>*:nth-child(1){width:20%}
+#container.docs table:not(.tbl_hoz, .colorscripter-code-table ) tr>*:nth-child(2){width:20%}
+#container.docs table:not(.tbl_hoz, .colorscripter-code-table ) tr>*:nth-child(3){width:10%}
+#container.docs table:not(.tbl_hoz, .colorscripter-code-table ) tr>*:nth-child(4){width:20%}
+#container.docs table:not(.tbl_hoz, .colorscripter-code-table ) tr>*:nth-child(5){width:30%}

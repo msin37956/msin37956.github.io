@@ -1,0 +1,39 @@
+@charset "UTF-8";
+html,body{height:100%;font-family: 'Pretendard', sans-serif;font-weight:400}
+#wrap{width:100%;height:100%}
+#container{width:100%;height:100%}
+#content{width:100%;height:100%}
+.area_alarm_list_wrapper {width:100%;height:100%;}
+.area_alarm_list {width:100%;height:100%;padding:0 20px 0 20px;background-color: #FF9500}
+.area_alarm_list>.inr{width:100%;height:100%;padding: 60px 0 20px 0;overflow-y: auto}
+.area_alarm_list>.inr {-ms-overflow-style: none;  /* IE and Edge */scrollbar-width: none;  /* Firefox */}
+.area_alarm_list>.inr::-webkit-scrollbar { display: none; }
+.area_alarm_header{margin-bottom: 12px;font-size: 22px;color:#fff}
+.area_alarm_body{width:100%;height:calc(100% - 45px);}
+.alarm_group_item{border:1px solid rgba(255,255,255,0.3);border-width: 1px 0 0 0;padding:12px 0 20px 0}
+.alarm_group_item>li.date{margin-bottom:12px;font-size:18px;color:#fff;}
+.alarm_item_wrapper{}
+.alarm_item_wrapper>li:last-child{margin-bottom: 0}
+.alarm_item {padding-left: 40px;margin-bottom:20px;background-repeat: no-repeat;background-position: left top;}
+.alarm_item>.inr>*:first-child{border-top-left-radius: 10px;border-top-right-radius: 10px;}
+.alarm_item>.inr>*:last-child{border-bottom-left-radius: 10px;border-bottom-right-radius: 10px}
+.alarm_header{padding:0 10px 0 6px;background-color: #F5612F;}
+.alarm_header>*{display: inline-block;height: 11px;padding: 0 6px 0 2px;line-height: 11px}
+.alarm_header>em{font-size:14px;color:#fff;border-right: 1px solid rgba(255,255,255,0.5);}
+.alarm_header>span{font-size: 14px;color:rgba(255,255,255,0.9)}
+.alarm_body{padding:12px;background-color: #fff;font-size:14px;color:#000}
+.alarm_body>span{font-size:15px;font-weight: 500}
+.alarm_footer{position:relative;display: flex;flex-wrap: wrap;padding:10px 12px 8px 66px;border-top: 1px solid #D5D7E2;background-color:#fff;}
+.alarm_footer:before{content:'발생요인';position:absolute;top: 10px;left:12px;font-size: 14px;color: #898989;}
+.alarm_footer>span{margin: 0 4px 2px 0;padding: 1px 4px;border:1px solid #D5D7E2;border-radius: 2px;font-size:12px;color:#555967;vertical-align: top}
+
+.alarm_item.state{background-image: url(../img/alarm_item_sample.png);}
+.alarm_item.homecam{background-image: url(../img/profile_homecam.png);}
+.alarm_item.ref{background-image: url()}
+.alarm_item.tv{background-image: url()}
+.alarm_item.air{background-image: url()}
+.alarm_item.water{background-image: url()}
+.alarm_item.elec{background-image: url()}
+.alarm_item.gas{background-image: url()}
+
+.btn_alarm{position: fixed;top:12px;right: 14px;width: 90px;height: 32px;border-radius: 50px;background-color: #FE5F28;}

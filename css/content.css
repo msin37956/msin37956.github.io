@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*sub 공통*/
+#header{background-color: #fff}
+#wrap.sub #content .area_conts>.inr{background-color:#EFF0F4}
+#content.side{}
+#content.side .area_side {position:absolute;top:0;left:0;width:290px;height:100%;padding:18px 20px;border-right: 1px solid #D5D7E2;background-color: #E7E9EE}
+
+#content.side .area_side>ul{margin: 0 0 20px 0;}
+#content.side .area_side>ul>li{margin-bottom:6px;font-size:16px;color: #858585;font-weight: 500}
+#content.side .area_side>ul>li>:hover{opacity: 0.6;color:inherit!important;}
+#content.side .area_side>ul>li.tit{font-size: 18px;color:#000;font-weight: 600}
+
+#content .area_conts {width:100%;height: 100%;}
+#content.side .area_conts {padding-left: 290px;}
+#content .area_conts>.inr{width:100%;height:100%;padding: 35px 0;overflow-y: auto;}
+#content .area_conts>.inr>*{max-width:1300px;margin: 0 auto 50px auto}
+#content .area_conts>.inr h3{padding:13px 0;margin-bottom: 20px;border-bottom:1px solid #D5D7E2;font-size:30px;color:#000;font-weight: 700}
+#content .area_conts>.inr>.project_item>.card{margin-bottom:15px}
+#content .area_conts .card_tit {font-size:22px;color:#000;font-weight: 500}
+#content .area_conts .card_subtit {margin-bottom:14px;font-size: 20px;color:#858585;font-weight: 500}
+#content .area_conts .card_text {font-size: 16px;color:#303030;font-weight: 400}
+#content .area_conts .card_table_tit {padding-left: 18px;margin-top: 15px;margin-bottom:4px;font-size: 20px;color:#555967;font-weight: 500;background-image: url(../img/ic_house.svg);background-repeat: no-repeat;background-position: left center;}
+#content .area_conts .card-header{background-color: transparent}
+#content .area_conts .card-body .card_table_tit:first-child{margin-top:0;}
+
+.project_item{margin-bottom:30px}
+
+.card_list li {position:relative;padding-left: 9px;margin-bottom: 4px;font-weight: 400;}
+.card_list li:before{content:'';position: absolute;left:0;top:10px;width:3px;height: 3px;background:#222}
+.card_list li .date {padding-left: 5px; font-weight: 300}
+
+
+.swiper_cont {}
+/*swiper*/
+.swiper-btn{position: absolute;top:50%;z-index: 2;padding:0.5rem;font-size:30px;transform: translate(0,-50%);cursor:pointer;}
+.swiper-btn:hover{opacity: 0.6}
+.swiper-next{right:0.75rem;}
+.swiper-prev{left:0.75rem;}
+.swiper-comment {padding:8px 0;font-weight: 400;text-align: center}
+.swiper-container {width:100%;overflow: hidden}
+.img_container .swiper-slide {width:auto!important}
+.img_container .swiper-slide img {height: 500px;border:1px solid #ddd}
+.swiper-pagination {position: absolute;top:15px;right:0;bottom:unset;left:unset;width:80px;}

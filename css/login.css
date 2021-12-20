@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import url('fonts.css');
+@import url('common.css');
+@import url('layout.css');
+*{font-family: 'Pretendard','san-serif'; font-weight: 500}
+#wrap{position:relative;background-color:#4D76F6}
+
+
+.login {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:32px 36px 30px 36px;background-color:#fff;border-radius:1px;box-shadow:0 3px 15px rgba(28,68,160,0.8);overflow:hidden;}
+/*.logo {width:186px; height:42px;overflow:hidden;text-indent:-300% ;background-image:url(../../img/sys_logo.png);background-repeat:no-repeat; background-position:center top; background-size:contain;}
+.logo_m {display:none;width:160px; height:37px;overflow:hidden;text-indent:-300% ;background-image:url(../../img/sys_logo.png);background-repeat:no-repeat; background-position:center top; background-size:contain;}
+.img {position:relative;width:60%;min-width:px;height:100%;padding: 27px 0 0 35px;background-color:#F0F6FF;background-image:url(../../img/img_login.svg);background-repeat:no-repeat;background-size:90%; background-position:center bottom;}*/
+
+.logo{display: flex;align-items: center;margin-bottom: 15px;font-size: 22px;color:#000;font-weight: 500}
+.logo img{margin-right: 8px}
+
+/*로그인*/
+#loginForm{display: block}
+#loginForm>h1{margin-bottom: 15px;font-size: 40px;font-weight: 300}
+.form-group {margin-bottom:0;}
+.form-control {width:100%;height:52px;padding:8px; border-radius:0; color:#555967; font-size: 16px; background-repeat:no-repeat; background-position: 4px center; background-size:32px 32px; }
+.form-control::placeholder {color:#656565}
+#loginForm .form-control{padding:8px 4px 8px 48px;border-color:#D5D7E2; border-width: 0 0 1px 0;}
+#loginForm input[type=text] {margin-bottom:13px;background-image:url(../../img/ic_id.svg);}
+#loginForm input[type=password] {margin-bottom:15px;background-image:url(../../img/ic_password.svg);}
+
+
+.btn {width:100%; padding:12px;margin-top:15px;border:1px solid rgba(85,89,103,0.1);background-color:#3D68F5;color:#fff;font-size:16px;}
+.btn:hover{background-color:rgba(47,80,188,1); color:#fff!important; }
+
+#login_msg_text {display:none;margin:auto;padding:10px;text-align:center;color:red; }
+.area_join{text-align: center; margin-top: 20px}
+#link_join{color: #656565;text-decoration: underline;cursor: pointer}
+
+/*회원가입*/
+#joinForm{display: none}
+
+#joinForm>h1{margin-bottom: 15px;font-size: 40px;font-weight: 300}
+
+#btn_check_id{flex: 0 0 auto;height: 30px;padding:0 5px;border:1px solid #BFC1C9;background-color:#fff;font-size: 14px;color:#000;}
+#btn_check_id:hover{background-color: #F5F6F8}
+#joinForm>div{border: 1px solid #DADCE5;}
+#joinForm>div:not(:nth-child(2)){border-width: 0 1px 1px 1px}
+#joinForm>div:nth-child(2){border-width: 1px;padding-right: 8px}
+
+#joinForm .form-control{border: 0;}
