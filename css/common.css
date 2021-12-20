@@ -29,14 +29,14 @@ html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, address,
 hr{display:none;}
 ul, ol, li{list-style:none;}
 img, fieldset{border:none; vertical-align:middle;}
-h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:800; font-family:'Roboto','Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:800; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
 table{border-collapse:collapse; font-size:100%;}
 address, em, optgroup{font-style:normal;}
 object{vertical-align:top;}
 input, button, select{vertical-align:middle;}
 article, aside, details, figcaption, figure, footer, header, nav, section{display:block;}
 audio, canvas, progress, video{display:inline-block;}
-button{padding:0; box-shadow:none; border:none; font-size:16px; font-family:'Roboto','Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+button{padding:0; box-shadow:none; border:none; font-size:16px; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
 button:hover,
 button:active,
 button:focus{cursor:pointer;}
@@ -56,8 +56,8 @@ a[href^="tel"] {color:inherit; text-decoration:none;}
 
 
 /*font*/
-html,body{color:#333; font-size:16px; font-weight:200; letter-spacing:-1px; -webkit-text-size-adjust:100%; font-family:'Roboto','Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
-input, select, textarea{color:#333; background:#fff; font-size:16px; font-family:'Roboto','Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+html,body{color:#333; font-size:16px; font-weight:200; letter-spacing:-1px; -webkit-text-size-adjust:100%; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+input, select, textarea{color:#333; background:#fff; font-size:16px; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
 input[type="text"],input[type="password"],input[type="number"],select{}
 input[type="text"],input[type="password"],input[type="number"],textarea{ 
 -webkit-ime-mode:active; 
