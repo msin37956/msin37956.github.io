@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="412" height="301" viewBox="0 0 412 301">
+  <g id="sample_graph3" transform="translate(1620 -4645)">
+    <g id="그룹_2031" data-name="그룹 2031" transform="translate(-21)">
+      <g id="그룹_1915" data-name="그룹 1915" transform="translate(-3031 4278.562)">
+        <text id="하위_지역" data-name="하위 지역" transform="translate(1445 529.321) rotate(-90)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">하위 지역</tspan></text>
+        <text id="_0" data-name="0" transform="translate(1463 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-4.319" y="0">0</tspan></text>
+        <text id="_10" data-name="10" transform="translate(1536 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-7.459" y="0">10</tspan></text>
+        <text id="_20" data-name="20" transform="translate(1608 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.484" y="0">20</tspan></text>
+        <text id="_30" data-name="30" transform="translate(1683 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.69" y="0">30</tspan></text>
+        <text id="_40" data-name="40" transform="translate(1755 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.762" y="0">40</tspan></text>
+        <text id="_50" data-name="50" transform="translate(1828 661)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.566" y="0">50</tspan></text>
+        <g id="그룹_1911" data-name="그룹 1911" opacity="0.15">
+          <g id="그룹_1910" data-name="그룹 1910" transform="translate(1485.5 373.438)">
+            <path id="패스_726" data-name="패스 726" d="M0,0V259.766" transform="translate(-23)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307" data-name="선 307" y2="259.766" transform="translate(14)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-2" data-name="선 307" y2="259.766" transform="translate(50)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-3" data-name="선 307" y2="259.766" transform="translate(87)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-4" data-name="선 307" y2="259.766" transform="translate(123)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-5" data-name="선 307" y2="259.766" transform="translate(160)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-6" data-name="선 307" y2="259.766" transform="translate(197)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-7" data-name="선 307" y2="259.766" transform="translate(233)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-8" data-name="선 307" y2="259.766" transform="translate(270)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-9" data-name="선 307" y2="259.766" transform="translate(306)" fill="none" stroke="#000" stroke-width="1"/>
+            <line id="선_307-10" data-name="선 307" y2="259.766" transform="translate(343)" fill="none" stroke="#000" stroke-width="1"/>
+          </g>
+        </g>
+      </g>
+      <rect id="사각형_615" data-name="사각형 615" width="374" height="37" transform="translate(-1568 4657)" fill="#0051dc" opacity="0.8"/>
+      <rect id="사각형_616" data-name="사각형 616" width="283" height="37" transform="translate(-1568 4710)" fill="#0051dc" opacity="0.8"/>
+      <rect id="사각형_617" data-name="사각형 617" width="239" height="37" transform="translate(-1568 4764)" fill="#0051dc" opacity="0.8"/>
+      <rect id="사각형_618" data-name="사각형 618" width="195" height="37" transform="translate(-1568 4870)" fill="#0051dc" opacity="0.8"/>
+      <rect id="사각형_619" data-name="사각형 619" width="228" height="37" transform="translate(-1568 4817)" fill="#0051dc" opacity="0.8"/>
+      <text id="_2_고현둘레길_입구" data-name="2 고현둘레길 입구" transform="translate(-1562 4680)" fill="rgba(255,255,255,0.8)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">2 고현둘레길 입구</tspan></text>
+      <text id="_4_고현_둘레길_커브2길" data-name="4 고현 둘레길 커브2길" transform="translate(-1562 4734)" fill="rgba(255,255,255,0.8)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">4 고현 둘레길 커브2길</tspan></text>
+      <text id="_3_고현_둘레길_커브1길" data-name="3 고현 둘레길 커브1길" transform="translate(-1562 4788)" fill="rgba(255,255,255,0.8)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">3 고현 둘레길 커브1길</tspan></text>
+      <text id="_6_둘레길_세갈림길" data-name="6 둘레길 세갈림길" transform="translate(-1562 4841)" fill="rgba(255,255,255,0.8)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">6 둘레길 세갈림길</tspan></text>
+      <text id="_5_창원물관리사업소" data-name="5 창원물관리사업소" transform="translate(-1562 4894)" fill="rgba(255,255,255,0.8)" font-size="14" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">5 창원물관리사업소</tspan></text>
+    </g>
+    <rect id="사각형_723" data-name="사각형 723" width="412" height="301" transform="translate(-1620 4645)" fill="none"/>
+  </g>
+</svg>

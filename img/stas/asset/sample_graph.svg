@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="435" height="241" viewBox="0 0 435 241">
+  <g id="sample_graph" transform="translate(-1418 -347)">
+    <g id="그룹_1912" data-name="그룹 1912">
+      <text id="_300" data-name="300" transform="translate(1444 405)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="0" y="0">300</tspan></text>
+      <text id="유동인구_명_" data-name="유동인구(명)" transform="translate(1431 500) rotate(-90)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="0" y="0">유동인구(명)</tspan></text>
+      <text id="_150" data-name="150" transform="translate(1444 479)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="0" y="0">150</tspan></text>
+      <text id="_0시" data-name="0시" transform="translate(1485 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-10.22" y="0">0시</tspan></text>
+      <text id="_2시" data-name="2시" transform="translate(1551 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-10.162" y="0">2시</tspan></text>
+      <text id="_4시" data-name="4시" transform="translate(1618 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-10.418" y="0">4시</tspan></text>
+      <text id="_6시" data-name="6시" transform="translate(1684 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-10.345" y="0">6시</tspan></text>
+      <text id="_8시" data-name="8시" transform="translate(1751 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-10.297" y="0">8시</tspan></text>
+      <text id="_10시" data-name="10시" transform="translate(1818 575)" font-size="14" font-family="Pretendard-Regular, Pretendard"><tspan x="-13.289" y="0">10시</tspan></text>
+      <g id="그룹_1911" data-name="그룹 1911">
+        <g id="그룹_1910" data-name="그룹 1910" transform="translate(0 -11.062)">
+          <line id="선_307" data-name="선 307" y2="183.062" transform="translate(1485.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-2" data-name="선 307" y2="183.062" transform="translate(1518.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-3" data-name="선 307" y2="183.062" transform="translate(1551.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-4" data-name="선 307" y2="183.062" transform="translate(1584.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-5" data-name="선 307" y2="183.062" transform="translate(1617.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-6" data-name="선 307" y2="183.062" transform="translate(1650.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-7" data-name="선 307" y2="183.062" transform="translate(1683.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-8" data-name="선 307" y2="183.062" transform="translate(1716.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-9" data-name="선 307" y2="183.062" transform="translate(1749.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-10" data-name="선 307" y2="183.062" transform="translate(1782.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-11" data-name="선 307" y2="183.062" transform="translate(1815.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+          <line id="선_307-12" data-name="선 307" y2="183.062" transform="translate(1848.5 384.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+        </g>
+        <line id="선_308" data-name="선 308" x2="374" transform="translate(1474.5 401.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+        <line id="선_309" data-name="선 309" x2="374" transform="translate(1474.5 473.5)" fill="none" stroke="#ccc" stroke-width="1"/>
+        <path id="패스_725" data-name="패스 725" d="M1485,535h100.179l33.131-11.279,33.131-3.186,31.856-24.211,32.494-10.831,34.405-56.7,33.131-21.025,31.219-18.477,34.405-5.734" transform="translate(0 9)" fill="none" stroke="#db3b11" stroke-width="3"/>
+      </g>
+    </g>
+    <rect id="사각형_717" data-name="사각형 717" width="434" height="241" transform="translate(1419 347)" fill="none"/>
+  </g>
+</svg>

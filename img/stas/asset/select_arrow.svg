@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="select_arrow" transform="translate(0.602 0.301)">
+    <g id="menu-chevron-active" transform="translate(22.909 5.415) rotate(90)">
+      <path id="패스_130" data-name="패스 130" d="M0,9.045,5.024,4.522,0,0" transform="translate(7.003 3.755)" fill="none" stroke="rgba(37,254,237,0.8)" stroke-miterlimit="10" stroke-width="1.5"/>
+      <rect id="사각형_289" data-name="사각형 289" width="17" height="18" transform="translate(0.284 -0.489)" fill="none"/>
+    </g>
+    <rect id="사각형_318" data-name="사각형 318" width="30" height="30" transform="translate(-0.602 -0.301)" fill="none"/>
+  </g>
+</svg>

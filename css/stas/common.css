@@ -1,0 +1,198 @@
+@charset "UTF-8";
+/*
+작성자 :신민경
+작성일 : 2020-09-08
+수정일 : 
+*/
+
+/*font*/
+/* font-face 샘플
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: local('notokr-light');
+  src: url('/css/font/notokr-thin.eot');
+  src: url('/css/font/notokr-thin.eot?#iefix') format('embedded-opentype'),
+      url('/css/font/notokr-thin.woff2') format('woff2'),
+      url('/css/font/notokr-thin.woff') format('woff');
+}
+
+*/
+
+/*웹폰트의 경우*/
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo|Noto+Sans+KR');
+
+@font-face {
+    font-family: '';
+    font-weight: ;
+    src: local('');
+    src: url('');
+}
+
+/*reset*/
+*{box-sizing: border-box}
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, address, dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, select, textarea{margin:0; padding:0;}
+hr{display:none;}
+ul, ol, li{list-style:none;}
+img, fieldset{border:none; vertical-align:middle;}
+h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:800; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+table{border-collapse:collapse; font-size:100%;}
+address, em, optgroup{font-style:normal;}
+object{vertical-align:top;}
+input, button, select{vertical-align:middle;}
+article, aside, details, figcaption, figure, footer, header, nav, section{display:block;}
+audio, canvas, progress, video{display:inline-block;}
+button{padding:0; box-shadow:none; border:none; font-size:16px; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+button:hover,
+button:active,
+button:focus{cursor:pointer;}
+input[type="radio"], input[type="checkbox"]{height:14px; width:14px; vertical-align:middle;}
+
+/*linkstyle*/
+a{color:#333; text-decoration:none; background-color:transparent;} /** IE10에서 활성화(active)된 링크의 회색 배경을 제거. */
+a:active,
+a:focus,
+a:hover{text-decoration:none;}
+a[href^="tel"] {color:inherit; text-decoration:none;}
+
+::-webkit-input-placeholder{color:rgba(0,0,0,0.4);}
+:-ms-input-placeholder{color:rgba(0,0,0,0.4);}
+::placeholder{color:rgba(0,0,0,0.4);}
+::selection{background:yellow; color:#333;}
+
+
+/*font*/
+html{color:#333; font-size:16px; font-weight:200; letter-spacing:-1px; -webkit-text-size-adjust:100%; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+input, select, textarea{color:#333; background:#fff; font-size:16px; font-family:'Pretendard','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+input[type="text"],input[type="password"],input[type="number"],select{height:42px; line-height:42px; border:1px solid #c8c8ca;}
+input[type="text"],input[type="password"],input[type="number"],textarea{ 
+-webkit-ime-mode:active; 
+-moz-ime-mode:active; 
+-ms-ime-mode:active; 
+ime-mode:active; 
+border:1px solid #c8c8ca; padding:0 5px 0 7px; box-sizing:border-box; -webkit-appearance:none;
+}
+
+
+
+
+
+/*form - 기본값*/
+/*     label,.form-control,.btn {font-size:13px;} */
+
+    /* input */
+/*     .form-inline {} form-group 컨테이너
+    .form-inline .form-group{padding-left: 10px;}인라인form 사이 여백
+    .form-inline .form-group:first-child{padding-left: 0px;}첫번째 인라인form 여백 삭제
+
+    .form-group {}
+    .form-group>*{vertical-align: top;}
+
+    .form-control {min-width:130px;height:30px;padding: 0px 5px; border: 1px solid #ddd; border-radius: 3px; }
+    .form-control[type="text"] {min-width:;} 
+
+    label {height: 30px;line-height:30px;margin: 0 8px 0 0;text-align: left;user-select:none}
+
+    select {-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+    select[disabled] {-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}select.disabled시 화살표숨기기
+ */
+    /*button*/
+    /* .btn {min-width: 70px;height: 30px;padding: 5px 13px;border: 1px solid #E8ECFA; border-radius: 3px; background-color: #fff;color: #74788D; cursor: pointer; }
+    .btn:hover {border-color:#DDE6FC;background-color: #E4EBFC;color: #3D68F5}
+    .btn>span{margin-right:7px;}
+
+    .btn_primary {border: 0;background-color: #6B6E8B; color: #fff;}
+    .btn_primary:hover {background-color: #4D526A;color: #fff}
+    .btn_success {border: 0;background-color: #28a745; color: #fff}
+    .btn_success:hover {background-color: #1e7e34;color: #fff}
+    .btn_danger {border: 0;background-color: #dc3545; color: #fff}
+    .btn_danger:hover {background-color: #bd2130; color: #fff}
+    .btn_warning {border: 0;background-color: #ffc107}
+    .btn_warning:hover {background-color: #d39e00; color: #fff}
+    .btn_accent {border: 0;background-color: #8A77D5; color: #fff !important}
+    .btn_accent:hover {background-color: #6D57C4;}
+    .btn_delete {border: 0;color: #fff; background-color:#e16c29; }
+    .btn_delete:hover {background-color: #cc5e3a}
+ */
+
+
+/*form - 일반(예:콤보박스,) */
+    /*datepicker*/
+    .form_date {max-width: 90px !important; min-width: 90px!important;}/*form-control min-width 130px에서 데이터피커 이미지만큼 줄이기, inline-form에서만 적용*/
+    .form_date.form-control[readonly] {border:1px solid #ddd; border-width: 1px 0 1px 1px;}
+    .input-group>img.ui-datepicker-trigger { width:26px;height:30px;padding:0px; border-top-right-radius:3px; border-bottom-right-radius:3px; border: 1px solid #ddd; border-width: 1px 1px 1px 0px; background-color: #fff} /*jquery-ui datepicker 아이콘 설정*/
+    img.ui-datepicker-trigger {cursor:pointer}
+
+    /*select(화살표 변경)*/
+    .form_select { -webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none; background-image: url(../img/bg_select_arrow_down.svg); background-repeat: no-repeat; background-position: right center; min-width: 130px; }/*화살표 없애기*/
+    .form_select::-ms-expand{ display: none; }/*화살표 없애기 for IE10, 11*/
+    .form_select[disabled]{ background-image : none;}/*커스텀셀렉트 disabled*/
+
+    /*input[type="number"] (스타일 초기화)*/
+    .form_number[type="number"] {-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}
+    .form_number[type="number"]::-webkit-inner-spin-button,input.form_reset[type="number"]::-webkit-outer-spin-button {margin:0;-webkit-appearance:none}
+
+    /*상태*/
+    .form_abled {border:1px solid #ddd!important;}/*비활성,읽기전용 상태지만 활성화처럼 보일때*/
+
+/*form - modal*/
+    .form_modal {}
+    .form_modal {}
+
+
+/*modal - messagebox / confirmbox / formbox */
+    /*공통*/
+    .modal {font-size: 14px}
+    .modal-header {padding: 4px 13px; border-bottom: 0;border-top-left-radius: 0.2rem; border-top-right-radius: 0.2rem; background-color: #5A607D; }
+
+    .modal-content .modal-body {border-top: 1px solid #EBEDF2;}/*modal-body 구분선*/
+    .modal-content .modal-body:nth-child(2) {border-top: 0}/*modal-body 구분선 삭제*/
+    .modal-body {padding: 10px 0px 10px 0px}
+
+    .modal-footer { margin: auto; padding:0px 15px 15px 15px; justify-content: center; border: 0;}
+
+    /*message box*/
+
+    /*confirm box*/
+
+
+
+
+/*그래프*/
+
+
+/*기타 ui*/
+    /*scroll*/
+    .scroll {height:100%;overflow:auto;}
+    .scroll_y {overflow-x:hidden!important;}
+    .scroll_x {overflow-y:hidden!important;}
+    .scroll::-webkit-scrollbar {width: 5px; background: #EBEDF2;}
+    .scroll::-webkit-scrollbar,
+    .scroll::-webkit-scrollbar-thumb { overflow:visible; border-radius: 4px;}
+    .scroll::-webkit-scrollbar-thumb {background:#D5D7E2;}
+
+    /*validation(필수입력 표시)*/
+    label.req{background-image: url(../img/essential.svg);background-repeat: no-repeat; background-position: left 5px; padding: 0 8px} /*label에 *표시*/
+    .req_text {font-size:12px!important; color:rgba(229,82,0,0.8)!important;padding-top:6px; margin-right: 0;background-image: url(../img/essential.svg);background-repeat: no-repeat; background-position: 8px 8px;}/*필수입력 안내 문구*/
+    .req_text:after {content: '는 필수입력 항목입니다.'}
+
+    /*텍스트 말줄임*/
+    .text_ellipsis {text-overflow: ellipsis; white-space: nowrap} /*1줄*/
+    .text_ellipsis_2 {} /*2줄이상*/
+
+
+    /*jquery ui 데이트 피커*/
+    .ui-widget-header.ui-datepicker-header {background-color:#fff !important; color:#000!important}/* header */
+    .ui-widget-header.ui-datepicker-header .ui-icon.ui-icon-circle-triangle-w{background-image:url(../img/chevron-left.svg)!important;background-position:center!important;}/* 이전화살표 */
+    .ui-widget-header.ui-datepicker-header .ui-icon.ui-icon-circle-triangle-e{background-image:url(../img/chevron-right.svg)!important;background-position:center!important;}/* 다음화살표 */
+    .ui-datepicker-prev.ui-state-hover, .ui-datepicker-next.ui-state-hover {border:none!important;}/* 화살표 hover 스타일 */
+
+    .ui-datepicker td span, .ui-datepicker td a {height:34px; padding:0!important; border-radius:3px; line-height:32px; text-align:center!important;}
+    .ui-datepicker td a.ui-state-default {border:none!important;background:#fff!important}
+    .ui-datepicker td a.ui-state-highlight{background-color:#e4ebfc!important;color:#989EB3!important} /* 오늘 날짜 highlight 스타일 */
+    /* .ui-datepicker-unselectable.ui-state-disabled .ui-state-default {border:none!important;} */ /* diabled 스타일 */ 
+
+    .ui-datepicker td a.ui-state-active {background:#BBCBFF!important;color:#fff!important;}/* 선택 날짜 active 스타일 */
+    .ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all, .ui-monthpicker {z-index:1051!important;}/* 데이트피커가 테이블탭에 가려서 zindex 재정의 => 모달때문에 1051 */

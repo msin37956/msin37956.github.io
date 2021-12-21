@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="11" viewBox="0 0 20 11">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_721" data-name="사각형 721" width="20" height="11" transform="translate(635 4450)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <filter id="다각형_15" x="-7" y="-10.5" width="34" height="34" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="pin_marker" transform="translate(-635 -4450)" clip-path="url(#clip-path)">
+    <g transform="matrix(1, 0, 0, 1, 635, 4450)" filter="url(#다각형_15)">
+      <g id="다각형_15-2" data-name="다각형 15" transform="translate(18 11.5) rotate(180)" fill="#215d74">
+        <path d="M7.553.894a.5.5,0,0,1,.894,0l7.191,14.382a.5.5,0,0,1-.447.724H.809a.5.5,0,0,1-.447-.724Z" stroke="none"/>
+        <path d="M 8 2.236081123352051 L 1.618025779724121 15.00000190734863 L 14.38195991516113 15.00000190734863 L 8 2.236081123352051 M 8 0.6180343627929688 C 8.177539825439453 0.6180343627929688 8.355079650878906 0.7101669311523438 8.447210311889648 0.8944320678710938 L 15.63819026947021 15.27639198303223 C 15.80442047119141 15.60884189605713 15.56266975402832 16.00000190734863 15.19097995758057 16.00000190734863 L 0.8090200424194336 16.00000190734863 C 0.4373302459716797 16.00000190734863 0.1955795288085938 15.60884189605713 0.3618001937866211 15.27639198303223 L 7.552789688110352 0.8944320678710938 C 7.644920349121094 0.7101669311523438 7.822460174560547 0.6180343627929688 8 0.6180343627929688 Z" stroke="none" fill="rgba(255,255,255,0.2)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>STAS</title>
+    <link rel="stylesheet" href="../../js/lib/bootstrap4/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../js/lib/openlayers/css/ol.css" />
+    <link rel="stylesheet" href="../../css/stas/common.css" />
+    <link rel="stylesheet" href="../../css/stas/fonts.css" />
+    <link rel="stylesheet" href="../../css/stas/dashboard.css" />
+    
+    <!-- jquery script-->
+    <script src="../../js/lib/jquery-3.3.1.min.js"></script>
+    <!-- 폰트어썸 script-->
+    <script src="../../js/lib/fontawesome-all.js"></script>
+    <!-- bootstrap -->
+    <script src="../../js/lib/bootstrap4/js/bootstrap.js"></script>
+
+</head>
+
+<body class="web">
+    <div id="wrap">
+        <!-- header -->
+        <nav class="profile">
+	        <a href="#" style="cursor:default"><span th:text="${session.user_name}">관리자</span></a>
+	        <a href="/common/api/logout"><span>로그아웃</span></a>
+			<a href="#" onClick="popup.openUserconfig()"><span>내정보</span></a>
+        </nav>
+        <!-- //header -->
+        <!-- container -->
+        <div id="container">
+        	<!-- map -->
+        	<div id="map"></div>
+        	<!-- //map -->
+        	<!-- content2 -->
+        	<div id="content2" class="content title">
+        		<h1><span>진동항</span><br>유동인구 현황</h1>
+        		<p id="date">2021-11-25(목) 16:40:32</p>
+        	</div>
+        	<!-- //content2 -->
+        	<!-- content3 -->
+        	<div class="content filter">
+        		<form>
+        			<div class="form-group">
+        				<select id="data_filter" class="form_item">
+        					<option>오늘 누적</option>
+        					<option>최근 1시간</option>
+        				</select>
+        			</div>
+        			<div class="form-group">
+        				<input id="name_toggle" type="checkbox" class="form_item" checked>
+        				<label for="name_toggle">위치이름 표시</label>
+        			</div>
+        			<!--<div class="form-group">
+        				<input id="heatmap_toggle" type="checkbox" class="form_item">
+        				<label for="heatmap_toggle">히트맵 표시</label>
+        			</div>-->
+        		</form>
+        	</div>
+        	<!-- //content3 -->
+        	<!-- content4 -->
+        	<div class="content link">
+        		<a href="" class="btn_monitor"><span>모니터링</span></a>
+        	</div>
+        	<!-- //content4 -->
+        	<!-- content1 -->
+        	<div class="content data">
+        		<div class="area_data">
+        			<div class="card card_today_floating">
+        				<div class="card-header"><h5>오늘 유동인구 현황</h5><span><span>11</span>시 기준</span></div>
+        				<div class="card-body">
+        					<h4><span id="accu_floating">324</span><span>명</span></h4>
+        					<p>전일 동시간대 증감 <span id="day_count" class="up">32</span></p>
+        				</div>
+        				<div class="card-body graph">
+        					<div class="graph_cont"></div>
+        				</div>
+        			</div>
+        			<div class="area_rank">
+        				<div class="inr">
+        					<div class="switch high"><div class="inr"><span class="circle"></span><span class="txt">상위</span></div></div>
+	        				<div class="card card_rank_floating rank_high">
+		        				<div class="card-header"><h5>유동인구 상위 지역</h5></div>
+		        				<div class="card-body graph">
+		        					<div class="graph_cont"></div>
+		        				</div>
+		        			</div>
+		        			<div class="card card_rank_floating rank_low">
+		        				<div class="card-header"><h5>유동인구 하위 지역</h5></div>
+		        				<div class="card-body graph">
+		        					<div class="graph_cont"></div>
+		        				</div>
+		        			</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<!-- //content1 -->
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- marker sample -->    
+    <div id="marker_sample" class="marker">
+    	<div class="inr">
+    		<p class="marker_name">#12 버스정류장 삼거리</p>
+    		<span>60</span>
+    	</div>
+    </div>
+    <!-- //marker sample -->    
+    
+    <script src="../../js/lib/openlayers/build/ol.js"></script>
+    <script>
+	  //브이월드 WMTS API 호출
+	    var layers = {};
+
+	   	//야간지도
+	    layers['night'] = new ol.layer.Tile({
+	    	preload: Infinity, //map preload
+	        title : 'Night Map',
+	        visible : true,
+	        type : 'base',
+	        source : new ol.source.XYZ({
+	            url : 'http://api.vworld.kr/req/wmts/1.0.0/CEB52025-E065-364C-9DBA-44880E3B02B8/midnight/{z}/{y}/{x}.png' //WMTS 배경지도 사용
+	        })
+	    });
+	     
+	    //항공지도
+	    layers['satellite'] = new ol.layer.Tile({
+	    	preload: Infinity, //map preload
+	        title : 'Satellite Map',
+	        visible : true,
+	        type : 'base',
+	        source : new ol.source.XYZ({
+	            url : 'http://api.vworld.kr/req/wmts/1.0.0/CEB52025-E065-364C-9DBA-44880E3B02B8/Satellite/{z}/{y}/{x}.jpeg' //WMTS 배경지도 사용
+	        })
+	    });
+	    
+	    
+	    //vectorsource 불러오기
+	    var vectorSource = new ol.source.Vector({
+	    	format: new ol.format.KML({
+	    		extractStyles: false //kml 데이터에 지정된 스타일 사용 안함
+	    	}),
+	    	projection : 'EPSG:3857',
+	    	url:'../../js/lib/polyline.kml'
+	    });
+	    //vectorlayer style
+	    var strokeStyle = new ol.style.Style({
+	    	stroke: new ol.style.Stroke({
+	    		width: 4,
+	    		color: 'rgba(37,254,237,0.9)'
+	    	})
+	    });
+	    //vectorlayer 생성
+	    var vectorLayer = new ol.layer.Vector({
+	    	source: vectorSource,
+	    	style: strokeStyle
+	    });
+	    
+	    
+	    var map = new ol.Map({
+			layers: [ layers['night'],vectorLayer],
+			target: 'map',
+			controls : ol.control.defaults({
+	     	   zoom:false,
+	            attributionOptions:({
+	                collapsible:false
+	            })
+	        }),
+			view: new ol.View({
+				center: ol.proj.transform([128.484089,35.103313], 'EPSG:4326', 'EPSG:900913'),
+				zoom: 16.5,
+				maxZoom:18,//5m 이하 확대 방지
+				minZoom:15 //100km 이상 축소 방지
+			})
+		});
+        
+        //addMarker
+        var view1 = ol.proj.fromLonLat([128.480540,35.103358]);
+        
+        var marker1 = new ol.Overlay({
+            position:view1,
+            positioning : 'center-left',
+            element:document.getElementById('marker_sample')
+        });
+        
+        map.addOverlay(marker1);
+        
+        
+    </script>
+    <script>
+    	$(document).ready(function(){
+    		//switch animate
+    		$('.switch').on('click', function(){
+    			//하위순위
+    			if($(this).hasClass('high')){
+    		  	$(this).removeClass('high').addClass('low').css('background-color','#3552E8');//클래스 수정
+    		    //원 이동 애니메이션
+    		    $('.switch .circle').css('left','unset').animate({ 
+    		      right:'2px'
+    		    },300);
+    		    //텍스트 변경
+    		    $('.switch .txt').css('opacity',0).text('하위').css({right:'unset', left:0}).delay(50).animate({opacity:1},'80');
+    		    //rank card show/hide
+    		    $('.rank_high').fadeOut();
+    		    $('.rank_low').fadeIn();
+    		  }
+    		  //상위순위
+    		  else if($(this).hasClass('low')){
+    		  	$(this).removeClass('low').addClass('high').css('background-color','#EF710A');//클래스 수정
+    		    //원 이동 애니메이션
+    		    $('.switch .circle').animate({
+    		    	left:'2px'
+    		    },300).css('right','unset');
+    		    //텍스트 변경
+    		    $('.switch .txt').css('opacity',0).text('상위').css({left:'unset', right: 0}).delay(50).animate({opacity:1},'80');
+    		  	//rank card show/hide
+    		    $('.rank_high').fadeIn();
+    		    $('.rank_low').fadeOut();
+    		  }
+    		});
+            
+            //위치이름 표시 show/hide
+            $('#name_toggle').click(function() {
+                if ($("#name_toggle").is(':checked')) {
+                    $(".marker_name").show();
+                    $("#name_toggle").removeAttr("checked");  
+                }
+                else{
+                    $(".marker_name").hide();
+                    $("#name_toggle").attr('checked', 'checked'); 
+                }
+            });
+    		
+    		
+    	});
+    </script>
+    
+
+</body>
+</html>
