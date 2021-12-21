@@ -32,12 +32,16 @@
 
 .swiper_cont {}
 /*swiper*/
-.swiper-btn{position: absolute;top:50%;z-index: 2;padding:0.5rem;font-size:30px;transform: translate(0,-50%);cursor:pointer;}
+.swiper-btn{position: absolute;top:50%;z-index: 2;display: inline-block;width:50px;height:50px; border: 1px solid #ddd;border-radius: 50%;background-color: #fff;font-size:30px;transform: translate(0,-50%);cursor:pointer;text-align: center;line-height: 50px}
 .swiper-btn:hover{opacity: 0.6}
-.swiper-next{right:0.75rem;}
-.swiper-prev{left:0.75rem;}
+.swiper-next{padding-left: 0.2rem;right:0.75rem;}
+.swiper-prev{padding-right: 0.4rem;left:0.75rem;}
 .swiper-comment {max-width: 100%;padding:8px 0;font-weight: 400;text-align: center}
 .swiper-container {width:100%;overflow: hidden}
-.img_container .swiper-slide {width:auto!important}
+.img_container .swiper-slide {position:relative;width:auto!important;transition: 0.3s}
 .img_container .swiper-slide img {height: 500px;border:1px solid #ddd}
+.img_container .swiper-slide:after {content: '\f00e';font-family: 'Font Awesome 5 Free';font-weight: 900; position: absolute;top:50%;left:50%;font-size: 40px;color:#343a40;transform: translate(-50%,-50%); opacity: 0}
+.img_container .swiper-slide:hover {background: #ddd;}
+.img_container .swiper-slide:hover img {opacity: 0.5}
+.img_container .swiper-slide:hover:after {opacity: 1}
 .swiper-pagination {position: absolute;top:15px;right:0;bottom:unset;left:unset;width:80px;}
