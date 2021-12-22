@@ -18,9 +18,11 @@
 #content .area_conts>.inr>.project_item>.card{margin-bottom:15px}
 #content .area_conts .card_tit {font-size:22px;color:#000;font-weight: 500}
 #content .area_conts .card_subtit {margin-bottom:14px;font-size: 20px;color:#858585;font-weight: 500}
+#content .area_conts .card_chevron {margin-left: auto;color:#858585;}
 #content .area_conts .card_text {font-size: 16px;color:#303030;font-weight: 400}
 #content .area_conts .card_table_tit {padding-left: 18px;margin-top: 15px;margin-bottom:4px;font-size: 20px;color:#555967;font-weight: 500;background-image: url(../img/ic_house.svg);background-repeat: no-repeat;background-position: left center;}
-#content .area_conts .card-header{background-color: transparent}
+#content .area_conts .card>*:last-child {border-bottom:0!important}
+#content .area_conts .card-header{display: flex;align-items:center;background-color: transparent}
 #content .area_conts .card-body .card_table_tit:first-child{margin-top:0;}
 
 .project_item{margin-bottom:30px}
