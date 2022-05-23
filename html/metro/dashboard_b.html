@@ -246,7 +246,7 @@
                             <div class="box_graph">
                                 <p class="clearfix box_title circle">시간별 변화량</p>
                                 <div id="chartPm" class="box_inner">
-                                    <canvas id="canvas_pm" class="mw-100" style="width:100%;height:100%;"></canvas>
+                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center" style="background-color:#eee;color:#666;">그래프 영역</div>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +282,37 @@
         </div>
     </div>
     <script>
+        $(document).ready(function(){
+            $(".device_status").addClass('disabled');
 
+            //미세먼지 농도 범례 팝업
+            $(".standard").click(function() {
+                $(".standard_txt").toggleClass('d-block');
+            });
+
+            //pop station
+            $(".unit").on("click",function(){
+                $("#pop_station").show();
+            });
+            $("#pop_station").draggable({
+                containment : 'window' // 화면 안에서만 드래그 가능
+            });
+            $("#pop_station .close").on("click",function(){
+            	$("#pop_station").hide();
+            });
+
+            //sample_point
+            $("#point_1909, #point_1910, #point_1912, #point_1913, #point_1914, #point_1915, #point_1917, #point_1919, #point_1920, #point_1921, #point_1923").addClass('active');
+
+            $(".point").each(function(){
+                if($(this).hasClass('active') && $(this).nextAll('.point:first').hasClass('active')){
+                        $(this).addClass('activeR');
+                    }
+                if($(this).hasClass('active') && $(this).prevAll('.point:first').hasClass('active')){
+                        $(this).addClass('activeL');
+                    }
+            });
+        });
     </script>
 </body>
 </html>
