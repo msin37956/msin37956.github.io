@@ -1,0 +1,452 @@
+@charset "UTF-8";
+/*
+작성자 :신민경
+작성일 : 2020-09-14
+수정일 : 
+*/
+
+
+
+
+/*form group- 기본값*/
+label,.form-control {height:30px;line-height:30px;}
+
+/* input */
+.form-inline {} /*form-group 컨테이너 */
+.form-inline .form-group{position:relative;display:flex;align-items:stretch;padding-left: 12px;margin-bottom:0}/*인라인form 사이 여백*/
+.form-inline .form-group:first-child{padding-left: 0px;}/*첫번째 인라인form 여백 삭제*/
+
+.form-group {}
+.form-group>*{vertical-align: top;}
+.form-group>div {margin-right: }
+
+
+label {margin:0;color:#C5CDD7;text-align:left;user-select:none}
+.comp_filter label {flex:0 0 auto;margin: 0 8px 0 0;font-size:16px;}
+.comp_filter .form-control {font-size:16px;}
+.form-control {min-width:px;padding: 0px 10px; border: 1px solid #5D6D81; border-radius: 3px; color:#F4F7F9;background-color: transparent;}
+.comp_filter .form-control[type="text"] {max-width:150px;}
+.comp_filter select:not(.form_count) {min-width:150px;} 
+.form-control:focus {background-color: #1D2A3A;color:#F4F7F9}
+.form-control:disabled, .form-control[readonly]{background-color: transparent;} /**/
+/*form-control disabled상태*/
+.form-control:disabled {background-color: transparent;border-color:transparent!important} /**/
+select.form-control:disabled {background-image:none!important}/*select disabled 상태에 화살표 삭제*/
+
+select {-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+/*커스텀 셀렉트 화살표이미지 변경*/
+select {-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none; background-image: url(../img/select_arrow.svg); background-repeat: no-repeat; background-position: right center; }
+select::-ms-expand{ display: none; }/*화살표 없애기 for IE10, 11*/
+select[disabled] {-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}/*select.disabled시 화살표숨기기*/
+
+.form_inr{}
+.form_inr>*{margin-right: 5px;}
+
+.form_end{display:flex;align-content:flex-start;align-items:stretch;margin-left: auto} /*폼 최우측으로 보내기 데이터갯수,검색,다운로드*/
+.form_end>*{margin-left:4px;}
+    
+    
+
+/*form - 일반(예:콤보박스,) */
+    
+
+/*select(화살표 변경)*/
+.form_select { -webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none; background-image: url(../img/bg_select_arrow_down.svg); background-repeat: no-repeat; background-position: right center; min-width: 130px; }/*화살표 없애기*/
+.form_select::-ms-expand{ display: none; }/*화살표 없애기 for IE10, 11*/
+.form_select[disabled]{ background-image : none;}/*커스텀셀렉트 disabled*/
+
+/*input[type="number"] (스타일 초기화)*/
+.form_number[type="number"] {-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}
+.form_number[type="number"]::-webkit-inner-spin-button,input.form_reset[type="number"]::-webkit-outer-spin-button {margin:0;-webkit-appearance:none}
+
+/*상태*/
+.form_abled {border:1px solid #ddd!important;}/*비활성,읽기전용 상태지만 활성화처럼 보일때*/
+
+/*form - 커스텀 폼 : datepicker, timepicker*/
+/*datepicker*/
+.form_date {border-width: 1px 0 1px 1px;border-top-right-radius: 0;border-bottom-right-radius: 0}/*form-control min-width 130px에서 데이터피커 이미지만큼 줄이기, inline-form에서만 적용*/
+.form-inline .form_date {max-width: 128px!important; min-width: 128px!important;}
+.form-group img.ui-datepicker-trigger { width:26px;height:30px;padding:0px; border-top-right-radius:3px; border-bottom-right-radius:3px; border: 1px solid #5D6D81; border-width: 1px 1px 1px 0px;} /*jquery-ui datepicker 아이콘 설정*/
+img.ui-datepicker-trigger {cursor:pointer}
+
+/*weekpicker*/
+.form_week {}
+
+/*timepicker*/
+.form_time{max-width: 108px; min-width: 108px}
+
+/*form - modal*/
+.modal label {padding:0 8px;font-size: 13px;color: #C5CDD7}
+.modal .form-control{font-size: 13px}
+.modal .form-control:focus{border-color:#4689FF}
+.modal .input-group>*:not(.form_date) {margin-right:4px;}
+.modal .input-group>*:last-child {margin-right: 0px}
+.modal .input-group>*:not(.form_date):not(img) {border-radius: 3px!important} /*modal datepicker*/
+.modal-body .form-group.row {margin-left: 0;margin-right: 0;margin-bottom: 5px}
+.modal-body .form-group .input-group {padding: 0}
+.modal-body>.form-group:last-child{margin-bottom:0}
+.modal .req_text {padding-left: 18px}
+
+.modal label.modal_btn {font-size:14px}
+
+/* form - card */
+.comp_config_card label {padding:0 8px;font-size: 13px;color: #C5CDD7}
+.comp_config_card .form-control{font-size: 13px}
+.comp_config_card .form-control:focus{border-color:#4689FF}
+.comp_config_card .input-group>*:not(.form_date) {margin-right:4px;}
+.comp_config_card .input-group>*:last-child {margin-right: 0px}
+.comp_config_card .input-group>*:not(.form_date):not(img) {border-radius: 3px!important} /*card datepicker*/
+.comp_config_card .form-group.row {margin-left: 0;margin-right: 0;margin-bottom: 5px}
+.comp_config_card .form-group .input-group {padding: 0}
+.comp_config_card>.form-group:last-child{margin-bottom:0}
+.comp_config_card .req_text {padding-left: 18px}
+
+.form_modal {}
+
+/*데이터 갯수*/
+.form_count {min-width:80px;max-width: 80px}
+
+/*modal - messagebox / confirmbox / formbox */
+/*공통*/
+.modal {font-size: 14px}
+.modal-content {border: 1px solid #38495E; border-radius: 3px; background-color: #1e2c3c}
+.modal-header {padding: 6px 14px; border-bottom: 0;border-top-left-radius: 3px; border-top-right-radius: 3px; background-color: #09121C; }
+.modal-header>.modal-title {font-size:15px;color:#838F9F;}
+.modal-header>.close {padding:10px 11px;margin:-8px -13px;;color:#fff;font-size: 16px}
+.modal-body{padding:10px 16px;background-color:#1e2c3c}
+/*.modal-content .modal-body {border-top: 1px solid #EBEDF2;}*//*modal-body 구분선*/
+/*.modal-content .modal-body:nth-child(2) {border-top: 0}*//*modal-body 구분선 삭제*/
+
+
+.modal-footer { margin: auto; padding:5px 15px 18px 15px; justify-content: center; border: 0;background-color: #1e2c3c}
+
+.modal_subtit {margin-bottom: 10px;font-size: 12px;color: #7A8CA2;}
+
+/*모달 폼 레이아웃*/
+
+
+/* 기본스타일 */
+.modal_default {}
+
+/*message box*/
+
+/*confirm box*/
+
+
+
+/*그래프*/
+
+
+/*기타 ui*/
+
+/*scroll*/
+.scroll {height:100%;overflow:auto;}
+.scroll_y {overflow-x:hidden!important;}
+.scroll_x {overflow-y:hidden!important;}
+
+.scroll::-webkit-scrollbar {width: 10px; background:#2B3D54;}
+.scroll::-webkit-scrollbar,.scroll::-webkit-scrollbar-thumb { overflow:visible; border-radius: 0;}
+.scroll::-webkit-scrollbar-thumb {background:#5D6D81;}
+
+/*validation(필수입력 표시)*/
+label.req{background-image: url(../img/essential.svg);background-repeat: no-repeat; background-position: left 5px; padding: 0 8px} /*label에 *표시*/
+.req_text {font-size:12px!important; color:#F4683C!important;padding-top:6px; margin-right: 0;background-image: url(../img/essential.svg);background-repeat: no-repeat; background-position: 8px 8px;}/*필수입력 안내 문구*/
+.req_text:after {content: '는 필수입력 항목입니다.'}
+
+/*텍스트 말줄임*/
+.text_ellipsis {overflow:hidden; text-overflow: ellipsis; white-space: nowrap} /*1줄*/
+.text_ellipsis_2 {} /*2줄이상*/
+
+
+/*jquery ui 데이트 피커*/
+.ui-widget-header.ui-datepicker-header {border:none!important;background-color:transparent !important; color:#f4f7f9 !important;font-family:'Roboto', 'Noto Sans KR', 'san-serif';}/* header */
+.ui-widget-header.ui-datepicker-header .ui-icon.ui-icon-circle-triangle-w{background-image:url(../img/chevron-left.svg)!important;background-position:center!important;}/* 이전화살표 */
+.ui-widget-header.ui-datepicker-header .ui-icon.ui-icon-circle-triangle-e{background-image:url(../img/chevron-right.svg)!important;background-position:center!important;}/* 다음화살표 */
+.ui-datepicker-prev.ui-state-hover, .ui-datepicker-next.ui-state-hover {border:none!important; background-color: #5d6d81 !important}/* 화살표 hover 스타일 */
+
+.ui-datepicker th span {color:#838F9F!important;font-family:'Roboto', 'Noto Sans KR', 'san-serif';font-weight:normal} /*요일 글자*/
+.ui-datepicker td span, .ui-datepicker td a {height:34px; padding:0!important; border-radius:3px; line-height:32px; text-align:center!important;font-family:'Roboto', 'Noto Sans KR', 'san-serif';}
+.ui-datepicker td a.ui-state-default {border:none!important;border-radius:50%!important;background:transparent!important;color:#f4f4f4!important} /*기본 날짜 스타일*/
+.ui-datepicker td a.ui-state-highlight{background-color:#f2e75d!important;color:#1e2c3c!important} /* 오늘 날짜 highlight 스타일 */
+.ui-datepicker-unselectable.ui-state-disabled .ui-state-default {border:none!important;background-color:#09121c!important;color:#5d6d7d!important;} /* disabled 스타일 */ 
+
+.ui-datepicker.ui-widget-content {border-color:#38495E!important;background-color:#1E2C3C!important} /*캘린더 배경색*/
+
+.ui-datepicker td a.ui-state-active {background:#275aff!important;color:#fff!important;}/* 선택 날짜 active 스타일 */
+.ui-datepicker, .ui-widget, .ui-widget-content, .ui-helper-clearfix, .ui-corner-all, .ui-monthpicker {z-index:1051!important;}/* 데이트피커가 테이블탭에 가려서 zindex 재정의 => 모달때문에 1051 */
+
+
+/*jquery ui 먼스피커*/
+.ui-monthpicker {width:200px!important}
+.ui-monthpicker th span {color:#838F9F!important;font-family:'Roboto', 'Noto Sans KR', 'san-serif';font-weight:normal} /*요일 글자*/
+.ui-monthpicker td {padding:3px 14px!important;}
+.ui-monthpicker td span, .ui-monthpicker td a {height:34px; padding:0!important; border-radius:3px; line-height:32px; text-align:center!important;font-family:'Roboto', 'Noto Sans KR', 'san-serif';}
+.ui-monthpicker td .ui-state-default {border:none!important;border-radius:50%!important;background:transparent!important;color:#f4f4f4!important} /*기본 날짜 스타일*/
+.ui-monthpicker td .ui-state-highlight{background-color:#f2e75d!important;color:#1e2c3c!important} /* 오늘 날짜 highlight 스타일 */
+
+/*탭테이블*/
+.table_tab.nav-tabs.nav {border: 1px solid rgba(0,0,0,0.1); border-width: 0 0 1px 0; margin-top: 0px; margin-bottom: 0; }
+/*active*/
+.table_tab.nav-tabs .nav-item.show .nav-link, .table_tab.nav-tabs .nav-link.active {background-color: #D0D8FC;border-width: 1px 1px 0px 1px; border-color: #C9C9C9 #C9C9C9 transparent #C9C9C9;color: #000!important; opacity: 1;}
+
+.table_tab.nav-tabs .nav-item {min-width: 15%; height: 36px;text-align: center; }
+.table_tab.nav-tabs .nav-link{height: 100%;border-radius: 0; font-size: 12px; margin-left: 0; border;background-color: #fff; border-width: 1px 1px 0px 0; border-color:  #c9c9c9 ; color: #B1B1B1;line-height: 26px}
+.card_table_wrapper {width: 100%; height: 221px; position: relative}
+.card_table_wrapper>div {width: 100%; height: 100%; position: absolute; background-color: #fff; background-repeat: no-repeat; background-position: center}
+
+
+/*alert - 오른쪽 아래에서부터 쌓임 */
+.alert_container {z-index:1030;}
+.alert_container.right_bottom {}
+.alert_container.right_top {}
+.alert_container.left_bottom {}
+.alert_container.left_top {}
+
+.alert_container>div {text-align:right}
+.alert {display:inline-block;height:67px;margin-bottom:0; margin-top:7px; border:1px solid ;border-radius:5px; }
+.alert_inner {display:flex;}
+.alert.danger {border-color:#F1465E; background-color:#FEF5F6;}
+.alert.warning {border-color:#E8AC35; background-color:#FCF9E7;}
+.alert strong {display:inline-block;height:39px; line-height:39px;vertical-align:top;margin-right:15px; }
+.alert.danger strong {color:#F1465E} 
+.alert.warning strong {color:#E8AC35}
+.alert_inner>span {display:inline-block;vertical-align:top;}
+.alarm_info {font-weight:bold}
+.alarm_content>span.alarm_time {display:block;font-size:14px;text-align:left}
+.alert.danger .close {display:none}
+.alert-dismissible .close {display:inline-block;height:39px;line-height:39px;vertical-align:top; padding:0.7rem 1rem!important; font-size : 1rem!important;}
+
+/* table */
+/*공통*/
+table {margin-bottom: 0; width:100% !important;}
+
+
+/*카드 테이블*/
+.table_card {} /*pannel_table*/
+
+.table_card {} /*card_table*/
+    
+
+/* button */
+button {-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none}
+.btn {min-width: 70px;height: 30px;padding: 5px 12px;border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; background-color: #838F9F;font-size: 14px;color: #fff; cursor: pointer; }
+.btn:hover {background-color: #5D6D81;color:#fff}
+.btn>span{margin-right:6px;}
+.btn:disabled {background-color: #343E48;color:rgba(255,255,255,0.3)}
+
+.table_btn {min-width:54px;padding:1px 10px;border: 1px solid rgba(0,0,0,0.08);border-radius: 3px;font-size: 14px;color:#F4F7F9}
+
+.modal_btn {min-width: 70px;height: 30px;padding: 5px 12px;border: 1px solid rgba(0,0,0,0.08);border-radius:3px;background-color:#50637A;font-size: 14px;color:#E4ECF0;cursor: pointer;text-align:center}
+.modal_btn>span{margin-right:6px;}
+
+.btn_primary {border: 0;background-color: #6B6E8B; color: #fff;}
+.btn_primary:hover {background-color: #4D526A;color: #fff}
+.btn_success {border: 0;background-color: #28a745; color: #fff}
+.btn_success:hover {background-color: #1e7e34;color: #fff}
+.btn_danger {border: 0;background-color: #F43F3C; color: #fff}
+.btn_danger:hover {background-color: #bd2130; color: #fff}
+.btn_warning {border: 0;background-color: #ffc107}
+.btn_warning:hover {background-color: #d39e00; color: #fff}
+.btn_accent {border: 0;background-color: #8A77D5; color: #fff !important}
+.btn_accent:hover {background-color: #6D57C4;}
+/*.btn_delete {border: 0;color: #fff; background-color:#e16c29; }
+.btn_delete:hover {background-color: #cc5e3a}*/
+
+.btn_search{background-color: #275AFF}
+.btn_search:hover{background-color:#143DC1}
+.btn_insert{background-color:#4883F2}
+.btn_insert:hover{background-color:#2C65D1}
+.btn_edit{background-color: #696CF5}
+.btn_edit:hover{background-color:#4649D5}
+.btn_delete{background-color: #757CA4}
+.btn_delete:hover{background-color:#51577D}
+.btn_download{background-color: #1EB952}
+.btn_download:hover{background-color:#128D3B}
+.btn_map{background-color:#BB9149}
+.btn_map:hover{background-color:}
+.btn_info{background-color:#319F7E}
+.btn_info:hover{background-color:}
+
+/* comp_filter 테이블 검색조건 */
+.comp_filter {width: 100%; padding: 0 0 14px 0;margin-bottom:10px;border-bottom:1px solid #3B4F68}
+
+/* comp_edit 추가/수정/삭제 */
+.comp_edit {width:100%;margin-bottom:10px;text-align: right;}
+.comp_edit.comp_info {display:flex;justify-content:space-between;align-items:flex-end}
+/*.table_filter {width: 100%;padding: 20px 0;border-bottom:1px solid #3B4F68}*/
+
+/* comp_data_table 데이터 테이블 */
+.comp_data_table {text-align: center;margin-bottom:0;border-width: 0px 0px 0px 0px!important;}
+.comp_data_table.table thead th {border-bottom:0px;vertical-align:middle}
+.comp_data_table.table-hover tbody tr:hover{color:#FFFFFF;background-color:rgba(56,68,82,0.4)}
+.comp_data_table th{padding:8px;border-color:#2b3d54;background-color:#202f41;font-size:16px;color:#C5CDD7;text-align: center;font-weight: normal}
+.comp_data_table td{height:34px;padding:4px;border-color:#1e2c3c #2b3d54;font-size: 14px;color:#fff;vertical-align: middle}
+.comp_data_table tbody tr:nth-of-type(even) {background-color: #111a25}/*줄무늬*/
+.comp_data_table td.dataTables_empty{padding:30px} /*데이터없을경우*/
+.comp_data_table tbody>tr.selected, .comp_data_table tbody>tr.selected {background-color:rgba(197,205,215,0.2)!important}
+/* .comp_data_table td {text-overflow: ellipsis; white-space: nowrap} */ /*1줄*/
+/*데이터테이블 로딩 메세지 창*/
+#grdTable_wrapper{position:relative}
+#grdTable_processing {position:absolute;left:0;z-index:2;width:100%;text-align:center;padding:10px ;margin: 0;background-color:#202f41;color:#C5CDD7;border:1px solid rgba(255,255,255,0.2);background-image:url(../img/loading.svg);background-size:28px;background-repeat:no-repeat;background-position: 752px center}
+
+/*데이터테이블 페이지네이션*/
+.pagination {margin-top:20px;justify-content:center;}
+.page-link { display:inline-block;width:32px;height:32px;padding: 0;border:0;border-radius:5px;background-color: transparent;color:#989EB3;font-size: 14px;text-align: center;line-height: 32px;}
+.page-link:hover {background-color: #213c67}
+.page-item {margin-left: 2px; margin-right: 2px;}
+.page-item.active .page-link { background-color: #286FEB; }
+.page-item span {margin-left: 6px;margin-right: 6px;}
+.page-item.previous .page-link, .page-item.next .page-link{border-radius: 5px;background-color: #25374b;color: #c5cdd7;font-size: 15px;line-height: 33px}
+.page-item.previous:hover .page-link, .page-item.next:hover .page-link{background-color: #3f5267;}
+.page-item.first .page-link, .page-item.last .page-link{border-radius: 5px;background-color: #25374b;color: #c5cdd7;font-size: 14px;line-height: 33px}
+.page-item.first:hover .page-link, .page-item.last:hover .page-link{background-color: #3f5267;}
+
+
+.page-item .page-link {background-repeat: no-repeat; background-position: center}
+.page-item.first .page-link {background-image: url(../img/chevron-double-left.svg);}
+.page-item.previous .page-link {background-image: url(../img/chevron-left.svg);}
+.page-item.next .page-link {background-image: url(../img/chevron-right.svg);}
+.page-item.last .page-link {background-image: url(../img/chevron-double-right.svg);}
+
+/* comp_modal_table 모달 테이블 공통 */
+.comp_modal_table {margin-bottom: 10px;text-align: left}
+.modal-body>.comp_modal_table:last-child{margin-bottom:0px}
+.comp_modal_table th{width:25%;padding: 6px;border-color: #3e5168;background-color: #28384a;font-size: 13px;color: #C5CDD7;font-weight: normal;vertical-align: middle}
+.comp_modal_table td{width:75%;padding:0px 6px;border-color: #3e5168;background-color: #1e2c3c;font-size: 13px;color: #C5CDD7;font-weight: normal;vertical-align: middle}
+
+.comp_modal_table.custom_w th {width:auto;}
+.comp_modal_table.custom_w td {width:auto;height:32px}
+
+/* comp_modal_table 모달 테이블 라지 */
+.comp_modal_table.lg th{width:15%;}
+.comp_modal_table.lg td{width:35%;}
+
+/* comp_modal_table 모달 테이블 라지 가로형 */
+.comp_modal_table.hoz.lg th{width:12%;height: 40px;vertical-align: middle}
+.comp_modal_table.hoz.lg td{width:21.3%;height: 40px;vertical-align: middle}
+
+/* comp_modal_table 모달테이블 세로형*/
+.comp_modal_table.vtc th{border-bottom:1px solid #3e5168;text-align:center}
+.comp_modal_table.vtc .dataTables_empty {height:32px;text-align:center}
+
+
+/* comp_modal_table 모달 테이블 스크롤랩퍼 */
+.comp_modal_table_wrapper{height:380px;margin-top:10px}
+.comp_modal_table_wrapper>table {margin-bottom:10px}
+.comp_modal_table_wrapper>table:last-child{margin-bottom:0}
+
+.comp_modal_table_wrapper .comp_modal_table th{width:6.3%;}
+
+/* comp_modal_table 모달 테이블 스크롤 */
+
+
+/* comp_modal_table 모달 테이블 텍스트스크롤 */
+.comp_modal_table td .text_wrapper {min-height:160px;max-height:160px;padding: 3px 0}
+
+/* comp_config_card 시스템설정카드 */
+.comp_config_card {margin-left:-15px;margin-right:-15px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.08);border-radius:8px;background-color:#1E2C3C;}
+.comp_config_card .card-header{display:flex;padding:14px 20px 6px 20px;border-bottom:0}
+.comp_config_card .card_title {font-size:18px;color:#C5CDD7;font-weight:normal}
+.comp_config_card .card_subtit {margin-left:10px;font-size:14px;color:#838F9F}
+.comp_config_card .card-body {padding: 10px 24px;}
+.comp_config_card .card-footer {padding: 0px 24px 18px 24px;border-top:0;text-align:right}
+
+.comp_config_card .form-control:disabled{border-color:transparent!important}
+.comp_config_card .form-control[readonly]{border-color:transparent!important}
+
+
+/*아이콘업로드*/
+.modal .icon_wrapper {flex:1 1 auto;padding: 8px 0 4px}
+.modal .icon_wrapper>span{margin-right:8px;font-size:13px; color:#838F9F}
+.modal .icon_wrapper>img{width:36px;height:36px;margin-right:4px}
+.modal .info_text {position:relative;padding:0;margin-bottom:8px;margin-left:auto;font-size:12px; color:#A0AAB7;}
+.modal .info_text:after{content:'아이콘은 36*36(px) 이상의 사이즈를 권장합니다';}
+
+/*comp_info_icon :기본 아이콘 정보*/
+.comp_info_icon {display:inline-flex;align-items:center;padding: 7px 12px;border: 1px solid #3B4F68;border-radius:4px;font-size:13px;color:#C5CDD7}
+.comp_info_icon>div{margin-right:20px}
+.comp_info_icon img {width:26px;height:26px;border-radius:50%}
+.comp_info_icon span{margin-right:8px;vertical-align:top}
+.comp_info_icon p {margin-left:5px}
+
+/*내정보 팝업*/
+.comp_modal_userconfig .form-control:disabled{border-color:transparent!important}
+.comp_modal_userconfig .form-control[readonly]{border-color:transparent!important}
+
+/*메세지&컨펌박스*/
+.comp_modal_confirm .modal-body {display:flex;min-height:80px;justify-content:center;align-items:center;color:#F4F7F9;text-align:center}
+.comp_modal_msg .modal-body {display:flex;min-height:80px;justify-content:center;align-items:center;color:#F4F7F9;text-align:center}
+
+/*모달>지도*/
+.comp_modal_map_wrapper {width:100%;height:500px;background-color:#5d6d81}
+
+#map {width:100%;height:100%}
+
+/*마커*/
+/* 마커 */
+.point{position:relative;width:5px;height:5px;background-color:red;z-index:2}
+
+.marker {position:relative;z-index:2;width:36px;height:44px;user-select:none;cursor:pointer;}
+.marker.hidden{z-index:-1;height:0;top:-100px}
+.marker.show{visibility:visible!important;}
+.marker>.area{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;background-color:transparent;}
+.marker>.badge{position:absolute;top:-4px;left:-5px;z-index:1;display:none;width:18px;height:18px;border-radius:50px;background-color:#275AFF}
+.marker>.icon{position:relative;width:36px;height:36px;border-radius:50px;border:1px solid rgba(0,0,0,0.16);overflow:hidden;}
+.marker>.icon>.img{width:38px;height:38px;margin-top:-2px;margin-left:-2px;background-repeat:no-repeat;background-size:cover; background-position:center}
+.marker>.icon>.img>img{width:100%;height:100%;}
+.marker:before{content:'';position:absolute;left:50%;top:35px;z-index:0;width:14px;height:8px;margin-left:-7px;background-image:url(../img/marker_pin.svg);background-repeat:no-repeat;background-position:left top}
+.marker:after{content:'';position:absolute;top:0;left:0;;width:36px;height:36px;border-radius:50px;border:1px solid rgba(0,0,0,0.6);}
+
+.marker.active:before{z-index:1;background-image:url(../img/marker_pin_active.svg)}
+.marker.active:after{border:2px solid rgba(0,0,0,1)}
+
+/*마커 z-index*/
+.marker_zindex {z-index:10000000!important;}
+
+/*플랫폼관리>이벤트설정 마커 프리뷰*/
+.icon_preview {width:30px;height:30px}
+
+/*시스템기본마커*/
+.marker.default.fac .img{background-image:url(../img/marker_default_fac.svg)}
+.marker.default.fac.error .img{background-image:url(../img/marker_default_fac_error.svg)}
+.marker.default.evt_119 .img{background-image:url(../img/marker_default_119.svg)}
+.marker.default.evt_weak .img{background-image:url(../img/marker_default_weak.svg)}
+.marker.default.evt_112 .img{background-image:url(../img/marker_default_112.svg)}
+.marker.default.evt_112_media .img{background-image:url(../img/marker_default_112_media.svg)}
+.marker.default.place {background-image:url(../img/marker_default_place.svg);background-repeat:no-repeat;background-position:bottom center}
+
+.marker.default.place:before{display:none}
+.marker.default.place:after{display:none}
+
+/*.comp_popup 팝업인데 모달형태*/
+.comp_popup {border:1px solid #38495E; border-radius:3px;background-color:#1e2c3c}
+.comp_popup_header {display:flex;-ms-flex-align:start;align-items:flex-start;-ms-flex-pack:justify;justify-content:space-between;padding:6px 14px;border-bottom:0;border-top-left-radius:3px;border-top-right-radius:3px;background-color:#09121C}
+.comp_popup_header>.comp_popup_title {font-size:15px;color:#838F9F}
+.comp_popup_header>.close {padding:8px 10px 8px 10px;margin:-8px -13px;color:#fff;font-size:16px;}
+.comp_popup_body {padding:10px 16px;background-color:#1e2c3c}
+.comp_popup_body .form-group.row {margin-left:0;margin-right:0;margin-bottom:5px}
+.comp_popup_footer {justify-content:center;padding:5px 15px 18px 15px;border-top:0;background-color:#1e2c3c;margin:auto;text-align:center}
+.comp_popup_body>.form-group>label{padding:0px;font-size:13px;color:#C5CDD7;font-family:'Roboto', 'Noto Sans KR', 'san-serif';}
+.comp_popup_body .form-control {font-size:13px;color:#F4F7F9;font-family:'Roboto', 'Noto Sans KR', 'san-serif';}
+.comp_popup .form-control[readonly] {border:none}
+.comp_popup .form-group .input-group {padding:0;}
+.comp_popup .input-group>*:not(.form_date):not(img){border-radius:3px!important;}
+.comp_popup .input-group>*:not(.form_date){margin-right:4px;}
+.comp_popup .input-group>*:last-child{margin-right:0px;}
+
+/*timepicker*/
+.ui-timepicker-wrapper {width:347px!important}
+/* input[type="time" i]{cursor:pointer} */
+/* input[type="time"] {-webkit-appearance: none; -moz-appearance: none; appearance: none;background-image:url(../img/select_arrow.svg);background-repeat:no-repeat;background-position:right center} */
+
+input[type="time"]{padding-right:0}
+input[type="time"].form-control::-webkit-calendar-picker-indicator {width:30px;height:30px;background-image:url(../img/timepicker_icon.svg);background-repeat:no-repeat;background-position:right center}
+
+/*alert*/
+#alert_list{position:fixed;bottom:25px;right:20px;z-index:10000;display:flex;flex-direction:column-reverse; width:380px;height:0}
+#alert_list .alert {flex:0 0 auto;display:flex;align-items:center;width:380px;height:auto;min-height:76px;padding:10px 15px 10px 76px;border:1px solid #B8B9BA;border-radius:3px;background-color:#fff;box-shadow:0 0 10px rgba(99,102,119,0.3);background-image:url(../img/alert_bg.png),url(../img/alert_icon.png);background-repeat:repeat-y,no-repeat;background-position:left top, 20px center;}
+#alert_list .alert>div {flex:1 1 auto;}
+#alert_list .alert .alert_tit {font-size:16px;margin-bottom:6px}
+#alert_list .alert .alert_conts {font-size:16px;color:#787A88}
+/* #alert_list .alert .alert_close {width:45px;height:45px}
+#alert_list .alert .alert_close span{font-size:18px;color:#5E6063} */
