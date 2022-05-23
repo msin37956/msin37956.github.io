@@ -135,10 +135,10 @@ a:hover{ text-decoration: none;}
 .pm25_cont .index.active{visibility: visible}
 
 
-.pm25_cont .index.good {background-image: url(../../img/metro/index_good.png)!important;}
-.pm25_cont .index.normal { background-image: url(../../img/metro/index_normal.png)!important;}
-.pm25_cont .index.bad {background-image: url(../../img/metro/index_bad.png)!important;}
-.pm25_cont .index.error {background-image: url(../../img/metro/index_error.png)!important; color: transparent!important;}
+.pm25_cont .index.good {background-image: url(../../img/metro/index_good_b.png)!important;}
+.pm25_cont .index.normal { background-image: url(../../img/metro/index_normal_b.png)!important;}
+.pm25_cont .index.bad {background-image: url(../../img/metro/index_bad_b.png)!important;}
+.pm25_cont .index.error {background-image: url(../../img/metro/index_error_b.png)!important; color: transparent!important;}
 
 
 /* 범례변경 2021.04.14
