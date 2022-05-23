@@ -60,7 +60,7 @@ a:hover{ text-decoration: none;}
 .title { text-align: center ; color: #707070; padding-top: 15px;padding-bottom: 10px;}
 .title .btn-group button {width: 156px; height: 56px; background-color: #F5F6F9; border-color: #F1F1F1; color: #999CAB; font-size: 22px; border-radius: 5px; }
 .title .btn-group button:hover {background-color: #DCDFE9; border-color: #D4D8E5}
-.title .btn-group button.active {border-color: #8A78CC; color: #fff; font-weight: bold; background-image: url(../img/title_btn_bg.png);background-repeat: repeat-x; background-position: left; cursor: default;}
+.title .btn-group button.active {border-color: #8A78CC; color: #fff; font-weight: bold; background-image: url(../../img/metro/title_btn_bg.png);background-repeat: repeat-x; background-position: left; cursor: default;}
 
 
 
@@ -89,7 +89,7 @@ a:hover{ text-decoration: none;}
 
 
 /*미세먼지 농도 범례*/
-.card.map .card-header button {font-size: 12px;display: inline-block; width: 135px; height: 30px; line-height: 28px; color: #808080; border: 1px solid #D9DDE6; background-color: #fff; padding: 0 0 0 10px;text-align: left; background-image: url(../img/index_info_bg.png); background-repeat: no-repeat;background-position: right top;font-family: "Roboto", "Segoe UI", sans-serif;}
+.card.map .card-header button {font-size: 12px;display: inline-block; width: 135px; height: 30px; line-height: 28px; color: #808080; border: 1px solid #D9DDE6; background-color: #fff; padding: 0 0 0 10px;text-align: left; background-image: url(../../img/metro/index_info_bg.png); background-repeat: no-repeat;background-position: right top;font-family: "Roboto", "Segoe UI", sans-serif;}
 .standard_txt {display: none; position: absolute; top:0; left: 100%; min-width: 538px;background-color: #fff; border:1px solid #000; z-index: 1000; box-shadow: 0 0 6px rgba(0,0,0,0.2); padding: 12px; margin-left: 18px; z-index:1001}
 .standard_txt p {padding: 0; font-size: 14px;}
 .standard_txt ul {padding: 10px 0 12px 0; margin: 0;}
@@ -124,7 +124,7 @@ a:hover{ text-decoration: none;}
 
 
 /*PM2.5, PM10 공통(지표)*/
-.index {background-image: url(../img/index_good.png);;display: inline-block; width: 36px; height:44px; background-repeat: no-repeat; background-size: auto; background-position: center; font-size: 14px; transform: translate(-50%,0); position:absolute; z-index: 500; box-sizing: border-box; cursor : pointer;user-select:none;}
+.index {background-image: url(../../img/metro/index_good.png);;display: inline-block; width: 36px; height:44px; background-repeat: no-repeat; background-size: auto; background-position: center; font-size: 14px; transform: translate(-50%,0); position:absolute; z-index: 500; box-sizing: border-box; cursor : pointer;user-select:none;}
 .index>span {display: inline-block;width:100%;text-align: center;}
 
 
@@ -135,20 +135,20 @@ a:hover{ text-decoration: none;}
 .pm25_cont .index.active{visibility: visible}
 
 
-.pm25_cont .index.good {background-image: url(../img/index_good.png)!important;}
-.pm25_cont .index.normal { background-image: url(../img/index_normal.png)!important;}
-.pm25_cont .index.bad {background-image: url(../img/index_bad.png)!important;}
-.pm25_cont .index.error {background-image: url(../img/index_error.png)!important; color: transparent!important;}
+.pm25_cont .index.good {background-image: url(../../img/metro/index_good.png)!important;}
+.pm25_cont .index.normal { background-image: url(../../img/metro/index_normal.png)!important;}
+.pm25_cont .index.bad {background-image: url(../../img/metro/index_bad.png)!important;}
+.pm25_cont .index.error {background-image: url(../../img/metro/index_error.png)!important; color: transparent!important;}
 
 
 /* 범례변경 2021.04.14
-.pm25_cont .index.good {background-image: url(../img/index_good.png)!important;color: #FCFCFC}
+.pm25_cont .index.good {background-image: url(../../img/metro/index_good.png)!important;color: #FCFCFC}
 .pm25_cont .index.good span {color:#fff!important;color: #FCFCFC}
-.pm25_cont .index.normal { background-image: url(../img/index_normal.png)!important;}
-.pm25_cont .index.bad {background-image: url(../img/index_bad.png)!important;}
-.pm25_cont .index.toobad {background-image: url(../img/index_toobad.png)!important;;color: #FCFCFC}
+.pm25_cont .index.normal { background-image: url(../../img/metro/index_normal.png)!important;}
+.pm25_cont .index.bad {background-image: url(../../img/metro/index_bad.png)!important;}
+.pm25_cont .index.toobad {background-image: url(../../img/metro/index_toobad.png)!important;;color: #FCFCFC}
 .pm25_cont .index.toobad span {color:#fff!important;color: #FCFCFC}
-.pm25_cont .index.error {background-image: url(../img/index_error.png)!important; color: transparent!important;}
+.pm25_cont .index.error {background-image: url(../../img/metro/index_error.png)!important; color: transparent!important;}
  */
 /*PM10*/
 .pm10_cont {width: 100%; position: relative; margin-top: 18px;}
@@ -156,11 +156,11 @@ a:hover{ text-decoration: none;}
 .pm10_cont .index {visibility: hidden; padding-top: 14px; top: 0px; }
 .pm10_cont .index.active{visibility: visible}
 .pm10_cont.invisible .index.active {visibility: hidden}
-.pm10_cont .index {background-image: url(../img/index_dw_good.png)!important;}
-.pm10_cont .index.good {background-image: url(../img/index_dw_good.png)!important;}
-.pm10_cont .index.normal { background-image: url(../img/index_dw_normal.png)!important;}
-.pm10_cont .index.bad {background-image: url(../img/index_dw_bad.png)!important;}
-.pm10_cont .index.error {background-image: url(../img/index_dw_error.png)!important; color: transparent!important;}
+.pm10_cont .index {background-image: url(../../img/metro/index_dw_good.png)!important;}
+.pm10_cont .index.good {background-image: url(../../img/metro/index_dw_good.png)!important;}
+.pm10_cont .index.normal { background-image: url(../../img/metro/index_dw_normal.png)!important;}
+.pm10_cont .index.bad {background-image: url(../../img/metro/index_dw_bad.png)!important;}
+.pm10_cont .index.error {background-image: url(../../img/metro/index_dw_error.png)!important; color: transparent!important;}
 
 
 
@@ -246,19 +246,19 @@ a:hover{ text-decoration: none;}
 
 .card.state .card-body .box_measure .box_inner {margin-top: 30px;}
 .card.state .card-body .box_measure .box_inner>div {background-color: #F7F8F9; width: 113px; height: 113px; border-radius: 15px; padding: 6.5px 12px 12px 8.5px;margin-right: 35px;margin-bottom: 0;background-position: left top; background-repeat: no-repeat;}
-.m5 {background-image: url(../img/5m.png)}
-.h1 {background-image: url(../img/1h.png)}
-.h2 {background-image: url(../img/2h.png)}
-.h24 {background-image: url(../img/24h.png)}
-.d1 {background-image: url(../img/1d.png)}
+.m5 {background-image: url(../../img/metro/5m_b.png)}
+.h1 {background-image: url(../../img/metro/1h_b.png)}
+.h2 {background-image: url(../../img/metro/2h_b.png)}
+.h24 {background-image: url(../../img/metro/24h_b.png)}
+.d1 {background-image: url(../../img/metro/1d_b.png)}
 /*수치값 style*/
 .card.state .card-body .box_measure .box_inner>div>span {font-size: 53px;display: inline-block;width: 100%; text-align: right; ; height: 48px;line-height: 48px;}
 
 /* .card.state .card-body .box_measure .box_inner.pm10>div{background-color:#e2ecfd!important}
-.card.state .card-body .box_measure .box_inner.pm10 .m5{background-image: url(../img/5m_pm.png)!important}
-.card.state .card-body .box_measure .box_inner.pm10 .h1 {background-image: url(../img/1h_pm.png)!important}
-.card.state .card-body .box_measure .box_inner.pm10 .h24 {background-image: url(../img/24h_pm.png)!important}
-.card.state .card-body .box_measure .box_inner.pm10 .d1 {background-image: url(../img/1d_pm.png)!important} */
+.card.state .card-body .box_measure .box_inner.pm10 .m5{background-image: url(../../img/metro/5m_pm.png)!important}
+.card.state .card-body .box_measure .box_inner.pm10 .h1 {background-image: url(../../img/metro/1h_pm.png)!important}
+.card.state .card-body .box_measure .box_inner.pm10 .h24 {background-image: url(../../img/metro/24h_pm.png)!important}
+.card.state .card-body .box_measure .box_inner.pm10 .d1 {background-image: url(../../img/metro/1d_pm.png)!important} */
 
 /*미세먼지 그래프*/
 .card.state .card-body .box_graph {width: 100%; padding-left: 95px;}
@@ -291,11 +291,11 @@ a:hover{ text-decoration: none;}
 .pannel .color.large>span {font-size: 32px; color: #fff; display: inline-block;height: 58px; line-height: 58px; width: 100%;text-align: center;}
 
 
-.pannel .color.small {min-width: 65px; height: 22px;;border: 2px solid rgba(255,255,255,0.25); bottom: 10px; padding-left: 40px; padding-right: 5px; background-image: url(../img/pannel_label.png);background-position: left center; background-repeat: no-repeat; cursor:pointer;}
+.pannel .color.small {min-width: 65px; height: 22px;;border: 2px solid rgba(255,255,255,0.25); bottom: 10px; padding-left: 40px; padding-right: 5px; background-image: url(../../img/metro/pannel_label.png);background-position: left center; background-repeat: no-repeat; cursor:pointer;}
 .pannel .color.small>span {font-size: 14px;color: #fff; display: inline-block;height: 22px; line-height: 20px;text-align: right;width: 100%;}
 
 
-.pannel_inner {width: 100%;height: 100%; border: 1px solid #D3D2D2; border-radius: 3px; padding: 9px 12px 10px 85px;background-image: url(../img/pannel_bg.png);background-repeat: repeat-y;background-position: left top; text-align: right}
+.pannel_inner {width: 100%;height: 100%; border: 1px solid #D3D2D2; border-radius: 3px; padding: 9px 12px 10px 85px;background-image: url(../../img/metro/pannel_bg_dxline.png);background-repeat: repeat-y;background-position: left top; text-align: right}
 
 .pannel_inner .station_name {display: inline-block;width: 100%; max-height: 44px; ;font-size: 16px; letter-spacing: -2px;padding: 0;line-height: 1.1}
 .pannel_inner .state {font-size: 20px;}
@@ -345,7 +345,7 @@ a:hover{ text-decoration: none;}
 /* 알람 */
 .alarm_cont {display:none;position: absolute;bottom: 30px; right: 38px; height: 0;flex-direction: column-reverse; z-index: 10000; }
 
-.alarm {width: 454px; min-height: 88px; border-radius: 3px; border: 1px solid #B8B9BA; box-shadow: 0px 0px 10px rgba(99,102,119,0.3); background-color: #fff; padding: 16px 15px 16px 86px; display: flex; background-image: url(../img/bg_alarm.png), url(../img/ic_alarm.png); background-position: left top, 24px center; background-repeat: repeat-y, no-repeat;margin-top: 10px}
+.alarm {width: 454px; min-height: 88px; border-radius: 3px; border: 1px solid #B8B9BA; box-shadow: 0px 0px 10px rgba(99,102,119,0.3); background-color: #fff; padding: 16px 15px 16px 86px; display: flex; background-image: url(../../img/metro/bg_alarm.png), url(../../img/metro/ic_alarm.png); background-position: left top, 24px center; background-repeat: repeat-y, no-repeat;margin-top: 10px}
 .alarm>div{width: 335px; flex: 1 1 335px; padding-right: 10px;}
 .alarm p{font-size: 20px; color: #000; font-weight: bold; margin-bottom: 2px;}
 .alarm span {font-size: 16px; color: #787A88; }
