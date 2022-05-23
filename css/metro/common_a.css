@@ -1,0 +1,200 @@
+@charset "UTF-8";
+*{ margin: 0;padding: 0; font-weight: normal;}
+li{ list-style: none;}
+a{ text-decoration: none;}
+a:hover{ text-decoration: none; }
+
+/* body 스크롤잠금 */
+
+
+/*.header a, .sidebar a, .sidebar li, .control_btn_wrapper p, button, .modal-header h5, .modal-header .fa-times { color:white; }*/
+
+/* 
+컬러정의
+primary : #3777bd
+primaryDark : #145d99
+회색 : #f5f5f5
+*/
+
+
+/*폰트*/
+
+@font-face {
+    font-family : 'Roboto';
+    src : url('Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style : normal;
+}
+
+/*
+@font-face {
+    font-family : 'Roboto';
+    src : url('Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style : bolder;
+}
+*/
+
+@font-face {
+    font-family : 'Roboto';
+    src : url('Roboto-Medium.ttf') format('truetype');
+    font-weight: 300;
+    font-style : bold;
+}
+
+
+body,html {height: 100%; font-family:  "Roboto", "Segoe UI", sans-serif;}
+
+
+/*프로그레스 바 */
+
+.ui-widget-header {background-color : #dee2e6 !important; border:none !important; border-bottom-right-radius:0 !important; border-bottom-left-radius:0 !important; color:#000 !important; font-size:14px !important;}
+.ui-dialog {padding: 0 !important}
+.ui-button {background-color : transparent !important;border:none !important; outline : none !important; }
+.ui-button:hover {background-color : transparent !important; border:none !important; outline : none !important;}
+.ui-dialog .ui-dialog-content {padding: .8em 1em !important;}
+.ui-progressbar-value {background-color:#8889a6 !important;}
+.ui-progressbar .ui-progressbar-value {margin:0 !important;}
+.ui-progressbar .ui-progressbar-overlay {opacity:0.1 !important;}
+
+a.ui-state-active {border:1px solid #6A6188!important; background:#6B6D88!important}
+a.ui-state-active.ui-state-highlight {border:1px solid #9686CF!important; background:#B3A5E5!important; color:#fff!important;}
+/*라이센스 숨기기*/
+.amcharts-chart-div a {color:#fff !important;}
+
+/*content-area*/
+
+/*input*/
+.form-group {margin-bottom: 5px}
+/*.form-control, .input-group-text { padding: 6px 15px; line-height: 1; max-height: 30px; border-color: #ddd; font-size: 14px; }*/
+.input-group>img.ui-datepicker-trigger { padding:5px 15px 5px 0; border-top-right-radius:0.25rem; border-bottom-right-radius:0.25rem; border: 1px solid #3777bd; border-width: 1px 1px 1px 0px; background-color: #fff }
+.input-group-text {border-left: 0}
+.modal .form-control { border-color: #ddd; }
+.modal .input-group-text { border-color: #ddd; }
+.form-text { border-color: #D1D3D4; margin-top: 0; }
+span.input-group-text { background-color: #1c75bc; color: white }
+.form-group.row {margin-left: 0px; margin-right: 0px;}
+textarea.form-control {min-height: 80px;}
+.modal .input-group>img.ui-datepicker-trigger { padding:5px 15px; border-top-right-radius:0.25rem; border-bottom-right-radius:0.25rem; border: 1px solid #ddd; border-width: 1px 1px 1px 0px; background-color: #fff }
+
+form .form-group:last-child {margin-bottom: 0;}
+form .form-group:last-child label {margin-bottom: 0;}
+.tab-content .form-inline {padding: 0.5rem;}
+.tab-content .form-control[readonly] {border:1px solid #3777bd;}
+.tab-content input[type="text"].form-control {max-width: 150px;}
+
+/*.measuretime{font-size: 13px; margin-right: 8px}
+.measuretime>span {margin-left: 8px;}*/
+/*label*/
+label {margin-right: 8px; font-size: 14px}
+.form-group.row label {margin-left: 0px; margin-right: 0px;padding-left: 0; padding-top: 5px}
+
+
+
+/*select*/
+/*select { -webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none; background-image: url(../img/bg_select_arrow_down.svg); background-repeat: no-repeat; background-position: right center; min-width: 130px; }*/
+/*화살표 없애기 for IE10, 11*/
+select::-ms-expand{ display: none; }
+.sm-select { min-width: 80px; }
+/*select.disabled*/
+select[disabled]{ background-image : none; }
+
+/*datepicker*/
+button.input-group-text{background-color: white; color: #3777BD;}
+.input_date {max-width: 105px !important; }
+
+
+
+/*운전현황-page*/
+/*tab*/
+.nav-tabs { border-bottom: 1px solid #808285;}
+.nav-tabs .nav-link { color: #6d6e71; background-color: #e6e7e8; border-color: #dee2e6 ; font-size: 15px; margin-left: 10px; border-bottom: 0px solid #808285; padding: 5px 10px}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { background-color: #6b6e8b; color: #fff !important; border-bottom: 1px solid #808285}
+/*tab-content*/
+/*.tab-content {height: auto; padding: 0px 0px 25px 0px;}*/
+/*.tab-content>form{background-color: #C8E0F2; width: 100%; padding: 12px 10px; margin-top: 12px}*/
+/*.tab-content .form-group{padding-left: 10px;}
+.tab-content .form-group:first-child {padding-left: 0;}*/
+
+
+/*button*/
+button{color: white}
+button>span {margin-right: 8px;}
+/*.btn { min-width: 80px; font-size: 12px; padding: 4px 15px; border: none; border-radius: 4px; cursor: pointer;  color: #414042; max-height: 30px;}*/
+.btn:hover {background-color: lightgray;}
+.btn_primary { min-width: 80px; background-color: #1C75BC; color: #fff !important}
+.btn_primary:hover {background-color: #145D99}
+.btn_success { min-width: 80px;background-color: #28a745; color: #fff !important}
+.btn_success:hover {background-color: #1e7e34}
+.btn_danger { min-width: 80px;background-color: #dc3545; color: #fff !important}
+.btn_danger:hover {background-color: #bd2130; color: #fff !important}
+.btn_warning { min-width: 80px;background-color: #ffc107}
+.btn_warning:hover {background-color: #d39e00; color: #fff !important}
+.btn_accent {min-width: 80px;background-color: #8A77D5; color: #fff !important}
+.btn_accent:hover {background-color: #6D57C4;}
+/*
+.btn_outline_gray { border : 1px solid #d1d3d4; color: #414042; background-color: transparent;}
+.btn_outline_gray:hover { background-color: #d1d3d4;}
+*/
+.btn_delete { min-width: 80px;color: #fff; background-color:#e16c29}
+.btn_delete:hover {background-color: #cc5e3a}
+
+/* 임시 처리 수정 바람 */
+.border-readonly.form-control[readonly] {border:1px solid #ddd !important; margin-right:0 !important; border-right:none !important; border-top-right-radius:0 !important; border-bottom-right-radius:0 !important;}
+
+/*팝업(모달)설정 */
+/*.modal select { -webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none; background-image: url(../img/bg_select_arrow_down.svg); background-repeat: no-repeat; background-position: right center; min-width: 130px; }*/
+.modal select {  background-repeat: no-repeat; background-position: right center; min-width: 130px; }
+.modal .form-control, .modal .input-group-text { padding: 0px 9px; line-height: 1; max-height: 26px; border-color: #C9C9C9; font-size: 12px; }
+.modal button {color: white;}
+.modal .btn{ min-width: 80px; font-size: 12px; padding: 3px 15px; border: none; border-radius: 4px; cursor: pointer;  color: #414042; max-height: 26px; }
+.modal-header { padding: 4px 13px; border-bottom: 0; background-color: #5A607D; border-top-left-radius: 0.2rem; border-top-right-radius: 0.2rem;}
+.modal-header>h5{font-size: 14px; margin-top: 2px;color: #fff }
+.modal-body { font-size: 14px; padding: 15px 8px 11px 8px}
+.modal-body label {min-height: 30px; margin-bottom: 0;}
+.modal-body .form-group {margin-bottom: 3px;}
+.modal-footer { border: 0; padding:0px 15px 15px 15px; margin: auto; justify-content: center;}
+.modal input, .modal label { text-align: left;}
+.modal-footer button{min-width: 90px;}
+.modal .input-group {padding-left: 0; padding-right: 0;}
+.modal .input-group input[type="text"] {margin-right: 6px; border-radius: 0.25rem; border-top-right-radius: 0.25rem; }
+.modal .input-group input[type="number"] {margin-right: 6px; border-radius: 0.25rem; border-top-right-radius: 0.25rem; }
+.modal .input-group input:last-child {margin-right: 0}
+.modal .input-group select:last-child {margin-right: 0}
+
+.modal .input-group select {margin-right: 6px;; border-radius: 0.25rem !important; border-top-right-radius: 0.25rem !important; }
+.modal-header .close {font-size: 14px; padding: 10px; margin: -5px -10px; color: #000}
+.modal .form-control:disabled, .form-control[readonly] { background-color: #fff; opacity: 1; border: 0; }
+.modal .border-readonly.form-control[readonly] {border:1px solid #ddd !important; margin-right:0 !important; border-right:none !important; border-top-right-radius:0 !important; border-bottom-right-radius:0 !important;}
+
+
+/*메세지 박스 - 확인*/
+.message .modal-dialog { max-width: 300px !important; }
+.message .modal-header .close {color: #fff}
+.message .modal-body{ text-align: center; min-height: 70px; }
+.message .modal-footer { margin: auto; justify-content: center; padding-top: 15px;}
+.message p, .confirm p {margin-bottom: 0}
+/*메세지 박스 - 경고/오류/성공 */
+.message_danger .modal-header { background-color: #dc3545; }
+.message_success .modal-header { background-color: #28a745; }
+.message_warning .modal-header { background-color: #ffc107; }
+
+.bg_success .modal-header { background-color: #28a745; }
+.bg_danger .modal-header { background-color: #dc3545; }
+.bg_warning .modal-header { background-color: #ffc107; }
+.bg_error .modal-header { background-color : #e16c29; }
+
+/*컨펌박스 - 예 아니오*/
+.confirm .modal-dialog {max-width: 300px !important;}
+.confirm .modal-header .close {color: #fff}
+.confirm .modal-body{ text-align: center ; min-height: 70px}
+.confirm .modal-footer {margin: auto; justify-content: center; padding-top: 15px}
+
+/*컨펌박스 - 경고/오류/성공*/
+.confirm_danger .modal-header { background-color: #dc3545; }
+.confirm_success .modal-header { background-color: #28a745; }
+.confirm_warning .modal-header { background-color: #ffc107; }
+
+/*필수입력 안내문구*/
+.card.card-section .card-body p {font-size:12px!important; color:rgba(229,82,0,0.8)}
+.modal .modal-body p {font-size:12px!important; color:rgba(229,82,0,0.8);padding-top:6px; margin-right: 0;}

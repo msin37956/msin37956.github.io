@@ -77,7 +77,7 @@ a:hover{ text-decoration: none; }
 .info>span {display: inline-block; font-size: 12px; margin-right: 20px;}
 .info>span>span{padding: 0 8px;}
 .info>span>span img {margin-right: 3px;}
-.info button {font-size: 12px;display: inline-block; width: 135px; height: 30px; line-height: 28px; color: #808080; border: 1px solid #D9DDE6; background-color: #fff; padding: 0 0 0 10px;text-align: left; background-image: url(../img/index_info_bg.png); background-repeat: no-repeat;background-position: right top;}
+.info button {font-size: 12px;display: inline-block; width: 135px; height: 30px; line-height: 28px; color: #808080; border: 1px solid #D9DDE6; background-color: #fff; padding: 0 0 0 10px;text-align: left; background-image: url(../../img/metro/index_info_bg.png); background-repeat: no-repeat;background-position: right top;}
 
 .info button:hover {background-color:inherit}
 
@@ -129,7 +129,7 @@ a:hover{ text-decoration: none; }
 
 /*지하철 역사명*/
 .name_cont {width: 100%; position: relative;}
-.name {min-width:78px;height: 44px; margin-top: -35px; margin-left: -10px;box-sizing: border-box; position: absolute; font-size: 0px;z-index:3; background-image: url(../img/label.svg); background-repeat: no-repeat;padding-left: 34px; }
+.name {min-width:78px;height: 44px; margin-top: -35px; margin-left: -10px;box-sizing: border-box; position: absolute; font-size: 0px;z-index:3; background-image: url(../../img/metro/label.svg); background-repeat: no-repeat;padding-left: 34px; }
 .name2 {height:25px;line-height: 25px;padding: 3px 10px 3px 7px; border-radius: 5px; border: 1px solid #DFD0B0; font-size: 14px; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-width: 1px 1px 1px 0px; background-color: #F6F5C0; box-sizing: border-box; font-weight: bold}
 
 
@@ -142,10 +142,10 @@ a:hover{ text-decoration: none; }
 .pm25_cont .index {visibility: hidden; padding-top: 6px; bottom: 10px; }
 .pm25_cont .index.active{visibility: visible}
 
-.pm25_cont .index.good {background-image: url(../img/index_good.png);}
-.pm25_cont .index.normal { background-image: url(../img/index_normal.png);}
-.pm25_cont .index.bad {background-image: url(../img/index_bad.png);}
-.pm25_cont .index.error {background-image: url(../img/index_error.png); color: transparent;} */
+.pm25_cont .index.good {background-image: url(../../img/metro/index_good.png);}
+.pm25_cont .index.normal { background-image: url(../../img/metro/index_normal.png);}
+.pm25_cont .index.bad {background-image: url(../../img/metro/index_bad.png);}
+.pm25_cont .index.error {background-image: url(../../img/metro/index_error.png); color: transparent;} */
 
 /*PM10*/
 /* .pm10_cont {width: 100%; position: relative; margin-top: 18px;}
@@ -154,10 +154,10 @@ a:hover{ text-decoration: none; }
 .pm10_cont .index.active{visibility: visible}
 .pm10_cont.invisible .index.active {visibility: hidden}
 
-.pm10_cont .index.good {background-image: url(../img/index_dw_good.png);}
-.pm10_cont .index.normal { background-image: url(../img/index_dw_normal.png);}
-.pm10_cont .index.bad {background-image: url(../img/index_dw_bad.png);}
-.pm10_cont .index.error {background-image: url(../img/index_dw_error.png); color: transparent;}
+.pm10_cont .index.good {background-image: url(../../img/metro/index_dw_good.png);}
+.pm10_cont .index.normal { background-image: url(../../img/metro/index_dw_normal.png);}
+.pm10_cont .index.bad {background-image: url(../../img/metro/index_dw_bad.png);}
+.pm10_cont .index.error {background-image: url(../../img/metro/index_dw_error.png); color: transparent;}
  */
 
 .pm10_label{color: #6D6F7A;position: absolute; top: -130px; white-space: pre; left:0; font-size:14px;}
@@ -237,7 +237,7 @@ a:hover{ text-decoration: none; }
 .pop .card-header #pop_station_name{font-size: 26px; font-weight: bold}
 .pop .card-header .pop_device_status {display:inline-block;margin-top:5px;padding:2px 5px 0 5px;border-radius:5px;background-color:rgba(255,113,51,0.1);font-size:18px;color:#ff7133;vertical-align:top;font-weight:bold}
 .pop .card-header .pop_device_status.disabled {display:none;}
-.pop .card-header span.close {font-size: 18px; padding: 10px; margin: -15px -15px 0 0;}
+.pop .card-header span.close {font-size: 18px; padding: 10px; margin: -15px -15px 0 0;cursor:pointer}
 
 .pop .card-body {padding: 0 20px 20px 20px}
 .pop .card-body>p {font-size: 13px; text-align: right; margin-bottom: 10px;}
@@ -249,18 +249,18 @@ a:hover{ text-decoration: none; }
 .pop .pannel>.tit>span{font-size: 18px;color: #636677}
 .pop .pannel>div:not(.tit) {flex: 1 1; padding: 13px 22px 7px 22px; text-align: right; background-color: transparent;}
 .pop .pannel>div>span {font-size: 48px;}
-.pop .pannel div.box5m{background-image:  url(../img/bg_pannel_line.png),url(../img/5m.png); 
+.pop .pannel div.box5m{background-image:  url(../../img/metro/bg_pannel_line.png),url(../../img/metro/5m.png); 
 background-repeat: no-repeat; background-position: left center, 22px 13px;}
-.pop .pannel .box1h{background-image:  url(../img/bg_pannel_line.png),url(../img/1h.png); 
+.pop .pannel .box1h{background-image:  url(../../img/metro/bg_pannel_line.png),url(../../img/metro/1h.png); 
 background-repeat: no-repeat; background-position: left center, 22px 13px;}
-.pop .pannel .box2h{background-image:  url(../img/bg_pannel_line.png),url(../img/2h.png); 
+.pop .pannel .box2h{background-image:  url(../../img/metro/bg_pannel_line.png),url(../../img/metro/2h.png); 
 background-repeat: no-repeat; background-position: left center, 22px 13px;}
-.pop .pannel .box24h{background-image:  url(../img/bg_pannel_line.png),url(../img/24h.png); 
+.pop .pannel .box24h{background-image:  url(../../img/metro/bg_pannel_line.png),url(../../img/metro/24h.png); 
 background-repeat: no-repeat; background-position: left center, 22px 13px;}
 
-.pannel.w25{background-image: url(../img/bg_pannel_w_25.png);}
-.pannel.w10{background-image: url(../img/bg_pannel_w_10.png);}
-.pannel.p25{background-image: url(../img/bg_pannel_p_25.png);}
+.pannel.w25{background-image: url(../../img/metro/bg_pannel_w_25.png);}
+.pannel.w10{background-image: url(../../img/metro/bg_pannel_w_10.png);}
+.pannel.p25{background-image: url(../../img/metro/bg_pannel_p_25.png);}
 
 .pop .pannel.active {display: flex!important}
 
@@ -270,7 +270,7 @@ background-repeat: no-repeat; background-position: left center, 22px 13px;}
 /* 알람  display: flex; */
 .alarm_cont {display:none;position: absolute;bottom: 30px; right: 38px; height: 0;flex-direction: column-reverse; z-index: 10000; }
 
-.alarm {width: 454px; min-height: 88px; border-radius: 3px; border: 1px solid #B8B9BA; box-shadow: 0px 0px 10px rgba(99,102,119,0.3); background-color: #fff; padding: 16px 15px 16px 86px; display: flex; background-image: url(../img/bg_alarm.png), url(../img/ic_alarm.png); background-position: left top, 24px center; background-repeat: repeat-y, no-repeat;margin-top: 10px}
+.alarm {width: 454px; min-height: 88px; border-radius: 3px; border: 1px solid #B8B9BA; box-shadow: 0px 0px 10px rgba(99,102,119,0.3); background-color: #fff; padding: 16px 15px 16px 86px; display: flex; background-image: url(../../img/metro/bg_alarm.png), url(../../img/metro/ic_alarm.png); background-position: left top, 24px center; background-repeat: repeat-y, no-repeat;margin-top: 10px}
 .alarm>div{width: 335px; flex: 1 1 335px; padding-right: 10px;}
 .alarm p{font-size: 20px; color: #000; font-weight: bold; margin-bottom: 2px;}
 .alarm span {font-size: 16px; color: #787A88; }
@@ -296,19 +296,19 @@ background-repeat: no-repeat; background-position: left center, 22px 13px;}
 .index.bad span {color:#393939 !important;} */
 .index.error span {font-size: 0 !important}
 
-.index.good {background-image: url(../img/index_good.png)!important;}
-.index.normal {background-image: url(../img/index_normal.png)!important;}
-.index.bad {background-image: url(../img/index_bad.png)!important;}
-/* .index.toobad {background-image: url(../img/index_toobad.png)!important;} */
-.index.error {background-image: url(../img/index_error.png)!important;}
+.index.good {background-image: url(../../img/metro/index_good.png)!important;}
+.index.normal {background-image: url(../../img/metro/index_normal.png)!important;}
+.index.bad {background-image: url(../../img/metro/index_bad.png)!important;}
+/* .index.toobad {background-image: url(../../img/metro/index_toobad.png)!important;} */
+.index.error {background-image: url(../../img/metro/index_error.png)!important;}
 
-.index.ppm25{background-image: url(../img/index_good.png); background-position: center 8px; padding: 8px;}
-.index.wpm25{background-image: url(../img/index_good.png); margin-bottom: 73px; background-position: center top;}
-.index.wpm10{background-image: url(../img/index_good.png); background-position: center top;}
+.index.ppm25{background-image: url(../../img/metro/index_good.png); background-position: center 8px; padding: 8px;}
+.index.wpm25{background-image: url(../../img/metro/index_good.png); margin-bottom: 73px; background-position: center top;}
+.index.wpm10{background-image: url(../../img/metro/index_good.png); background-position: center top;}
 
-.index.wpm25:after {width: 19px; height: 9px; display: block; content: '';position: absolute; background-image: url(../img/index_tag.png); background-repeat: no-repeat; bottom: 0; left: 50%;margin-left: -9.5px;}
+.index.wpm25:after {width: 19px; height: 9px; display: block; content: '';position: absolute; background-image: url(../../img/metro/index_tag.png); background-repeat: no-repeat; bottom: 0; left: 50%;margin-left: -9.5px;}
 
-.index.ppm25:before {width: 19px; height: 9px; display: block; content: '';position: absolute; background-image: url(../img/index_tag_bt.png); background-repeat: no-repeat; top: 0; left: 50%;margin-left: -9.5px;}
+.index.ppm25:before {width: 19px; height: 9px; display: block; content: '';position: absolute; background-image: url(../../img/metro/index_tag_bt.png); background-repeat: no-repeat; top: 0; left: 50%;margin-left: -9.5px;}
 
 
 /*장비상태표시 2021.04.15 추가*/
