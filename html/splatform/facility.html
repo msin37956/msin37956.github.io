@@ -5,8 +5,297 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스마트시티 통합플랫폼</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- icomoon -->
+    <link rel="stylesheet" href="../../css/splatform/icomoon.css"/>
+    <link rel="stylesheet" href="../../css/splatform/style.css"/>
+    <link rel="stylesheet" href="../../css/splatform/monitoring.css"/>
+
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- jquery ui script -->
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <!-- bootstrap4 js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="wrap">
+        <!-- header -->
+        <header id="header">
+            <h1 class="logo"><img src="../img/logo_dark.png"/></h1>
+		    <nav class="gnb">
+		        <a href="../monitor/facility" class="gnb_item">모니터링</a>
+		        <a href="../data/sms_log" class="gnb_item">데이터</a>
+		        <a href="../report/hour" class="gnb_item">통계</a>
+		        <a href="../platform/facility_config" class="gnb_item">플랫폼관리</a>		    
+		        <a th:if="${session.group_major=='system'}" href="../config/system_config" class="gnb_item">시스템설정</a>
+		    </nav>
+		    <nav class="profile">
+		        <a href="#" style="cursor:default"><span>관리자</span></a>
+                <a href="#"><span>로그아웃</span></a>
+				<a href="#" onClick="popup.openUserconfig()"><span>내정보</span></a>
+		    </nav>
+        </header>
+        <!-- lnb -->
+        <div class="side">
+            <nav class="lnb"> 
+                <a id="" href="./facility" class="lnb_item"><span class="lnb_icon"><i class="icon-facility"></i></span><span class="lnb_txt">시설물</span></a>
+                <a id="" href="./event" class="lnb_item"><span class="lnb_icon"><i class="icon-event"></i></span><span class="lnb_txt">이벤트</span></a>
+            </nav>
+        </div>
+        <!-- //lnb -->
+        <!-- //header -->
+        <section id="container">
+            <div id="content">
+                <div>
+                    <div class="monitor_wrapper facility">
+                        <!-- area_side -->
+                        <div class="area_side">
+                            <h5 class="area_title">시설물 목록</h5>
+                            <form>
+                                <div class="input-group">
+                                    <input hidden="hidden">
+                                    <input id="form_search_fac" class="form-control form_search" type="text" autocomplete="off" placeholder="시설물 검색(식별번호, 시설물명)">	
+                                    <button type="button" id="btn_search_fac" class="btn_search_fac"></button>
+                                </div>
+                            </form>
+                            <div class="list_wrapper">
+                                <ul id="list_device" class="inr scroll scroll_y">		
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //area_side -->
+                        <!-- area_map -->
+                        <div class="map_wrapper">
+                            <form>
+                                <div id="map"></div>
+                                <div class="map_position top">
+                                    <!-- search -->
+                                    <div class="comp_map_ctrl search_addr">
+                                        <div class="input-group">
+                                            <input hidden="hidden">
+                                            <select id="address_search_type" class="">
+                                                <option value="address" selected>주소</option>
+                                                <option value="place">장소</option>
+                                            </select>
+                                            <input id="form_search_addr" class="" type="text" placeholder="검색" />
+                                            <a id="btn_search_addr"></a>
+                                        </div>
+                                        <button id="btn_search_reset" class="" type="button"><span><i class="fas fa-times"></i></span></button>
+                                        <div class="search_list comp_map_ctrl">
+                                            <ul id="list_search_addr" class="inr">	 						
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- //search -->
+                                    <!-- map_control_wrap -->
+                                    <div class="map_position_right">
+                                        <!-- map layer control -->
+                                        <div class="map_ctrl_layer_wrapper">
+                                            <div class="comp_map_ctrl map_ctrl_layer">
+                                                <p>지도</p>
+                                                <div class="btn_layer_wrapper">
+                                                    <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group" aria-label="map">
+                                                        <label class="btn">
+                                                           <input type="radio" name="options" id="" checked onClick="baseChange('vworld')">일반
+                                                       </label>
+                                                       <label class="btn">
+                                                           <input type="radio" name="options" id="" onClick="baseChange('night')">야간
+                                                       </label>
+                                                       <label class="btn m-0 active">
+                                                           <input type="radio" name="options" id="" onClick="baseChange('satellite')">위성
+                                                       </label>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //map layer control -->
+                                        <!-- map measure control -->
+                                        <div class="map_ctrl_wrapper">
+                                            <div class="map_ctrl_measure_wrapper">
+                                                <div class="btn_measure_wrapper">
+                                                    <div class="comp_map_ctrl btn_measure">
+                                                        <input id="btn_line" class="" type="checkbox" name="measure" value="length">
+                                                        <label class="" for="btn_line">
+                                                        <span><i class="icon-line"></i></span>
+                                                        거리</label>
+                                                    </div>
+                                                    <div class="comp_map_ctrl btn_measure">
+                                                        <input id="btn_area" class="" type="checkbox" name="measure" value="area">
+                                                        <label class="" for="btn_area">
+                                                        <span><i class="icon-area"></i></span>
+                                                        면적</label>
+                                                    </div>
+                                                </div>
+                                                <button id="btn_measure_remove" class="btn_reset comp_map_ctrl" type="button">
+                                                <span><i class="icon-reset"></i></span>
+                                                초기화</button>
+                                            </div>
+                                            <div class="map_ctrl_zoom_wrapper">
+                                                <div class="map_ctrl_zoom" role="group" aria-label="map">
+                                                   <button id="zoom-in" type="button" class="">
+                                                       <img src="../../img/btn_plus.png" alt="지도 확대"/>
+                                                   </button>
+                                                   <button id="zoom-out" type="button" class="">
+                                                       <img src="../../img/btn_minus.png" alt="지도 축소"/>
+                                                   </button>
+                                               </div>
+                                            </div>
+                                        </div>
+                                        <!-- //map measure control -->
+                                    </div>
+                                    <!-- //map_control_wrap -->
+                                </div>
+                            </form>
+                        </div>
+                        <!-- //area_map -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../../js/openlayers/build/ol.js"></script>
+    <script>//지도
+    //브이월드 WMTS API 호출
+    var layers = {};
+  	
+  	//일반지도
+    layers['vworld'] = new ol.layer.Tile({
+    	preload: Infinity, //map preload 
+        title : 'VWorld Map',
+        visible : true,
+        type : 'base',
+        source : new ol.source.XYZ({
+            url : 'https://api.vworld.kr/req/wmts/1.0.0/CEB52025-E065-364C-9DBA-44880E3B02B8/Base/{z}/{y}/{x}.png'
+        })
+    });
+  	
+   	//야간지도
+    layers['night'] = new ol.layer.Tile({
+    	preload: Infinity, //map preload
+        title : 'Night Map',
+        visible : true,
+        type : 'base',
+        source : new ol.source.XYZ({
+            url : 'http://api.vworld.kr/req/wmts/1.0.0/CEB52025-E065-364C-9DBA-44880E3B02B8/midnight/{z}/{y}/{x}.png' //WMTS 배경지도 사용
+        })
+    });
+     
+    //항공지도
+    layers['satellite'] = new ol.layer.Tile({
+    	preload: Infinity, //map preload
+        title : 'Satellite Map',
+        visible : true,
+        type : 'base',
+        source : new ol.source.XYZ({
+            url : 'http://api.vworld.kr/req/wmts/1.0.0/CEB52025-E065-364C-9DBA-44880E3B02B8/Satellite/{z}/{y}/{x}.jpeg' //WMTS 배경지도 사용
+        })
+    });
+
+    //layerswitcher2 preload 필요한 버전
+    function baseChange(data) {//baseMap 변경
+        if (data == 'vworld') {
+            layers['vworld'].setVisible(true);
+            layers['vworld'].setOpacity(1);
+            layers['night'].setVisible(false);
+            layers['night'].setOpacity(0);
+            layers['satellite'].setVisible(false);
+            layers['satellite'].setOpacity(0);
+        }
+        if (data == 'night') {
+            layers['night'].setVisible(true);
+            layers['night'].setOpacity(1);
+            layers['vworld'].setVisible(false);
+            layers['vworld'].setOpacity(0);
+            layers['satellite'].setVisible(false);
+            layers['satellite'].setOpacity(0);
+        }
+        if (data == 'satellite') {
+            layers['satellite'].setVisible(true);
+            layers['satellite'].setOpacity(1);
+            layers['night'].setVisible(false);
+            layers['night'].setOpacity(0);
+            layers['vworld'].setVisible(false);
+            layers['vworld'].setOpacity(0);
+        }
+    }
+    //preload 필요한 버전일 때는 map의 layers에 지도를 전부 넣어놔야함
+	//layerswitcher2 preload 필요한 버전
     
+
+    //축척바 
+    var scaleLineControl = new ol.control.ScaleLine(); 
+    
+    //확대/축소버튼
+    $('#zoom-out').on('click', function() {
+         var view = map.getView();
+         var zoom = view.getZoom();
+         view.setZoom(zoom - 1);
+     });
+
+     $('#zoom-in').on('click', function() {
+         var view = map.getView();
+         var zoom = view.getZoom();
+         view.setZoom(zoom + 1);
+     });
+    
+    var vectorSource = new ol.source.Vector();
+    
+    var vector = new ol.layer.Vector({
+    	  source: vectorSource,
+    	  style: new ol.style.Style({
+    	    fill: new ol.style.Fill({
+    	      color: 'rgba(255, 255, 255, 0.2)'
+    	    }),
+    	    stroke: new ol.style.Stroke({
+    	      color: '#286feb',
+    	      width: 3
+    	    }),
+    	    image: new ol.style.Circle({
+    	      radius: 7,
+    	      fill: new ol.style.Fill({
+    	        color: '#286feb'
+    	      })
+    	    })
+    	  })
+    	});
+    
+    layers['night'].setOpacity(0); //야간지도, 위성지도 visible false 처리
+    layers['satellite'].setOpacity(0);
+
+    var map = new ol.Map({
+		layers: [ layers['vworld'],layers['night'],layers['satellite'],vector],
+		target: 'map',
+		controls : ol.control.defaults({
+     	   zoom:false,
+            attributionOptions:({
+                collapsible:false
+            })
+        }).extend([
+            scaleLineControl
+            ]),
+		view: new ol.View({
+			center: ol.proj.transform([127.100616,37.402142], 'EPSG:4326', 'EPSG:900913'),
+			zoomFactor: 2.5,
+			zoom: 12,
+			maxZoom:16.5, //5m 이하 확대 방지
+			minZoom:5 //100km 이상 축소 방지
+		})
+	});
+
+    map.addControl(new ol.control.ZoomSlider());
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('.gnb>.gnb_item').eq(0).addClass('active');
+            $('.lnb>a').eq(0).addClass('active');
+        });
+    </script>
 </body>
 </html>
