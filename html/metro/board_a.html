@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전광판 A타입</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/metro/common_a.css"/>
+
+    <style>
+        body{overflow:hidden}
+    	
+        *{margin: 0; padding: 0;}
+        @font-face {
+            font-family : 'NanumSquare';
+            src : url('../../css/metro/NanumSquareR.ttf') format('truetype');
+            font-weight: normal;
+            font-style : normal;
+        }
+
+        @font-face {
+            font-family : 'NanumSquare';
+            src : url('../../css/metro/NanumSquareEB.ttf') format('truetype');
+            font-weight: 500;
+            font-style : bold;
+        }
+        
+        @font-face {
+            font-family : 'Happiness';
+            src : url('../../css/metro/lotte_happiness_M.ttf') format('truetype');
+            font-weight: 500;
+            font-style : bold;
+        }
+        
+        html,body {height: 100%; box-sizing: border-box; font-family: "Roboto", "NanumSquare", sans-serif;}
+        .wrapper {width: 1920px; height: 1080px; background-color: #2366A2; overflow-y: auto''}
+        .sign_cont{padding-top: 37px; width: 100%; height: 100%;}
+        .sign_cont .tit {width: 100%; height: 143px; background-image: url(../../img/metro/tit_bg.png), url(../../img/metro/tit_bg2.png);background-repeat: repeat-y,repeat-x;padding: 0px 37px 16px 47px; }
+        .sign_cont .tit>*{margin-bottom: 0px;}
+        .sign_cont .contents {width: 100%; height: 900px; padding: 35px 37px 34px 37px; }
+        .sign_cont .contents>div {width: 100%; height: 100%; background-color: #fff; border-radius: 30px; padding: 30px 30px 26px 30px;}
+        
+        
+        /*44px 55px 50px 55px;*/
+        .station {font-size: 60px; color: #9adaff; font-weight: bold; margin-right: 22px;}
+        .station>span {font-size: 70px; color: #fff; margin-right: 20px; font-weight: 500}
+        .text {font-size: 30px; color: #fff; font-weight: normal}
+        .text>span {font-size: 30px; color: #fff; font-weight: normal}
+        .logo {width: 335px; height: 88px; border-radius: 15px; background-color: #fff; text-align: center;}
+        .logo>img { width: 270px; margin-top:5px;}
+        
+        .cont_tit {padding: 0 15px;}
+        .cont_tit>* {margin-bottom: 0px;}
+        .cont_tit .pm_tit {font-size: 70px; font-weight: bold;}
+        .cont_tit .hour {font-size: 60px; font-weight: normal}
+        .cont_tit .hour small {font-size: 45px;}
+        
+        .img_cont {position: absolute; width: 1920px; height: 1080px; top: 0px; left: 0px; text-align:center}
+        .img_cont>img{width:100%; height:100%}
+        
+        .cont { height: ;padding-left: 15px; padding-right: 15px;}
+        .cont .cont_gauge {}
+        .cont .cont_value {min-width:650px; max-width: 800px}
+        
+        .cont .cont_value h2 {font-size:80px; font-weight: normal; text-align: right; font-family: "Happiness", sans-serif}
+        
+        .cont .cont_value h2 span {font-family: "Roboto",sans-serif;}
+        
+        .cont .cont_value h2 small {font-weight: normal; font-family: 'segou UI', sans-serif; font-size: 55px}
+        
+        .cont .cont_value>div>p {text-align: right; font-size: 25px; color: #8D8F9E; margin-bottom: 20px;}
+        
+        .indicator { margin-bottom: 35px;}
+        .indicator img {margin-right: 15px}
+        .indicator>div>*{vertical-align: middle}
+        .indicator p {text-align: left; margin-bottom: 0px; font-size: 20px; color: #707070; display: }
+        
+        /* text */
+        .notice_cont{border-radius: 20px; background-color: #EBECF2; overflow: hidden; height:114px; padding: 20px 30px; position:relative}
+        .notice_text{margin:0;font-size:45px; padding-left:100%; display:inline-block;
+					  white-space:nowrap;
+					    -webkit-animation-name:marquee;
+					    -webkit-animation-timing-function:linear;
+					    -webkit-animation-duration:30s;
+					    -webkit-animation-iteration-count:infinite;
+					    -moz-animation-name:marquee;
+					    -moz-animation-timing-function:linear;
+					    -moz-animation-duration:30s;
+					    -moz-animation-iteration-count:infinite;
+					    -ms-animation-name:marquee;
+					    -ms-animation-timing-function:linear;
+					    -ms-animation-duration:30s;
+					    -ms-animation-iteration-count:infinite;
+					    -o-animation-name:marquee;
+					    -o-animation-timing-function:linear;
+					    -o-animation-duration:30s;
+					    -o-animation-iteration-count:infinite;
+					    animation-name:marquee;
+					    animation-timing-function:linear;
+					    animation-duration:30s;
+					    animation-iteration-count:infinite;}
+    @-webkit-keyframes marquee {
+		  from   { -webkit-transform: translate(0%);}
+		  99%,to { -webkit-transform: translate(-100%);}
+		}
+		@-moz-keyframes marquee {
+		  from   { -moz-transform: translate(0%);}
+		  99%,to { -moz-transform: translate(-100%);}
+		}
+		@-ms-keyframes marquee {
+		  from   { -ms-transform: translate(0%);}
+		  99%,to { -ms-transform: translate(-100%);}
+		}
+		@-o-keyframes marquee {
+		  from   { -o-transform: translate(0%);}
+		  99%,to { -o-transform: translate(-100%);}
+		}
+		@keyframes marquee {
+		  from   { transform: translate(0%);}
+		  99%,to { transform: translate(-100%);}
+		}
+    </style>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sign_cont">
+            <!-- area_title -->
+            <div class="tit d-flex align-items-end">
+                <h3 class="station"><span class="txt_station_name">양재</span> 실내공기질정보</h3>
+                <h1 class="logo ml-auto"><img src="../../img/metro/logo.png" alt="도시철도공사 ci"/></h1>
+            </div>
+            <!-- //area_title -->
+            <!-- area_content -->
+            <div class="contents">
+                <div>
+                    <div class="cont_tit d-flex align-items-end">
+                        <h3 class="pm_tit text-center" style="width:1000px; ">초미세먼지<small>(PM2.5)</small></h3>
+                        <p class="hour ml-auto"><small>측정시간:</small></p><p class="hour" id="txt_u_date"> </p>
+                    </div>
+                    <div class="cont d-flex justify-content-between">
+                        <div class="cont_gauge h-100">
+                        	<div class="" style="width:1000px; height: 500px; margin-top: 30px">
+                                <!--게이지 자리-->
+                                <canvas id="gauge" style="width:1000px; height: 500px"></canvas>
+                            </div>
+                        </div>
+                        <div class="cont_value align-self-end">
+                            <h2 style="margin-top: 80px; margin-bottom: 80px;">1시간 : <span id="txt_pm2_value"></span> <small>㎍/㎥</small></h2>
+                            <h2 style="margin-bottom: 65px;">24시간 : <span id="txt_pm2_value_1d"></span> <small>㎍/㎥</small></h2>
+                            <div class="">
+                                <p>농도범위(㎍/㎥)</p>
+                                <div class="indicator d-flex text-center ml-auto">
+                                    <div class="flex-fill">
+                                       <img src="../../img/metro/good_sign.png" class="mb-0" alt="초미세먼지 농도범례 좋음">
+                                       <div class="d-inline-block">
+                                           <p>좋음</p>
+                                           <p id="pm_good">(0~15)</p>
+                                       </div>
+                                   </div>
+                                   <div class="flex-fill">
+                                       <img src="../../img/metro/normal_sign.png" class="mb-0" alt="초미세먼지 농도범례 보통">
+                                       <div class="d-inline-block">
+                                           <p>보통</p>
+                                           <p id="pm_normal">(16~35)</p>
+                                       </div>
+                                   </div>
+                                   <div class="flex-fill">
+                                       <img src="../../img/metro/bad_sign.png" class="mb-0" alt="초미세먼지 농도범례 나쁨">
+                                       <div class="d-inline-block">
+                                           <p>나쁨</p>
+                                           <p id="pm_bad">(36~75)</p>
+                                       </div>
+                                   </div>
+                                   <div class="flex-fill">
+                                       <img src="../../img/metro/toobad_sign.png" class="mb-0" alt="초미세먼지 농도범례 매우나쁨">
+                                       <div class="d-inline-block">
+                                           <p>매우나쁨</p>
+                                           <p id="txt_pm_toobad">(75.1 이상)</p>
+                                       </div>
+                                   </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notice_cont marquee">
+                        <p id="txt_notice1" class="notice_text">텍스트메세지텍스트메세지텍스트메세지텍스트메세지텍스트메세지텍스트메세지텍스트메세지</p>
+                        <!--marquee : 40글자 이상일 때 marquee안에 텍스트-->
+                        <!-- <MARQUEE id="txt_board_info" class="notice_text" loop="infinite"></MARQUEE> -->
+                        <!-- 텍스트 애니메이션 속도는 css의 animation-duration 에서 조절  -->
+                        <p id="txt_board_info" class="notice_text"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- //area_content -->
+        </div>
+    </div>
+    
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- bootstrap4 js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!--gauge.js-->
+    <script src="../../js/lib/gauge.min.js"></script>
+</body>
+</html>
