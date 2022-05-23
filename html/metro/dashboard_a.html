@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -580,4 +581,555 @@
         });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대시보드 A타입</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/metro/common.css"/>
+    <link rel="stylesheet" href="../../css/metro/dashboard_a.css"/>
+
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- bootstrap4 js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <div class="header clearfix">
+			<nav class="header_nav">
+                <a href="#" class="header-item active" data-toggle="tooltip" data-placement="bottom" title="종합현황">
+                    <i class="icon-ic_monitorin_route"></i>
+                </a>
+                <a href="../monitor/monitor.jsp" class="header-item" data-toggle="tooltip" data-placement="bottom" title="모니터링">
+                    <i class="icon-ic_dashboard"></i>
+                </a>
+                <a href="../report/hour.jsp" class="header-item" data-toggle="tooltip" data-placement="bottom" title="통계">
+                    <i class="icon-ic_operation"></i>
+                </a>
+                <a href="../data/log.jsp" class="header-item pr-0" data-toggle="tooltip" data-placement="bottom" title="데이터">
+                    <i class="icon-ic_data"></i>
+                </a>
+                <a href="../config/system_config.jsp" class="header-item pl-1" data-toggle="tooltip" data-placement="bottom" title="시스템설정">
+                    <i class="icon-ic_settings"></i>
+                </a>
+            </nav>
+			<nav class="profile_nav align-content-center">
+				<a href="#" style="cursor:default"> <span>관리자</span></a> 
+				<a href="#"> <span> 로그아웃</span></a> 
+				<a href="#" onClick="popup.openUserconfig()"> <span class="border-0 "> 내정보</span></a>
+			</nav>
+		</div>
+        <!-- //header -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12"></div>
+            </div>
+            <div id="container" class="row">
+                <div class="col-12 h-100 d-flex flex-column pb-2">
+                    <h1 class="info">실시간 실내공기질정보
+                    	<span>(　범례: <span><img src="../img/good.png" alt="미세먼지 범례 좋음" />좋음</span><span><img src="../img/normal.png" alt="미세먼지 범례 보통" />보통</span><span><img src="../img/bad.png" alt="미세먼지 범례 관리필요" />관리필요</span><!-- <span><img src="../img/index_4.png" alt="미세먼지 범례 매우나쁨" />매우나쁨</span> --><span><img src="../img/index_5.png" alt="미세먼지 범례 통신오류" />통신오류</span>)</span>
+                        <button id="" class="btn standard position-relative" type="button">범례 자세히보기
+                            <div class="standard_txt position-absolute">
+                                <div class="border-bottom">
+                                    <p class="clearfix w-100 circle">초미세먼지 농도 범례
+                                        <span class="close"><i class="fas fa-times"></i></span></p>
+                                    <ul class="d-flex">
+                                        <li>
+                                            <span><img src="../img/good.png" alt="미세먼지 범례 좋음" />좋음</span> <span id="txt_pm_good">(0 ~ 15)</span>
+                                        </li>
+                                        <li>
+                                            <span><img src="../img/normal.png" alt="미세먼지 범례 보통" />보통</span> <span id="txt_pm_">(16 ~ 35)</span>
+                                        </li>
+                                        <li>
+                                            <span><img src="../img/bad.png" alt="미세먼지 범례 관리필요" />관리필요</span> <span id="txt_pm_bad">(36 ~ 75)</span>
+                                        </li>
+                                        <!-- <li>
+                                            <span><img src="../img/index_4.png" alt="미세먼지 범례 매우나쁨" />매우나쁨</span> <span id="txt_pm_toobad">(76 ~ )</span>
+                                        </li> -->
+                                        <li>
+                                            <span><img src="../img/index_5.png" alt="미세먼지 범례 통신오류" />통신오류</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="">
+                                    <p class="pt-2 clearfix w-100 circle">미세먼지 농도 범례</p>
+                                    <ul class="d-flex pb-2">
+                                        <li>
+                                            <span><img src="../img/good.png" alt="미세먼지 범례 좋음" />좋음</span> <span id="txt_pm10_good">(0 ~ 30)</span>
+                                        </li>
+                                        <li>
+                                            <span><img src="../img/normal.png" alt="미세먼지 범례 보통" />보통</span> <span id="txt_pm10_noraml">(31 ~ 80)</span>
+                                        </li>
+                                        <li>
+                                            <span><img src="../img/bad.png" alt="미세먼지 범례 관리필요" />관리필요</span> <span id="txt_pm10_bad">(81 ~ 150)</span>
+                                        </li>
+                                        <!-- <li>
+                                            <span><img src="../img/index_4.png" alt="미세먼지 범례 매우나쁨" />매우나쁨</span> <span id="txt_pm10_toobad">(151 ~ )</span>
+                                        </li> -->
+                                        <li>
+                                            <span><img src="../img/index_5.png" alt="미세먼지 범례 통신오류" />통신오류</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </button></h1>
+                    <div class="card map flex-fill">
+                    	<div class="sign_group line1">
+                            <div class="sign_w">대합실</div>
+                            <div class="sign_p">승강장</div>
+	                    </div>
+                        <div class="card-body line1">
+                            <div class="line_origin">
+                                <span class="start">1</span>
+                                <span class="pm10_label">PM10  ▶</span>
+                                <span class="pm25_label">PM2.5 ▶</span>
+                                <span class="pm25_label_bt">PM2.5 ▶</span>
+                                <div class="point_cont">
+                                    <span class="point" id="point_14220"></span>
+                                    <span class="point" id="point_14210"></span>
+                                    <span class="point" id="point_14200"></span>
+                                    <span class="point" id="point_14190"></span>
+                                    <span class="point" id="point_14180"></span>
+                                    <span class="point" id="point_14170"></span>
+                                    <span class="point" id="point_14160"></span>
+                                    <span class="point" id="point_14150"></span>
+                                    <span class="point" id="point_14140"></span>
+                                    <span class="point" id="point_14130"></span>
+                                    <span class="point" id="point_14120"></span>
+                                </div>
+                                <div class="name_cont">
+                                    <span class="name"><span class="name2">반석</span></span>
+                                    <span class="name"><span class="name2">지족</span></span>
+                                    <span class="name"><span class="name2">노은</span></span>
+                                    <span class="name"><span class="name2">월드컵경기장</span></span>
+                                    <span class="name"><span class="name2">현충원</span></span>
+                                    <span class="name"><span class="name2">구암</span></span>
+                                    <span class="name"><span class="name2">유성온천</span></span>
+                                    <span class="name"><span class="name2">갑천</span></span>
+                                    <span class="name"><span class="name2">월평</span></span>
+                                    <span class="name"><span class="name2">갈마</span></span>
+                                    <span class="name"><span class="name2">정부청사</span></span>
+                                </div>
+                                <div class="pm_cont">
+                                   <!--unit 클릭 시 팝업 표출-->
+                                   <!--
+                                   <div class="unit">
+                                       	대합실10 <div id="" class="index "><span id=""></span></div>
+					                                    대합실 2.5<div id="pm2_14220" class="index"><span id=""></span></div>
+					                                     승장장2.5<div id="" class="index"><span id=""></span></div>
+                                    </div>
+                                   -->
+                                   <!-- index.active 해야 보임 -->
+                                   <!-- 대합실10 : pm_****1
+                                   		대합실2.5 : pm2_****1
+                                   		승강장2.5 : pm2_****0=>기존 사용 id -->
+                                    <!-- 반석 -->
+                                    <div class="unit" id="14220">
+                                    	<!-- <div id="pm_14220" class="index wpm10 active "><span id="">0</span></div> -->
+                                    	<div class="unit_inr">
+                                    		<!-- wpm : wating + pm / ppm : platform + pm -->
+                                    		<span id="status_14221" class="device_status wpm">교정중</span>
+                                    		<span id="status_14220" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14221" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14221" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14220" class="index ppm25"><span id="">0</span></div>
+                                        </div>
+                                    </div>
+                                    <!-- 지족 -->
+                                    <div class="unit" id="14210">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14211" class="device_status wpm">교정중</span>
+                                    		<span id="status_14210" class="device_status ppm">교정중</span>
+	                                    	<!-- 대합실 ↓-->
+	                                        <div id="pm_14211" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14211" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14210" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 노은 -->
+                                    <div class="unit" id="14200">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14201" class="device_status wpm">교정중</span>
+                                    		<span id="status_14200" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14201" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14201" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14200" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 월드컵경기장 -->
+                                    <div class="unit" id="14190">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14191" class="device_status wpm">장비오류</span>
+                                    		<span id="status_14190" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14191" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14191" class="index wpm25 "><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14190" class="index ppm25 "><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 현충원 -->
+                                    <div class="unit" id="14180">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14181" class="device_status wpm">교정중</span>
+                                    		<span id="status_14180" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14181" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14181" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14180" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 구암 -->
+                                    <div class="unit" id="14170">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14171" class="device_status wpm">교정중</span>
+                                    		<span id="status_14170" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14171" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14171" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14170" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 유성온천 -->
+                                    <div class="unit" id="14160">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14161" class="device_status wpm">교정중</span>
+                                    		<span id="status_14160" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14161" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14161" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14160" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 갑천 -->
+                                    <div class="unit" id="14150">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14151" class="device_status wpm">교정중</span>
+                                    		<span id="status_14150" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14151" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14151" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14150" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 월평 -->
+                                    <div class="unit" id="14140">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14141" class="device_status wpm">교정중</span>
+                                    		<span id="status_14140" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14141" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14141" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14140" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 갈마 -->
+                                    <div class="unit" id="14130">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14131" class="device_status wpm">교정중</span>
+                                    		<span id="status_14130" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14131" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14131" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14130" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 정부청사 -->
+                                    <div class="unit" id="14120">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14121" class="device_status wpm">교정중</span>
+                                    		<span id="status_14120" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14121" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14121" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14120" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="bg_vertical"></div>
+                            <div class="bg_hoz"></div>
+                        </div>
+                        <div class="sign_group line2">
+                            <div class="sign_w">대합실</div>
+                            <div class="sign_p">승강장</div>
+                        </div>
+                        <div class="card-body line2 d-flex align-items-end">
+                            <div class="line_origin">
+                                <span class="end">1</span>
+                                <span class="pm10_label pl-3">PM10  ▶</span>
+                                <span class="pm25_label pl-3">PM2.5 ▶</span>
+                                <span class="pm25_label_bt pl-3">PM2.5 ▶</span>
+                                <div class="point_cont">
+                                    <span class="point" id="point_14110"></span>
+                                    <span class="point" id="point_14100"></span>
+                                    <span class="point" id="point_14090"></span>
+                                    <span class="point" id="point_14230"></span>
+                                    <span class="point" id="point_14080"></span>
+                                    <span class="point" id="point_14070"></span>
+                                    <span class="point" id="point_14060"></span>
+                                    <span class="point" id="point_14050"></span>
+                                    <span class="point" id="point_14040"></span>
+                                    <span class="point" id="point_14030"></span>
+                                    <span class="point" id="point_14020"></span>
+                                    <span class="point" id="point_14010"></span>
+                                </div>
+                                <div class="name_cont">
+                                    <span class="name"><span class="name2">시청</span></span>
+                                    <span class="name"><span class="name2">탄방</span></span>
+                                    <span class="name"><span class="name2">용문</span></span>
+                                    <span class="name"><span class="name2">용두</span></span>
+                                    <span class="name"><span class="name2">오룡</span></span>
+                                    <span class="name"><span class="name2">서대전네거리</span></span>
+                                    <span class="name"><span class="name2">중구청</span></span>
+                                    <span class="name"><span class="name2">중앙로</span></span>
+                                    <span class="name"><span class="name2">대전</span></span>
+                                    <span class="name"><span class="name2">대동</span></span>
+                                    <span class="name"><span class="name2">신흥</span></span>
+                                    <span class="name"><span class="name2">판암</span></span>
+                                </div>
+                                <div class="pm_cont">
+                                   <!--unit 클릭 시 팝업 표출-->
+                                   
+                                   <!-- 시청 -->
+                                   <div class="unit" id="14110">
+                                   		<div class="unit_inr">
+                                    		<span id="status_14111" class="device_status wpm">교정중</span>
+                                    		<span id="status_14110" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14111" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14111" class="index wpm25 "><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14110" class="index ppm25 "><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 탄방 -->
+                                    <div class="unit" id="14100">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14101" class="device_status wpm">교정중</span>
+                                    		<span id="status_14100" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14101" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14101" class="index wpm25 "><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14100" class="index ppm25 "><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 용문 -->
+                                    <div class="unit" id="14090">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14091" class="device_status wpm">교정중</span>
+                                    		<span id="status_14090" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14091" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14091" class="index wpm25 "><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14090" class="index ppm25 "><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 용두 -->
+                                    <div class="unit" id="14230">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14231" class="device_status wpm">교정중</span>
+                                    		<span id="status_14230" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14231" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14231" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14230" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 오룡 -->
+                                    <div class="unit" id="14080">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14081" class="device_status wpm">교정중</span>
+                                    		<span id="status_14080" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14081" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14081" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14080" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 서대전네거리 -->
+                                    <div class="unit" id="14070">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14071" class="device_status wpm">교정중</span>
+                                    		<span id="status_14070" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14071" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14071" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14070" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 중구청 -->
+                                    <div class="unit" id="14060">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14061" class="device_status wpm">교정중</span>
+                                    		<span id="status_14060" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14061" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14061" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14060" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 중앙로 -->
+                                    <div class="unit" id="14050">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14051" class="device_status wpm">교정중</span>
+                                    		<span id="status_14050" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14051" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14051" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14050" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 대전 -->
+                                    <div class="unit" id="14040">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14041" class="device_status wpm">교정중</span>
+                                    		<span id="status_14040" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14041" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14041" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14040" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 대동 -->
+                                    <div class="unit" id="14030">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14031" class="device_status wpm">교정중</span>
+                                    		<span id="status_14030" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14031" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14031" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14030" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 신흥 -->
+                                    <div class="unit" id="14020">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14021" class="device_status wpm">교정중</span>
+                                    		<span id="status_14020" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14021" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14021" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14020" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                    <!-- 판암 -->
+                                    <div class="unit" id="14010">
+                                    	<div class="unit_inr">
+                                    		<span id="status_14011" class="device_status wpm">교정중</span>
+                                    		<span id="status_14010" class="device_status ppm">교정중</span>
+                                    		<!-- 대합실 ↓-->
+	                                        <div id="pm_14011" class="index wpm10 "><span id="">0</span></div>
+	                                        <div id="pm2_14011" class="index wpm25"><span id="">0</span></div>
+	                                        <!-- 승강장 ↓-->
+	                                        <div id="pm2_14010" class="index ppm25"><span id="">0</span></div>
+                                    	</div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="bg_vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup -->
+    <div id="pop_station" class="pop" style=" top: 30%; left: 30%;" >
+        <div class="card">
+            <div class="card-header">
+                <span id="pop_station_name"></span>
+                <span class="pop_device_status">교정중</span>
+                <span class="close"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="card-body">
+                <p>(단위 : ㎍/㎥)</p>
+                <div class="pannel_cont">
+                   <!--활성화 시 .active -->
+                   <!--<div id="" class="pannel active w25">-->
+                    <div id="" class="pannel active w10">
+                        <div class="tit"><p>대합실</p><span>PM10</span></div>
+                        <div class="box5m"><span id="w10_5m">0</span></div>
+                        <div class="box1h"><span id="w10_1h">0</span></div>
+                        <div class="box2h"><span id="w10_2h">0</span></div>
+                        <div class="box24h"><span id="w10_24h">0</span></div>
+                    </div>		                   
+                    <div id="" class="pannel active w25">
+                        <div class="tit"><p>대합실</p><span>PM2.5</span></div>
+                        <div class="box5m"><span id="w25_5m">0</span></div>
+                        <div class="box1h"><span id="w25_1h">0</span></div>
+                        <div class="box2h"><span id="w25_2h">0</span></div>
+                        <div class="box24h"><span id="w25_24h">0</span></div>
+                    </div>
+                    <div id="" class="pannel active p25">
+                        <div class="tit"><p>승강장</p><span>PM2.5</span></div>
+                        <div class="box5m"><span id="p25_5m">0</span></div>
+                        <div class="box1h"><span id="p25_1h">0</span></div>
+                        <div class="box2h"><span id="p25_2h">0</span></div>
+                        <div class="box24h"><span id="p25_24h">0</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <p class="circle">시간별 변화량(1h)</p>
+                <div id="chartPm" class="" style="width: 100%; height: 200px;">
+                    <canvas id="canvas_pm" class="mw-100" style="width: 100%; height: 100%;"></canvas>
+                    <!-- 차트 컬러
+                        대합실2.5 : rgba(135,193,255,1)
+                            대합실10 : rgba(0,117,229,1)
+                            승강장2.5 : rgba(255,171,4,1)-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //popup -->
+    <!-- alarm -->
+    <div id="pop_alarm" class="alarm_cont">
+        <div id="" class="alarm">
+            <div class="">
+                <p>알림</p>
+                <span id="">환경공단 전송오류 : 통신망 확인 필요</span>
+            </div>
+            <span class="close align-self-center"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+    <!-- //alarm -->
+</body>
+>>>>>>> 303a4634799dc72c40c1ba58237267b1fd928d89
 </html>
