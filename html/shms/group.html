@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트홈 모바일 DEMO</title>
+    <!-- bootstrap4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="../../css/shms/common_m.css"/>
+    <link rel="stylesheet" href="../../css/shms/mobile.css"/>
+    <link rel="stylesheet" href="../../css/shms/icomoon.css"/>
+    
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+    <!-- bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="wrap" class="wrapper mobile">
+        <!-- header -->
+        <header id="header" style="background-color:#fff">
+			<nav>
+				<a href="#" class="header_item active">그룹보기</a>
+				<a href="#" class="header_item">상태모아보기</a>
+			</nav>
+        </header>
+        <!-- //header -->
+        <section id="container" class="group">
+        	<!-- 본문 -->
+            <div id="content" class="">
+				<!-- 탭 -->
+				<div class="tab_wrapper" style="min-height:96px">
+					<ul id="complex_list" class="tab tab_complex">
+						<li class="active">전체</li>
+                        <li class="">101동</li>
+                        <li class="">201동</li>
+					</ul>
+					<ul id="building_list" class="tab tab_building">
+						<li class="active">전체</li>
+                        <li class="">101호</li>
+                        <li class="">102호</li>
+					</ul>
+				</div>
+				<!-- //탭-->
+				<!-- 전체현황 -->
+				<div class="area_group_state">
+					<div class="inr">
+						<div>
+							<h5 class="area_title"><span class="img"></span><span class="all">전체</span><span id="txt_complex" class="selected"></span> <span id="txt_building" class="selected"></span><span class="selected"></span> 세대현황</h5>
+							<span class="total">(전체 : <span id="total">30</span> 세대)</span>
+							<div class="">
+								<div class="group_state_item normal">
+									<div class="">
+										<span id="normal">24</span>
+									</div>
+									<p>정상</p>
+								</div>
+								<div class="group_state_item warning">
+									<div class="">
+										<span id="warning">1</span>
+									</div>
+									<p>주의</p>
+								</div>
+								<div class="group_state_item danger">
+									<div class="">
+										<span id="danger">2</span>
+									</div>
+									<p>위험</p>
+								</div>
+								<div class="group_state_item emergency">
+									<div class="">
+										<span id="emergency">1</span>
+									</div>
+									<p>응급</p>
+								</div>
+								<div class="group_state_item error">
+									<div class="">
+										<span id="error">2</span>
+									</div>
+									<p>동작오류</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //전체현황 -->
+				<!-- 세대리스트 -->
+				<div class="area_house_list">
+					<div class="inr">
+						<h5 class="area_title">세대리스트</h5>
+						<div class="area_house_list_wrapper">
+							<ul id="house_list">
+								<li class="house_item normal">
+									<a href="./house"></a>
+									<span class="badge">정상</span>
+									범물용지2단지 201동 1407호
+								</li>
+								<li class="house_item warning">
+									<a href="./house"></a>
+									<span class="badge">주의</span>
+									범물용지2단지 201동 1407호
+								</li>
+								<li class="house_item danger">
+									<a href="./house"></a>
+									<span class="badge">위험</span>
+									범물용지2단지 201동 1407호
+								</li>
+								<li class="house_item emergency">
+									<a href="./house"></a>
+									<span class="badge">응급</span>
+									범물용지2단지 201동 1407호
+								</li>
+								<li class="house_item error">
+									<a href="./house"></a>
+									<span class="badge">동작오류</span>
+									범물용지2단지 201동 1407호
+								</li>
+								
+								<li class="house_item error">
+									<a href="./house"></a>
+									<span class="badge">동작오류</span>
+									범물용지2단지 201동 1407호
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- //세대리스트 -->                            
+            </div>
+        </section>
+        <!-- gnb -->
+		<nav id="gnb">
+			<a href="./mobile.html" class="gnb_item">
+				<span class="gnb_icon"><i class="icon-m-dashboard"></i></span>
+				<span class="gnb_tit">대시보드</span>
+			</a>
+			<a href="#" class="gnb_item active">
+				<span class="gnb_icon"><i class="icon-m-monitor"></i></span>
+				<span class="gnb_tit">모니터링</span>
+			</a>
+			<a href="#" class="gnb_item">
+				<span class="gnb_icon"><i class="icon-m-event"></i></span>
+				<span class="gnb_tit">이벤트</span>
+			</a>
+			<a href="#" class="gnb_item">
+				<span class="gnb_icon"><i class="icon-m-install"></i></span>
+				<span class="gnb_tit">설치현황</span>
+			</a>
+			<a href="#" class="gnb_item">
+				<span class="gnb_icon"><i class="icon-m-more"></i></span>
+				<span class="gnb_tit">더보기</span>
+			</a>
+		</nav>
+        <!-- //gnb -->
+    </div>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    
+    <script> //trigger
+        $(document).ready(function(){
+            $(".tab li").on('click', function(){
+                if($(this).hasClass('active')){
+                    
+                }else{
+                    $(this).siblings('li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
