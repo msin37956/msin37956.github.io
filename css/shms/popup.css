@@ -1,0 +1,445 @@
+@charset "utf-8";
+*{ margin: 0; padding: 0; font-weight: normal; box-sizing: border-box}
+
+/* 팝업 마커 : 무장애세대인 경우 응급알람팝업에 gis*/
+.marker {width:42px;height:66px;background-repeat:0;background-position:top center;}
+.marker.emergency {background-image:url(../img/popup/marker_emergency.svg);}
+.marker.danger{background-image:url(../img/popup/marker_danger.svg);}
+.marker.warning {background-image:url(../img/popup/marker_warning.svg);}
+
+/* 팝업 응급상황 */
+.pop_emergency {position:fixed;z-index:1000;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);background-color:#19182f}
+.pop_emergency .card-header{position: relative;display:block;padding:0.75rem 1.25rem!important;border: 1px solid #4C4B67;border-color:#9AB0D4 #9AB0D4 #4C4B67 #9AB0D4}
+.pop_emergency .card-header>div{display:flex;align-items:center}
+.pop_emergency .card-header>.emer_info1{margin-bottom:6px}
+.pop_emergency .card-header>.emer_info1>* {margin-bottom:0}
+.pop_emergency .card-header>.emer_info2{justify-content:space-between}
+.pop_emergency .card-header>.emer_info2 .emer_address {font-size: 14px; color: #68CCFF;}
+.pop_emergency .card-header>.emer_info2 .emer_time{padding:4px 8px;border:1px solid #4cd7f9; border-radius:5px;font-size:14px;color:#68CCFF}
+.pop_emergency .card-header>.emer_info2 .emer_time>span{margin-left:8px;color:#Fff}
+
+.pop_emergency .card-body{position:relative;width:100%;padding:0!important;border: 1px solid #9AB0D4;border-width: 0 1px 0 1px}
+.pop_emergency .card-body .pop_map{width:100%;height:100%;overflow:hidden;}
+
+.pop_emergency .card-footer{display: flex; justify-content:space-between;border: 1px solid #4C4B67;border-color:#4C4B67 #9AB0D4 #9AB0D4 #9AB0D4;background-color: transparent;color: #fff;}
+.pop_emergency .card-footer p {margin-bottom:8px; font-size: 14px;}
+.pop_emergency .card-footer .input-group>*{border-top-left-radius:4px!important;border-top-right-radius:4px!important;border-bottom-left-radius:4px!important;border-bottom-right-radius:4px!important}
+
+#pop_latest_emergency {display:none;}
+#pop_latest_warning {display:none;}
+#pop_latest_danger {display:none;}
+
+
+/*팝업 응급상황 max: 최대화*/
+.pop_emergency.card.max {width:748px!important;height:auto;overflow: visible;}
+.pop_emergency.card.max .card-body {height:425px;min-height:425px;padding:0!important;overflow: visible;} /*이미지 있는 버전*/
+.pop_emergency.card.max .card-footer {height:auto !important;overflow: visible;}
+
+/*팝업 응급상황 mini: 최소화 = v4버전에는 필요 없음*/
+
+
+
+/*badge*/
+.pop_emergency .card-header .badge {position:relative;height:18px;padding:3px 7px 2px 7px;margin-right:10px;border-radius:50px;font-size:12px;color:#fff;vertical-align:top;}
+.pop_emergency .card-header .badge:before {content:'';position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;border-radius:50px;-webkit-animation: badge_blink 0.9s infinite both;animation: badge_blink 0.9s infinite both;}
+.pop_emergency .card-header .badge.badge_emergency:before {background-color:rgba(255,71,71,1);}
+.pop_emergency .card-header .badge.badge_danger:before {background-color:rgba(255,113,30,1);}
+.pop_emergency .card-header .badge.badge_warning:before {background-color:rgba(255,173,10,1);}
+
+/*119신고버튼*/
+.btn_119{width: 140px;height: 42px;padding:9px;border:1px solid rgba(255,255,255,0.4);border-radius: 4px;background-image: url(../img/popup/comp/btn_img_119.png), url(../img/popup/comp/btn_bg_119.png);background-repeat: no-repeat,repeat-x;background-position: 9px center, left top; text-align:right;font-size:12px;color: #000!important;font-weight: bold;}
+
+
+/*보호자신고버튼*/
+.btn_care {width:140px;height:42px; padding:9px; border: 1px solid rgba(255,255,255,0.4); border-radius:4px; background-color:#F7B33D;font-size:14px}
+.btn_care>span {font-size:16px}
+
+/*대응선택 select*/
+.form_etc {width:140px;margin-right:4px;padding:6px 9px;border:1px solid rgba(255,255,255,0.4);border-radius:5px; background-color:transparent; color:#fff;font-size:14px;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url(../img/popup/comp/form_etc_arrow.svg);background-position:right center;background-repeat:no-repeat;background-size:28px}
+.form_etc option {color:#000}
+
+
+/*팝업 - 세대선택시*/
+.pop_house_visual {bottom:26px;left:930px;user-select:none;width:750px; margin-top:15px;background-color:#102E60;border:1px solid #647FD1;box-shadow:0 3px 10px rgba(0,0,0,0.3);color: #fff }
+.pop_house_visual .card-body {position:relative;width:100%;height:425px;min-height:425px;padding:0!important;overflow: visible;}
+
+/*공통-팝업*/
+.pop_visual_cont {position:relative;width:100%;height:100%; overflow:hidden;background-color:#19182F}
+.pop_visual_cont_inr{position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;}
+.pop_visual_cont_inr>.inr {position:relative;width:100%; height:100%}
+
+/*공통-입구*/
+/* background-image 임시삭제
+.pop_visual_cont_inr>.inr .step_entr {background-image:url(../img/step4_entr_bg.png)}
+ */
+.pop_visual_cont_inr>.inr .step_entr {position: absolute;top:0;left:0;width:100%; height:100%;background-image:url(../img/step4_entr_201020.png);background-repeat:no-repeat;background-size: 100%; opacity:1;}
+.pop_visual_cont_inr>.inr .step_entr>.inr {position: relative;width:100%;height:100%;}
+.pop_visual_cont_inr>.inr .step_entr .entr_bg{position:absolute;z-index:3;width:100%;height:100%;background-image:url(../img/popup/entr/anim2_entr_bg.png);background-repeat:no-repeat;background-size: 100%;}
+.pop_visual_cont_inr>.inr .step_entr .entr_fg{position:absolute;z-index:6;width:100%;height:100%;background-image:url(../img/popup/entr/anim2_entr_fg.svg);background-repeat:no-repeat;background-size: 100%;}
+.pop_visual_cont_inr>.inr .step_entr .elv_bg {position:absolute;z-index:2;width:100%;height:100%;background-image:url(../img/step4_entr_201020.png);background-repeat:no-repeat;background-size: 100%; opacity: 0;}
+.pop_visual_cont_inr>.inr .step_entr .elv_open {position: absolute;z-index:5;width:64.8784px;height:62.8099px;background-image:url(../img/popup/elv/img_elv_right_bg.svg);background-repeat:no-repeat;background-position:left top; opacity: 0;}
+
+.pop_visual_cont .pop_visual_cont_inr.elv_right>.inr .step_entr .elv_open {top:255.8771px;left:218.0036px;background-image:url(../img/popup/elv/img_elv_right_bg.svg);}
+.pop_visual_cont .pop_visual_cont_inr.elv_left>.inr .step_entr .elv_open {top:264.2759px;left:200.017px;background-image:url(../img/popup/elv/img_elv_left_bg.svg);}
+
+.pop_visual_cont .pop_visual_cont_inr.reverse.elv_right>.inr .step_entr .elv_open {top:252.1683px;left:211.4532px;background-image:url(../img/popup/elv/img_elv_right_bg.svg);}
+.pop_visual_cont .pop_visual_cont_inr.reverse.elv_left>.inr .step_entr .elv_open {top:258.3349px;left:185.7221px;background-image:url(../img/popup/elv/img_elv_left_bg.svg);}
+
+/*201동 입구 승강기 포지션*/
+.pop_visual_cont.building_201.entr_left .pop_visual_cont_inr.elv_right>.inr .step_entr .elv_open {top:274.25px;left:175.5477px;background-image:url(../img/popup/elv/img_elv_right_bg.svg);}
+.pop_visual_cont.building_201.entr_right .pop_visual_cont_inr.elv_right>.inr .step_entr .elv_open {top:256.7439px;left:221.7036px;background-image:url(../img/popup/elv/img_elv_right_bg.svg);}
+
+
+
+/*단지*/
+/*동*/
+.img_building {width:100%;height:100%;background-repeat:no-repeat;background-size: 100%;}
+/*동내부*/
+.img_building_inner {position: absolute;z-index:7;top:0;left:0;width:100%; height:100%;background-repeat:no-repeat;background-size: 100%;}
+.img_building_inner>.inr {position: relative;width:100%;height:100%;}
+/*말풍선-동*/
+.txt_building{position:absolute;z-index:100;top:64.33px;left:232.65px;display:flex;justify-content:center;width:64px;height:33.1px;transform:translate(-50%,-100%);background-image:url(../img/popup/comp/txt_building.svg);background-repeat:no-repeat; background-position:left top;}
+.txt_building>span {padding:0 13px 0 0px;font-size:14px;color:#000;font-weight:500;text-align:center;background-image:url(../img/popup/comp/img_text_building_after.svg);background-size: 10.5px ;background-repeat:no-repeat;background-position:right 4.5px}
+/* 층 */
+.img_floor {position:absolute;z-index:10;left:53.106px;width:375.9386px;height:190.7601px;background-image:url(../img/popup/floor/img_floor_12.svg); background-repeat:no-repeat; background-position: left top;}
+.img_floor>.inr {position:relative;width:100%;height:100%;}
+/* 말풍선 */
+.txt_floor {position:absolute;top: 24.789px;left:361.0636px;z-index:;display:flex;justify-content:center;width:70.6387px;height:21.1455px;background-image:url(../img/popup/comp/txt_floor.svg);background-repeat:no-repeat; background-position:left top;}
+.txt_floor>span {padding: 0 13px 0 7px;font-size:14px;color:#000;font-weight:500;text-align:center;background-image:url(../img/popup/comp/img_text_after_2.svg);background-size: 10px ;background-repeat:no-repeat; background-position:right center; }
+/* 호 */
+.img_house {position:absolute;z-index:13;width:65.96px;height:33px;background-image:url(../img/popup/comp/img_house.svg);background-repeat:no-repeat; background-position:left top;}
+.img_house>.inr {position:relative;width:100%;height:100%;}
+/* 말풍선 */
+.txt_house {position:absolute;top:30.0931px;left:55.0426px;display:flex;justify-content:center;width:64.3267px;height:33.4983px;padding-top:13px;transform:translate(-50%,0);background-image:url(../img/popup/comp/img_text.svg);background-repeat:no-repeat; background-position:left top;}
+.txt_house>span {padding-right:13px;font-size:14px;color:#000;font-weight:500;text-align:center;background-image:url(../img/popup/comp/img_text_after.svg);background-size: 10.5px ;background-repeat:no-repeat; background-position:right 5px;}
+/* 엘레베이터 */
+.img_elv {position:absolute;top:18.4502px;left:124.2793px;z-index:16;width:64.8784px;height:62.8099px;background-image:url(../img/img_elv.svg);background-repeat:no-repeat; background-position:left top; }
+/* 계단그림자 */
+/* .img_shadow {position:absolute;z-index:13;top:72.9446px;left:163.2037px;z-index:;width:61.8013px;height:27.0606px;background-image:url(../img/img_shadow.svg);background-repeat:no-repeat; background-position:left top;} */
+/* 사람아이콘 opacity: 0;*/
+.img_person {position:absolute;z-index:19;top:-6px;left:25.5px;z-index:;width:18px; height:22.7px;background-image:url(../img/img_place.svg);background-repeat:no-repeat; background-position:left top;}
+/*svg route elv*/
+.route_elv {position:absolute;z-index:11;}
+.route_elv path {
+	fill-opacity: 0; 
+	stroke: #34dbb3; 
+	stroke-width: 3;
+	stroke-dasharray: 1000; 
+	stroke-dashoffset: 0; 
+}
+
+.route_stair {position:absolute;z-index:12;}
+.route_stair path{
+	fill-opacity: 0;
+    stroke: #2b78fe;
+    stroke-width: 3;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+}
+
+
+
+/*202, 205, 1~12호 복도정방향*/
+.
+
+/*층 이미지*/
+/* .house0110 .img_floor {position:absolute;z-index:10;left:55.8226px;width:375.9386px;height:190.7601px;background-image:url(../img/popup/floor/img_floor_10.svg); background-repeat:no-repeat; background-position: left top;}
+.house0310 .img_floor {background-image:url(../img/popup/floor/img_floor_10_3.svg);}
+.house0308 .img_floor {background-image:url(../img/popup/floor/img_floor_8_3.svg);} */
+
+/*201동일때*/
+/* .house0118 .img_floor {position:absolute;z-index:10;left:55.8226px;width:375.9386px;height:190.7601px;background-image:url(../img/popup/floor/img_floor_18.svg); background-repeat:no-repeat; background-position: left top;}
+.house1218 .img_floor {position:absolute;z-index:10;left:55.8226px;width:375.9386px;height:190.7601px;background-image:url(../img/popup/floor/img_floor_18_12.svg); background-repeat:no-repeat; background-position: left top;}
+
+.house0118 .img_elv {top:35.1011px;left:82.0608px;}
+.house0118 .img_shadow {top:90.1436px;left:119.5505px;}
+.house0118 .txt_building {left:178.3705px;}
+.house0118 .pop_visual_cont_inr>.inr .step_entr .elv_open {top:297.9012px;left:159.7079px;}
+.house0118 .pop_visual_cont_inr>.inr .step_entr .elv_label {top:260.9335px;left:140.2276px;}
+.house0118 .pop_visual_cont_inr>.inr .step_entr .entr_bg{background-image:url(../img/popup/entr/entr_201_1_bg.svg)!important;}
+.house0118 .pop_visual_cont_inr>.inr .step_entr .entr_fg{background-image:url(../img/popup/entr/entr_201_1_fg.svg)!important;}
+
+.house1218 .pop_visual_cont_inr>.inr .step_entr .entr_bg{background-image:url(../img/popup/entr/entr_201_2_bg.svg)!important;}
+.house1218 .pop_visual_cont_inr>.inr .step_entr .entr_fg{background-image:url(../img/popup/entr/entr_201_2_fg.svg)!important;}
+ */
+
+
+
+
+
+
+
+/*층bg : 1~12 복도정방향*/
+.count0112 .img_floor {background-image:url(../img/popup/floor/img_floor_12.svg);}
+/*elv : 202, 205 :오른쪽*/
+.count0112.elv_right .img_elv {top:27.8105px;left:160.4254px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+/*elv : 305, 307 : 왼쪽*/
+.count0112.elv_left .img_elv {top:35.3605px;left:141.6394px;background-image:url(../img/popup/elv/img_elv_left.svg); }
+
+
+/* 호 position :복도 정방향일때*/
+.count0112.house_01 .img_house {top:122.8071px;left:1.1627px;}
+.count0112.house_02 .img_house {top:114.1411px;left:23.1617px;}
+.count0112.house_03 .img_house {top:105.475px;left:45.1617px;}
+.count0112.house_04 .img_house {top:96.809px;left:67.1618px;}
+.count0112.house_05 .img_house {top:88.1429px;left:89.1618px;}
+.count0112.house_06 .img_house {top:79.4769px;left:111.1617px;}
+.count0112.house_07 .img_house {top:57.5076px;left:166.934px;}
+.count0112.house_08 .img_house {top:48.8416px;left:188.934px;}
+.count0112.house_09 .img_house {top:40.1756px;left:210.9406px;}
+.count0112.house_10 .img_house {top:31.5096px;left:232.9339px;}
+.count0112.house_11 .img_house {top:22.8435px;left:254.9339px;}
+.count0112.house_12 .img_house {top:14.1795px;left:276.9339px;}
+
+
+/*층bg : 1~12 복도 역방향*/
+.count0112.reverse .img_floor {background-image:url(../img/popup/floor/img_floor_12_re.svg);}
+
+/*elv : 1~12 복도 역방향*/
+.count0112.reverse.elv_right .img_elv {top:23.5214px;left:153.9253px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+
+/* 호 position :복도 역방향일때*/
+.count0112.reverse.house_01 .img_house {top:21.0215px;left:291.874px;}
+.count0112.reverse.house_02 .img_house {top:29.688px;left:269.8713px;}
+.count0112.reverse.house_03 .img_house {top:38.354px;left:247.7723px;}
+.count0112.reverse.house_04 .img_house {top:47.0201px;left:225.874px;}
+.count0112.reverse.house_05 .img_house {top:55.6862px;left:203.874px;}
+.count0112.reverse.house_06 .img_house {top:64.3522px;left:181.874px;}
+.count0112.reverse.house_07 .img_house {top:86.3214px;left:126.1018px;}
+.count0112.reverse.house_08 .img_house {top:94.9874px;left:104.0396px;}
+.count0112.reverse.house_09 .img_house {top:103.6534px;left:82.1018px;}
+.count0112.reverse.house_10 .img_house {top:112.3195px;left:60.1018px;}
+.count0112.reverse.house_11 .img_house {top:120.9855px;left:38.1018px;}
+.count0112.reverse.house_12 .img_house {top:129.8526px;left:16.1101px;}
+
+/*층 bg : 1~10, 복도정방향*/
+.count0110 .img_floor {background-image:url(../img/popup/floor/img_floor_10.svg);}
+/*층에 따라 호수 변할때, 301, 301동, 13층 부터 3~10호*/
+.count0110.floor_03_10 .img_floor{background-image:url(../img/popup/floor/img_floor_10_03_10.svg);}
+/*층에 따라 호수 변할때, 403동, 15층 부터 3~8호*/
+.count0110.floor_03_08 .img_floor{background-image:url(../img/popup/floor/img_floor_10_03_08.svg);}
+
+/*elv 왼쪽 301 302*/
+.count0110.elv_left .img_elv {top:35.3605px;left:141.6394px;background-image:url(../img/popup/elv/img_elv_left.svg); }
+/*elv 오른쪽 403*/
+.count0110.elv_right .img_elv {top:27.8105px;left:160.4254px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+
+/* 호 position :복도 정방향일때*/
+/* .count0110.house_01 .img_house {top:122.8071px;left:1.1627px;} */
+.count0110.house_01 .img_house {top:114.1411px;left:23.1617px;}
+.count0110.house_02 .img_house {top:105.475px;left:45.1617px;}
+.count0110.house_03 .img_house {top:96.809px;left:67.1618px;}
+.count0110.house_04 .img_house {top:88.1429px;left:89.1618px;}
+.count0110.house_05 .img_house {top:79.4769px;left:111.1617px;}
+.count0110.house_06 .img_house {top:57.5076px;left:166.934px;}
+.count0110.house_07 .img_house {top:48.8416px;left:188.934px;}
+.count0110.house_08 .img_house {top:40.1756px;left:210.9406px;}
+.count0110.house_09 .img_house {top:31.5096px;left:232.9339px;}
+.count0110.house_10 .img_house {top:22.8435px;left:254.9339px;}
+/* .count0110.house_12 .img_house {top:14.1795px;left:276.9339px;} */
+
+/*층 bg : 1~1-, 복도역방향*/
+.count0110.reverse .img_floor {background-image:url(../img/popup/floor/img_floor_10_re.svg);}
+.count0110.reverse.floor_03_10 .img_floor{background-image:url(../img/popup/floor/img_floor_10_re_03_10.svg);}
+
+/*elv : 303 왼쪽*/
+.count0110.reverse.elv_left .img_elv {top:29.4089px;left:127.4519px;background-image:url(../img/popup/elv/img_elv_left.svg); }
+
+/* 호 position :복도 역방향일때*/
+.count0110.reverse.house_01 .img_house {top:29.688px;left:269.8713px;}
+.count0110.reverse.house_02 .img_house {top:38.354px;left:247.7723px;}
+.count0110.reverse.house_03 .img_house {top:47.0201px;left:225.874px;}
+.count0110.reverse.house_04 .img_house {top:55.6862px;left:203.874px;}
+.count0110.reverse.house_05 .img_house {top:64.3522px;left:181.874px;}
+.count0110.reverse.house_06 .img_house {top:86.3214px;left:126.1018px;}
+.count0110.reverse.house_07 .img_house {top:94.9874px;left:104.0396px;}
+.count0110.reverse.house_08 .img_house {top:103.6534px;left:82.1018px;}
+.count0110.reverse.house_09 .img_house {top:112.3195px;left:60.1018px;}
+.count0110.reverse.house_10 .img_house {top:120.9855px;left:38.1018px;}
+
+/*층 bg : 1~18호, 복도 정방향, 1~9호까지*/
+.count0118.entr_left .img_floor{background-image:url(../img/popup/floor/img_floor_18_front.svg);}
+/*elv 1~9호*/
+.count0118.entr_left.elv_right .img_elv {top:45.6791px;left:119.7253px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+/*elv 10~18호*/
+.count0118.entr_right.elv_right .img_elv {top:27.8897px;left:164.1253px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+
+.count0118.entr_left .pop_visual_cont_inr>.inr .step_entr .entr_bg{position:absolute;z-index:3;width:100%;height:100%;background-image:url(../img/popup/entr/anim2_entr_bg_201_front.png);background-repeat:no-repeat;background-size: 100%;}
+.count0118.entr_left .pop_visual_cont_inr>.inr .step_entr .entr_fg{position:absolute;z-index:6;width:100%;height:100%;background-image:url(../img/popup/entr/anim2_entr_fg_201_front.svg);background-repeat:no-repeat;background-size: 100%;}
+
+
+
+/* 호 position :201. 복도 정방향일때*/
+.count0118.house_01 .img_house {top:122.8071px;left:1.1627px;}
+.count0118.house_02 .img_house {top:114.1411px;left:23.1617px;}
+.count0118.house_03 .img_house {top:105.475px;left:45.1617px;}
+.count0118.house_04 .img_house {top:96.809px;left:67.1618px;}
+.count0118.house_05 .img_house {top:74.8356px;left:122.9142px;}
+.count0118.house_06 .img_house {top:66.1696px;left:144.9142px;}
+.count0118.house_07 .img_house {top:57.5036px;left:166.9141px;}
+.count0118.house_08 .img_house {top:48.8376px;left:188.9141px;}
+.count0118.house_09 .img_house {top:40.1715px;left:210.9141px;}
+
+.count0118.house_10 .img_house {top:114.1411px;left:23.1617px;}
+.count0118.house_11 .img_house {top:105.475px;left:45.1617px;}
+.count0118.house_12 .img_house {top:96.809px;left:67.1618px;}
+.count0118.house_13 .img_house {top:88.1429px;left:89.1618px;}
+.count0118.house_14 .img_house {top:79.4769px;left:111.1617px;}
+.count0118.house_15 .img_house {top:57.5076px;left:166.934px;}
+.count0118.house_16 .img_house {top:48.8416px;left:188.934px;}
+.count0118.house_17 .img_house {top:40.1756px;left:210.9406px;}
+.count0118.house_18 .img_house {top:31.5096px;left:232.9339px;}
+
+
+/*층 bg : 1~18호, 복도 정방향, 10~18호까지*/
+.count0118.entr_right .img_floor{background-image:url(../img/popup/floor/img_floor_18_back.svg);}
+
+/*층라벨*/
+.count0118.house_10 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_11 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_12 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_13 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_14 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_15 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_16 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_17 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+.count0118.house_18 .txt_floor {position:absolute;top: 24.789px;left:321.0636px;}
+
+
+/*elv 306동*/
+.building_fold.elv_right .img_elv {top:27.8105px;left:160.4254px;background-image:url(../img/popup/elv/img_elv_right.svg); }
+
+/*층bg 306동, 1~12 복도정방향, 꺾임*/
+.building_fold .img_floor {background-image:url(../img/popup/floor/img_floor_12_fold.svg);}
+/*306호 15층일때 1~10호 까지만 있음*/
+.building_fold.floor_15 .img_floor {background-image:url(../img/popup/floor/img_floor_10_fold.svg);}
+
+.building_fold .txt_floor {top:65px;left:370px}
+
+/*호 position: 306동 1~6호. 1~12복도정방향과 동일*/
+.building_fold.house_01 .img_house {top:122.8071px;left:1.1627px;}
+.building_fold.house_02 .img_house {top:114.1411px;left:23.1617px;}
+.building_fold.house_03 .img_house {top:105.475px;left:45.1617px;}
+.building_fold.house_04 .img_house {top:96.809px;left:67.1618px;}
+.building_fold.house_05 .img_house {top:88.1429px;left:89.1618px;}
+.building_fold.house_06 .img_house {top:79.4769px;left:111.1617px;}
+
+
+.house_fold .img_house {position:absolute;z-index:13;width:23.5px;height:21.1799px;background-image:url(../img/img_house_fold.svg);background-repeat:no-repeat; background-position:left top;}
+.house_fold .img_person {position:absolute;z-index:19;top:-11.35px;left:2.5px;z-index:;width:18px; height:22.7px;background-image:url(../img/img_place.svg);background-repeat:no-repeat; background-position:left top;}
+.house_fold .txt_house {left:50%;}
+
+
+/*호 position: 306동 7~12호*/
+.house_fold.house_07 .img_house {top:64.9226px;left:224.7256px;}
+.house_fold.house_08 .img_house {top:64.9226px;left:247.9505px;}
+.house_fold.house_09 .img_house {top:64.9226px;left:270.976px;}
+.house_fold.house_10 .img_house {top:64.9226px;left:293.976px;}
+.house_fold.house_11 .img_house {top:64.9226px;left:316.976px;}
+.house_fold.house_12 .img_house {top:64.9226px;left:339.976px;}
+
+
+
+
+
+
+/* 1~12호 역방향 호 position*/
+/* .reverse.house_12 .img_house {top:19.3484px;left:289.6289px;}
+.reverse.house_11 .img_house {top:27.9498px;left:267.8026px;}
+.reverse.house_10 .img_house {top:36.5511px;left:245.9763px;}
+.reverse.house_09 .img_house {top:45.1524px;left:224.15px;}
+.reverse.house_08 .img_house {top:53.7538px;left:202.3238px;}
+.reverse.house_07 .img_house {top:62.3539px;left:180.4975px;}
+.reverse.house_06 .img_house {top:84.1605px;left:125.1781px;}
+.reverse.house_05 .img_house {top:92.7621px;left:103.3518px;}
+.reverse.house_04 .img_house {top:101.3638px;left:81.5256px;}
+.reverse.house_03 .img_house {top:109.9654px;left:59.6993px;}
+.reverse.house_02 .img_house {top:118.5671px;left:37.873px;}
+.reverse.house_01 .img_house {top:127.1687px;left:16.0467px;} */
+
+/* 1~10호 정방향 호 position */
+/* .house0110.house_10 .img_house {top:118.5671px;left:37.873px;}
+.house0110.house_09 .img_house {top:109.9654px;left:59.6993px;}
+.house0110.house_08 .img_house {top:101.3638px;left:81.5256px;}
+.house0110.house_07 .img_house {top:92.7621px;left:103.3518px;}
+.house0110.house_06 .img_house {top:84.1605px;left:125.1781px;}
+.house0110.house_05 .img_house {top:62.3539px;left:180.4975px;}
+.house0110.house_04 .img_house {top:53.7538px;left:202.3238px;}
+.house0110.house_03 .img_house {top:45.1524px;left:224.15px;}
+.house0110.house_02 .img_house {top:36.5511px;left:245.9763px;}
+.house0110.house_01 .img_house {top:27.9498px;left:267.8026px;}
+ */
+/* 1~10호 역방향 호 position */
+/* .reverse.house0110.house_10 .img_house {top:27.9498px;left:267.8026px;}
+.reverse.house0110.house_09 .img_house {top:36.5511px;left:245.9763px;}
+.reverse.house0110.house_08 .img_house {top:45.1524px;left:224.15px;}
+.reverse.house0110.house_07 .img_house {top:53.7538px;left:202.3238px;}
+.reverse.house0110.house_06 .img_house {top:62.3539px;left:180.4975px;}
+.reverse.house0110.house_05 .img_house {top:84.1605px;left:125.1781px;}
+.reverse.house0110.house_04 .img_house {top:92.7621px;left:103.3518px;}
+.reverse.house0110.house_03 .img_house {top:101.3638px;left:81.5256px;}
+.reverse.house0110.house_02 .img_house {top:109.9654px;left:59.6993px;}
+.reverse.house0110.house_01 .img_house {top:118.5671px;left:37.873px;} */
+
+/*1~18호 정방향 호 position */
+
+
+/*1~18호 역방향 호 position */
+/* .reverse.house_12 .img_house {}
+.reverse.house_11 .img_house {top:27.9498px;left:267.8026px;}
+.reverse.house_10 .img_house {top:36.5511px;left:245.9763px;}
+.reverse.house_09 .img_house {top:45.1524px;left:224.15px;}
+.reverse.house_08 .img_house {top:53.7538px;left:202.3238px;}
+.reverse.house_07 .img_house {top:62.3539px;left:180.4975px;}
+.reverse.house_06 .img_house {} 
+.reverse.house_05 .img_house {}
+.reverse.house_04 .img_house {top:101.3638px;left:81.5256px;}
+.reverse.house_03 .img_house {top:109.9654px;left:59.6993px;}
+.reverse.house_02 .img_house {top:118.5671px;left:37.873px;}
+.reverse.house_01 .img_house {top:127.1687px;left:16.0467px;} */
+
+
+/*층 position*/
+.floor_15 .img_floor {top:35.9161px;}
+.floor_14 .img_floor {top:49.6774px;}
+.floor_13 .img_floor {top:63.4386px;}
+.floor_12 .img_floor {top:77.1998px;}
+.floor_11 .img_floor {top:90.961px;}
+.floor_10 .img_floor {top:104.7222px;}
+.floor_09 .img_floor {top:118.4834px;}
+.floor_08 .img_floor {top:132.2447px;} 
+.floor_07 .img_floor {top:146.0059px;}
+.floor_06 .img_floor {top:159.7671px;}
+.floor_05 .img_floor {top:173.5283px;}
+.floor_04 .img_floor {top:187.2895px;}
+.floor_03 .img_floor {top:201.0507px;}
+.floor_02 .img_floor {top:214.8119px;}
+.floor_01 .img_floor {top:228.5732px;}
+
+/*scale*/
+.floor_15 .scale-up {transform-origin: 10% 2%; }
+.floor_14 .scale-up {transform-origin: 10% 10%; }
+.floor_13 .scale-up {transform-origin: 10% 18%; }
+.floor_12 .scale-up {transform-origin: 10% 26%; }
+.floor_11 .scale-up {transform-origin: 10% 34%; }
+.floor_10 .scale-up {transform-origin: 10% 42%; }
+.floor_09 .scale-up {transform-origin: 10% 52%; }
+.floor_08 .scale-up {transform-origin: 10% 60%; } /*이거기준*/
+.floor_07 .scale-up {transform-origin: 10% 67%; }
+.floor_06 .scale-up {transform-origin: 10% 76%; }
+.floor_05 .scale-up {transform-origin: 10% 84%; }
+.floor_04 .scale-up {transform-origin: 10% 92%; }
+.floor_03 .scale-up {transform-origin: 10% 100%; }
+.floor_02 .scale-up {transform-origin: 10% 100%; }
+.floor_01 .scale-up {transform-origin: 10% 100%; }
+
+
+@media screen and (max-width:768px){
+    /* body,html {height: auto;} */
+    .pop_emergency{transform:translate(-50%,-50%) scale(0.8);}
+}
+
+@media all and (max-width:568px){
+    /* body,html {height: auto;} */
+    .pop_emergency{transform:translate(-50%,-50%) scale(0.5);}
+}
