@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.16" height="23.044" viewBox="0 0 26.16 23.044">
+  <g id="ic_dange_icon" transform="translate(-433.78 -285.648)">
+    <rect id="사각형_1640" data-name="사각형 1640" width="4.993" height="16" transform="translate(435.628 292.148)" fill="#e6edff"/>
+    <rect id="사각형_1641" data-name="사각형 1641" width="5" height="16" transform="translate(451.121 292.148)" fill="#e6edff"/>
+    <rect id="사각형_1642" data-name="사각형 1642" width="10.5" height="22" transform="translate(440.621 286.148)" fill="#e6edff"/>
+    <g id="그룹_1711" data-name="그룹 1711">
+      <rect id="사각형_1643" data-name="사각형 1643" width="2" height="2" transform="translate(443.121 288.648)" fill="#516dc2"/>
+      <rect id="사각형_1644" data-name="사각형 1644" width="2" height="2" transform="translate(446.621 288.648)" fill="#516dc2"/>
+      <rect id="사각형_1645" data-name="사각형 1645" width="2" height="2" transform="translate(443.121 292.648)" fill="#516dc2"/>
+      <rect id="사각형_1646" data-name="사각형 1646" width="2" height="2" transform="translate(446.621 292.648)" fill="#516dc2"/>
+      <rect id="사각형_1647" data-name="사각형 1647" width="2" height="2" transform="translate(443.121 296.648)" fill="#516dc2"/>
+      <rect id="사각형_1648" data-name="사각형 1648" width="2" height="2" transform="translate(446.621 296.648)" fill="#516dc2"/>
+      <rect id="사각형_1649" data-name="사각형 1649" width="2" height="2" transform="translate(443.121 300.648)" fill="#516dc2"/>
+      <rect id="사각형_1650" data-name="사각형 1650" width="2" height="2" transform="translate(446.621 300.648)" fill="#516dc2"/>
+    </g>
+    <g id="그룹_1712" data-name="그룹 1712">
+      <rect id="사각형_1651" data-name="사각형 1651" width="2" height="2" transform="translate(438.099 294.648)" fill="#99abe0"/>
+      <rect id="사각형_1652" data-name="사각형 1652" width="2" height="2" transform="translate(438.099 298.648)" fill="#99abe0"/>
+      <rect id="사각형_1653" data-name="사각형 1653" width="2" height="2" transform="translate(438.099 302.648)" fill="#99abe0"/>
+    </g>
+    <g id="그룹_1713" data-name="그룹 1713">
+      <rect id="사각형_1654" data-name="사각형 1654" width="2" height="2" transform="translate(451.623 294.648)" fill="#99abe0"/>
+      <rect id="사각형_1655" data-name="사각형 1655" width="2" height="2" transform="translate(451.623 298.648)" fill="#99abe0"/>
+      <rect id="사각형_1656" data-name="사각형 1656" width="2" height="2" transform="translate(451.623 302.648)" fill="#99abe0"/>
+    </g>
+    <rect id="사각형_1657" data-name="사각형 1657" width="5.007" height="15" transform="translate(440.621 292.648)" fill="none"/>
+    <rect id="사각형_1658" data-name="사각형 1658" width="4.493" height="15" transform="translate(436.128 292.648)" fill="none"/>
+    <rect id="사각형_1659" data-name="사각형 1659" width="5" height="15" transform="translate(446.121 292.648)" fill="none"/>
+    <rect id="사각형_1660" data-name="사각형 1660" width="4.5" height="15" transform="translate(451.121 292.648)" fill="none"/>
+    <path id="패스_56" data-name="패스 56" d="M454.038,307.648h-2.417v-15h4V304.6a1.4,1.4,0,0,1,1-.5V291.648h-5v-6h-11.5v6h-4.993v16H433.78v1h21.311A1.408,1.408,0,0,1,454.038,307.648Zm-13.917,0h-3.993v-15h3.993Zm10.5,0h-9.5v-21h9.5Z" fill="#0f2347"/>
+    <g id="그룹_1714" data-name="그룹 1714">
+      <path id="패스_57" data-name="패스 57" d="M458.055,305.327c-.016,0-.031,0-.047,0a1.475,1.475,0,0,0-2.867,0c-.016,0-.031,0-.047,0a1.48,1.48,0,0,0,0,2.96h2.961a1.48,1.48,0,1,0,0-2.96Z" fill="#66e193"/>
+      <path id="패스_58" data-name="패스 58" d="M458.055,308.692h-2.961a3.677,3.677,0,1,1,2.961,0Zm-2.943-2.957a1.074,1.074,0,1,0-.018,2.147h2.961a1.075,1.075,0,0,0,.018-2.15l-.345.047-.113-.351a1.07,1.07,0,0,0-2.081,0l-.079.324-.334-.017Z" fill="#56bd7b"/>
+    </g>
+  </g>
+</svg>
