@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45.834" height="20.001" viewBox="0 0 45.834 20.001">
+  <g id="info_bg" transform="translate(-14 -71)">
+    <path id="합치기_1" data-name="합치기 1" d="M4,20a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0H45.834A7.043,7.043,0,0,0,39,7h0v9a4,4,0,0,1-4,4Z" transform="translate(14 71.001)" fill="#3492ff"/>
+    <text id="INFO" transform="translate(34 84.002)" fill="#fff" font-size="10" font-family="GmarketSansTTFMedium, Gmarket Sans TTF"><tspan x="-13.785" y="0">INFO</tspan></text>
+  </g>
+</svg>
