@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <g id="rate_0" transform="translate(-1372 -3766)">
+    <g id="타원_11" data-name="타원 11" transform="translate(1372 3766)" fill="none" stroke="#eaeaea" stroke-width="3.5">
+      <circle cx="19" cy="19" r="19" stroke="none"/>
+      <circle cx="19" cy="19" r="17.25" fill="none"/>
+    </g>
+    <path id="thunder" d="M120.845,6.173a.493.493,0,0,0-.415-.226h-3.469V.5a.5.5,0,0,0-.949-.2l-3.965,8.921a.5.5,0,0,0,.453.7h3.469v5.452a.5.5,0,0,0,.393.485.528.528,0,0,0,.1.011.5.5,0,0,0,.453-.294l3.965-8.921A.5.5,0,0,0,120.845,6.173Z" transform="translate(1274.495 3777)" fill="#eaeaea"/>
+  </g>
+</svg>
