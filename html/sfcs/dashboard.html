@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대시보드 DEMO</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/sfcs/common.css"/>
+    <link rel="stylesheet" href="../../css/sfcs/dashboard.css"/>
+    <link rel="stylesheet" href="../../css/sfcs/icomoon.css"/>
+
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- jquery ui script -->
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <!-- bootstrap4 js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper dark">
+        <!-- header -->
+        <div class="header clearfix">
+            <a href="#" id="logo" style="cursor:default">
+                <img src="../../img/sfcs/logo_dashboard.png" alt="BI로고">
+            </a>
+            <div>
+            </div>
+        </div>
+        <!-- //header -->
+        <div class="container-fluid">
+            <!-- 일괄제어 -->
+            <div class="row justify-content-center position-relative">
+                <a href="#" id="btn_expand" class="btn" data-toggle="tooltip" data-placement="bottom" title="확장">확장<span><i class="fas fa-expand-arrows-alt"></i></span></a>
+                <div class="col-8">
+                    <div class="card btn_cont btn_cont_all">
+                        <div class="card-body">
+                            <span>일괄제어</span>
+                            <div>
+                                <span>운전제어</span>
+                                <div class="btn-group run_control">
+                                    <button id="btn_run_start" type="button" class="btn">운전시작</button>
+                                    <button id="btn_run_stop" type="button" class="btn">운전정지</button>
+                                </div> 
+                            </div>
+                            <div>
+                                <span>부하율</span>
+                                <div class="btn-group rate_control">
+                                    <button id="btn_run_rate50" type="button" class="btn btn_rate50">50%</button>
+                                    <button id="btn_run_rate75" type="button" class="btn btn_rate75">75%</button>
+                                    <button id="btn_run_rate100" type="button" class="btn btn_rate100">100%</button>
+                                </div>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+                <div id="btn_mode_toggle" class="mode_toggle">
+                    <div class="inr">
+                        <button class="show_light active" type="button"><span><i class="fas fa-sun"></i></span>라이트모드로 보기</button>
+                        <button class="show_dark" type="button"><span><i class="far fa-moon"></i></span>다크모드로 보기</button>
+                    </div>
+                </div>   
+            </div>
+            <!-- //일괄제어 -->
+            <!-- content -->
+            <div class="scroll_cont">
+                <div class="row cont_item">
+                    <!-- item -->
+                    <div class="col-6">
+                        <div class="card item rate50">
+                            <div class="card-header">
+                                <img src="../../img/sfcs/img_fuelcell.png">
+                                <p id="" class="text_limit_2">1호기</p>
+                                <div class="state run_state">
+                                    <p>운전중</p>
+                                    <span>운전상태</span>
+                                </div>
+                                <div class="state rate_state">
+                                    <p>50%</p>
+                                    <span>부하율</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th>발전량</th><td><span>333</span> w</td>
+                                        <th>열생산량</th><td><span>333</span> w</td>
+                                    </tr>
+                                    <tr>
+                                        <th>누적 발전량</th><td><span>333</span> kWh</td>
+                                        <th>누적 열생산량</th><td><span>333</span> kWh</td>
+                                    </tr>
+                                    <tr>
+                                        <th>에러정보</th>
+                                        <td colspan="3"><span>-</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="control_modal fade modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">1호기</h5>
+                                        <button type="button" class="close" data-dismiss="modal" area-label="close">
+                                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body btn_cont">
+                                        <div>
+                                            <p>운전제어</p>
+                                            <div class="btn-group run_control">
+                                                <button class="btn btn_start" type="button" name="options">운전시작</button>
+                                                <button class="btn btn_stop" type="button" name="options">운전정지</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>부하율제어</p>
+                                            <div class="btn-group rate_control">
+                                                <button class="btn btn_rate50" type="button" name="options">50%</button>
+                                                <button class="btn btn_rate75" type="button" name="options">75%</button>
+                                                <button class="btn btn_rate100" type="button" name="options">100%</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <!-- item -->
+                    <div class="col-6">
+                        <div class="card item error rate0">
+                            <div class="card-header">
+                                <img src="../../img/sfcs/img_fuelcell.png">
+                                <p id="" class="text_limit_2">2호기</p>
+                                <div class="state run_state">
+                                    <p>통신오류</p>
+                                    <span>운전상태</span>
+                                </div>
+                                <div class="state rate_state">
+                                    <p>50%</p>
+                                    <span>부하율</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th>발전량</th><td><span>-</span> w</td>
+                                        <th>열생산량</th><td><span>-</span> w</td>
+                                    </tr>
+                                    <tr>
+                                        <th>누적 발전량</th><td><span>-</span> kWh</td>
+                                        <th>누적 열생산량</th><td><span>-</span> kWh</td>
+                                    </tr>
+                                    <tr>
+                                        <th>에러정보</th>
+                                        <td colspan="3"><span>-</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="control_modal fade modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">2호기</h5>
+                                        <button type="button" class="close" data-dismiss="modal" area-label="close">
+                                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body btn_cont">
+                                        <div>
+                                            <p>운전제어</p>
+                                            <div class="btn-group run_control">
+                                                <button class="btn btn_start" type="button" name="options">운전시작</button>
+                                                <button class="btn btn_stop" type="button" name="options">운전정지</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>부하율제어</p>
+                                            <div class="btn-group rate_control">
+                                                <button class="btn btn_rate50" type="button" name="options">50%</button>
+                                                <button class="btn btn_rate75" type="button" name="options">75%</button>
+                                                <button class="btn btn_rate100" type="button" name="options">100%</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <!-- item -->
+                    <div class="col-6">
+                        <div class="card item start rate75">
+                            <div class="card-header">
+                                <img src="../../img/sfcs/img_fuelcell.png">
+                                <p id="" class="text_limit_2">3호기</p>
+                                <div class="state run_state">
+                                    <p>운전중</p>
+                                    <span>운전상태</span>
+                                </div>
+                                <div class="state rate_state">
+                                    <p>75%</p>
+                                    <span>부하율</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th>발전량</th><td><span>333</span> w</td>
+                                        <th>열생산량</th><td><span>333</span> w</td>
+                                    </tr>
+                                    <tr>
+                                        <th>누적 발전량</th><td><span>333</span> kWh</td>
+                                        <th>누적 열생산량</th><td><span>333</span> kWh</td>
+                                    </tr>
+                                    <tr>
+                                        <th>에러정보</th>
+                                        <td colspan="3"><span>-</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="control_modal fade modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">3호기</h5>
+                                        <button type="button" class="close" data-dismiss="modal" area-label="close">
+                                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body btn_cont">
+                                        <div>
+                                            <p>운전제어</p>
+                                            <div class="btn-group run_control">
+                                                <button class="btn btn_start" type="button" name="options">운전시작</button>
+                                                <button class="btn btn_stop" type="button" name="options">운전정지</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>부하율제어</p>
+                                            <div class="btn-group rate_control">
+                                                <button class="btn btn_rate50" type="button" name="options">50%</button>
+                                                <button class="btn btn_rate75" type="button" name="options">75%</button>
+                                                <button class="btn btn_rate100" type="button" name="options">100%</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                    <!-- item -->
+                    <div class="col-6">
+                        <div class="card item stop rate0">
+                            <div class="card-header">
+                                <img src="../../img/sfcs/img_fuelcell.png">
+                                <p id="" class="text_limit_2">4호기</p>
+                                <div class="state run_state">
+                                    <p>운전정지</p>
+                                    <span>운전상태</span>
+                                </div>
+                                <div class="state rate_state">
+                                    <p>0%</p>
+                                    <span>부하율</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th>발전량</th><td><span>0</span> w</td>
+                                        <th>열생산량</th><td><span>0</span> w</td>
+                                    </tr>
+                                    <tr>
+                                        <th>누적 발전량</th><td><span>0</span> kWh</td>
+                                        <th>누적 열생산량</th><td><span>0</span> kWh</td>
+                                    </tr>
+                                    <tr>
+                                        <th>에러정보</th>
+                                        <td colspan="3"><span>-</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="control_modal fade modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">4호기</h5>
+                                        <button type="button" class="close" data-dismiss="modal" area-label="close">
+                                            <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body btn_cont">
+                                        <div>
+                                            <p>운전제어</p>
+                                            <div class="btn-group run_control">
+                                                <button class="btn btn_start" type="button" name="options">운전시작</button>
+                                                <button class="btn btn_stop" type="button" name="options">운전정지</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>부하율제어</p>
+                                            <div class="btn-group rate_control">
+                                                <button class="btn btn_rate50" type="button" name="options">50%</button>
+                                                <button class="btn btn_rate75" type="button" name="options">75%</button>
+                                                <button class="btn btn_rate100" type="button" name="options">100%</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- item -->
+                </div>
+            </div>
+            <!-- //content -->
+        </div>
+
+    </div>
+
+    <script>
+        $(function(){
+            //modal
+            $('.card.item').on('click', function(){
+                $(this).children('.modal').modal("show");
+            });
+            //mode change
+    		$("#btn_mode_toggle button").on('click', function(){
+    			if($(this).hasClass('show_light')){ //현재 다크 모드일경우 라이트 모드로 변경
+    				$('.show_light').removeClass('active');//light 버튼 active 해제
+    				$('.show_dark').addClass('active');//dark 버튼 active 추가
+    				$('.wrapper').removeClass('dark');//wrapper에 dark 추가
+    			}else if($(this).hasClass('show_dark')){ //현재 라이트 모드일 경우 다크 모드로 변경 
+    				$('.show_dark').removeClass('active');//dark 버튼 active 해제
+    				$('.show_light').addClass('active');//light 버튼 active 추가
+    				$('.wrapper').addClass('dark');//wrapper에 dark 해제
+    			}
+    		});
+        });
+    </script>
+</body>
+</html>
