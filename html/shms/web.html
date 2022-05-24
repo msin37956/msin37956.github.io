@@ -8,6 +8,8 @@
     <!-- bootstrap5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
     <link rel="stylesheet" href="../../css/shms/common.css"/>
     <link rel="stylesheet" href="../../css/shms/dashboard_v4.css"/>
     <link rel="stylesheet" href="../../css/shms/popup.css"/>
@@ -21,6 +23,7 @@
     <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
     <!-- bootstrap5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="wrap">
@@ -51,9 +54,9 @@
                 <h1 class="title"></h1>
                 <nav class="profile_nav">
                     <a href="#" style="cursor:default!important">
-                        <span th:text="${session.user_name}"></span>
+                        <span>관리자</span>
                     </a>
-                    <a href="/common/api/logout">
+                    <a href="#">
                         <span>로그아웃</span>
                     </a>
                     <a href="#" onClick="popup.openUserconfig()"> 
@@ -63,6 +66,611 @@
             </div>
         </div>
         <!-- //header -->
+        <section id="container">
+            <!-- content -->
+            <div id="content" class="container-fluid">
+                <div class="row">
+                    <!-- main_content -->
+                    <div class="col-xxl-5 col-xl-7 col-lg-7 col-md-6 col-12 area_main">
+                        <div class="row">
+        					<div class="col-12" style="height:100%;">
+        						<div class="inr">
+        							<!-- 전체세대 실시간 현황 -->
+									<div class="area_house_state area_main_conts1">
+										<div class="inr">
+											<div class="card">
+												<div class="card-header">
+													<p class="card-title"><span class="txt_house_type"></span> 실시간 현황</p>
+												</div>
+												<div class="card-body">
+													<div class="inr">
+														<div id="btn_house_all" class="house_count all">
+					        								<p>전체</p>
+					        								<span id="txt_status_all"></span>
+					        							</div>
+														<div id="btn_house_emergency" class="house_count emergency">
+					        								<p>응급</p>
+					        								<span id="txt_status_emergency"></span>
+					        							</div>
+					        							<div id="btn_house_danger" class="house_count danger">
+					        								<p>위험</p>
+					        								<span id="txt_status_danger"></span>
+					        							</div>
+					        							<div id="btn_house_warning" class="house_count warning">
+					        								<p>주의</p>
+					        								<span id="txt_status_caution"></span>
+					        							</div>
+					        							<div id="btn_house_error" class="house_count error">
+					        								<p>동작오류</p>
+					        								<span id="txt_status_error"></span>
+					        							</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //전체세대 실시간 현황 -->
+									<!-- 누적이벤트 -->
+									<div class="area_total_event area_main_conts2">
+										<div class="inr">
+											<div class="card">
+												<div class="card-header">
+													<p class="card-title"><span class="txt_house_type"></span> 누적이벤트</p>
+												</div>
+												<div class="card-body">
+													<div class="inr">
+														<div class="today">
+															<div class="area_body">
+																<div class="today_all">
+																	<span>현재 누적건수 전체 <span id="txt_event_today_all"></span> 건 중</span>
+																</div>
+																<div class="today_type">
+																	<div class="emergency">
+																		<p>응급</p>
+																		<span id="txt_event_today_emergency"></span>
+																	</div>
+																	<div class="danger">
+																		<p>위험</p>
+																		<span id="txt_event_today_danger"></span>
+																	</div>
+																	<div class="warning">
+																		<p>주의</p>
+																		<span id="txt_event_today_warning"></span>
+																	</div>
+																	<div class="end">
+																		<p>상황종료</p>
+																		<span id="txt_event_today_end"></span>
+																	</div>
+																</div>
+																<div class="today_info">처리되지 않은 이벤트가 <span id="txt_event_today_ongoing"></span>건 있습니다</div>
+															</div>
+														</div>
+														<div class="event_graph">
+															<div class="area_header">
+																<p class="area_title">이벤트 일별 현황 
+																	<select id="eventType" class="form-control">
+					        											<option>전체</option>
+					        											<option>응급</option>
+					        										</select>
+				        										</p>
+															</div>
+															<div class="area_body">
+																<div class="inr">
+																	<div id="divEvent" class="graph_inner h-100 w-100" >
+														  				<canvas id="chartEvent" style="height:100%;"></canvas>
+														  			</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //누적이벤트 -->
+									<!-- 실시간이벤트 -->
+									<div class="area_realtime_event area_main_conts3">
+										<div class="inr">
+											<div class="card">
+												<div class="card-header">
+													<p class="card-title"><span class="txt_house_type"></span> 진행중 이벤트</p>
+												</div>
+												<div class="card-body">
+													<div class="inr">
+														<div class="btn_list_filter_wrapper">
+					        								<div class="btn_list_filter emergency active">
+					        									<span class="tit">응급</span>
+					        									<span id="txt_today_emergency" class="num"></span>
+					        								</div>
+					        								<div class="btn_list_filter danger active">
+					        									<span class="tit">위험</span>
+					        									<span id="txt_today_danger" class="num"></span>
+					        								</div>
+					        								<div class="btn_list_filter warning">
+					        									<span class="tit">주의</span>
+					        									<span id="txt_today_caution" class="num"></span>
+					        								</div>
+					        							</div>
+					        							<ul id="event_list" class="list_wrapper">
+					        								<!-- 이벤트 아이템 샘플 -->
+					        								<!-- 
+					        								<li class="list_item danger">
+					        									<button class="btn_resize max" title="최대화"></button>
+					        									<p class="list_status">
+					        										<em class="list_badge"></em>
+					        										<span class="event_name_wrapper">
+					        											<span>전기 - 사용량이상</span>
+					        											<span>공기청정기 - 움직임이상</span>
+					        										</span>
+					        										<span class="event_length">
+					        											+ <span>3</span>
+					        										</span>
+				        										</p>
+					        									<p class="list_tit">대구 수성구 범안로 81 (범물용지4단지 401동 1406호)</p>
+					        									<p class="list_date">2021-07-28 08:35:02</p>
+					        								</li>
+ -->
+					        							</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //실시간이벤트 -->
+									<!-- 전체세대 실시간 현황 목록 -->
+								   	<div id="pop_house_list" class="card overall_popup pop_house_list">
+								    	<div class="card-header">
+								    		<h5 class="card_header_text"><span id="house_state_text"></span> 세대현황 </h5>
+								    		<button type="button" class="btn-close btn-close-white">
+								            <!-- <span aria-hidden="true"><i class="fas fa-times"></i></span> -->
+								            </button>
+								    	</div>
+								    	<div class="card-body text-center">
+								             <div>
+									             <table id="realHomeTable" class="table table-sm table-hover">
+									             	<thead>
+									             		<tr>
+									             			<th scope="col" style="width:37%">위치</th>
+									             			<th scope="col" style="width:20%">상태</th>
+									             			<th scope="col" style="width:28%">마지막 수신일자</th>
+									             			<th scope="col" style="width:0px">홈코드</th>
+									             			<th scope="col" style="width:15%">이동</th>
+									             		</tr>
+									             	</thead>
+									             </table>
+								             </div>
+								    	</div>
+								    	<div class="card-footer">
+								    	</div>
+								    </div>
+								   <!-- //전체세대 실시간 현황 목록 -->
+								    
+								    
+								    <!-- 이벤트이력 팝업 -->
+								    <div id="pop_event_list" class="card overall_popup pop_house_list">
+								    	<div class="card-header">
+								    		<h5 class="card_header_text">이벤트 이력</h5>
+								    		<button type="button" class="btn-close btn-close-white">
+								            <!-- <span aria-hidden="true"><i class="fas fa-times"></i></span> -->
+								            </button>
+								    	</div>
+								    	<div class="card-body text-center">
+								             <div>
+									             <table id="eventTable" class="table table-sm table-hover">
+									             	<thead>
+									             		<tr>
+									             			<th scope="col" style="width:%">유형</th>
+									             			<th scope="col" style="width:%">상세</th>
+									             			<th scope="col" style="width:%">위치</th>
+									             			<th scope="col" style="width:%">발생일시</th>
+									             			<th scope="col" style="width:%">상태</th>
+									             		</tr>
+									             	</thead>
+									             </table>
+								             </div>
+								    	</div>
+								    	<div class="card-footer">
+								    	</div>
+								    </div>
+								    <!-- //이벤트이력 팝업 -->
+								</div>
+        					</div>
+        				</div>
+                    </div>
+                    <!-- //main_content -->
+                    <!-- sub content -->
+                    <div class="col-xxl-7 col-xl-5 col-lg-5 col-md-6 col-12 area_sub">
+                        <div class="row position-relative">
+        					<!-- 관심세대 -->
+        					<div class="col-12 area_conts1">
+        						<div class="inr">
+        							<div class="area_header">
+        								<p class="area_title">관심세대</p>
+        								<div class="swiper_paging paging1"></div>
+        							</div>
+        							<div class="card swiper-container swiper-conts1 active">
+        								<div class="swiper_controls">
+        									<!--일시정지 숨김<div class="play controls"></div> -->        									
+        									<div class="arrow">
+        										<div class="controls prev"></div>
+        										<div class="controls next"></div>
+        									</div>
+        								</div>
+	        							<div class="swiper-wrapper">
+	        								<div class="swiper-slide" >
+	        									<div class="inr energy_swiper">
+		        									<div class="list_box">
+		        										<div class="card-header">
+															<p class="card-subtitle">에너지사용량 관심 세대</p>
+															<p class="card-text">에너지사용량 이상으로 인해 관심이 필요한 세대입니다</p>
+														</div>
+														<div class="card-body">
+															<div class="inr">
+																<ul id="rank_energy_list" class="list_wrapper rank_energy_list"></ul>
+															</div>
+														</div>
+		        									</div>
+		        									<div class="conts_box">
+		        										<div class="card-header">
+	        												<!-- <p id='txt_energy_address' class="card-subtitle"></p> -->
+	        												<p class="card-subtitle energy_address">
+	        												<p class="card-text energy" style="display: none;"> 이상이 감지되었습니다 </p>
+	        											</div>
+	        											<div class="card-body">
+	        											<div id="divInterestEnergy" class="graph_inner h-100 w-100" >
+	        												<div class="usual">
+	        													<!--<p> 평소패턴 </p>-->
+													  				<canvas id="chartInterestEnergy" style="height:100%; display:none"></canvas> 
+	        												</div>
+        												</div>
+	        											</div>
+		        									</div>
+												</div>
+	        								</div>
+	        								<div class="swiper-slide">
+	        									<div class="inr motion_swiper">
+	        										<div class="list_box">
+	        											<div class="card-header">
+															<p class="card-subtitle">움직임 관심 세대</p>
+															<p class="card-text">움직임 이상으로 인해 관심이 필요한 세대입니다</p>
+														</div>
+														<div class="card-body">
+															<div class="inr">
+																<ul id="rank_motion_list" class="list_wrapper rank_motion_list"></ul>
+															</div>
+														</div>
+	        										</div>
+	        										<div class="conts_box">
+	        											<div class="card-header">
+	        												<!-- <p id='txt_motion_address'class="card-subtitle"></p> -->
+	        												<p class="card-subtitle motion_address"></p>
+	        												<p class="card-text motion" style="display: none;">움직임데이터 이상이 감지되었습니다 </p>
+	        											</div>
+	        											<div class="card-body">
+	        												<div id="divInterestMotion" class="graph_inner h-100 w-100" > 
+		        												<div class="usual">
+		        													<!--<p> 평소패턴 </p>-->
+														  				<canvas id="chartInterestMotion" style="height:100%;"></canvas>
+		        												</div>
+	        												</div>
+	        											</div>
+	        										</div>
+	        									</div>
+	        								</div>
+	        								<!-- <div class="swiper-slide">
+	        									<div class="inr">
+	        										<div class="list_box">
+	        											<div class="card-header">
+															<p class="card-subtitle">동작오류 관심 세대</p>
+															<p class="card-text">동작오류 지속으로 인해 관심이 필요한 세대입니다</p>
+														</div>
+														<div class="card-body">
+															<div class="inr">
+																<ul id="rank_error_list" class="list_wrapper rank_error_list"></ul>
+															</div>
+														</div>
+	        										</div>
+	        										<div class="conts_box">
+	        											
+	        										</div>
+	        									</div>
+	        								</div> -->
+	        							</div>
+        							</div>
+        						</div>
+        					</div>
+        					<!-- //관심세대 -->
+        					<!-- 이벤트일별현황 -->
+        					<!-- <div class="col-xxl-7 col-12 area_conts2">
+        						<div class="inr">
+        							<div class="area_header">
+        								<p class="area_title">이벤트 일별 현황</p>
+        							</div>
+        							<div class="card">
+        								<form class="form-inline">
+	        								<div class="card-header">
+	        									<div class="form-group">
+	        										<label>이벤트</label>
+	        										
+	        									</div>
+	        								</div>
+	        								<div class="card-body">
+	        									<div class="inr">
+	        										
+	        									</div>
+	        								</div>
+        								</form>
+       								</div>
+        						</div>
+        					</div> -->
+        					<!-- //이벤트일별현황 -->
+        					<!-- 날씨 -->
+        					<div class="col-xxl-5 col-12 area_conts3">
+        						<div class="inr">
+        							<div class="card">
+        								<div class="card-header">
+        									<span class="place">
+				                                <span id="txt_city">지역을 선택하세요</span>
+				                                <span id="txt_gugun"></span>
+				                                <span id="txt_dong"></span>	                                
+			                                </span>
+			                                <span id="btn_area" class="ml-1 btn_change_place">변경</span>
+			                                <span class="ml-auto source" data-bs-toggle="tooltip" data-bs-placement="right" data-html="true" title="날씨정보는 공공데이터를 이용하였습니다." style="margin-right:-4px;margin-top:-2px">
+			                                	<img src="../img/img_opentype01.svg" title="공공누리마크" style="height:20px"/>
+			                                </span>
+        								</div>
+        								<div class="card-body">
+        									<div class="inr">
+        										<div class="weather">
+        											<div class="inr">
+        												<span class="icon">
+					                                    	<img id="weater_icon" src="../../img/w/weather_default.png" />
+					                                    </span>
+					                                    <span class="temp" id="txt_temp"></span>
+					                                    <span class="index" id="txt_wfkor"></span>
+        											</div>
+        										</div>
+        										<div class="life_group">
+        											<div class="">
+        												<div class="life_item pm10">
+	        												<em>미세먼지</em>
+	        												<span id="txt_pm10_index"></span>
+	        												<span id="txt_pm10"></span>
+        												</div>
+        												<div class="life_item uv">
+        													<em>자외선지수</em>
+	        												<span id="txt_uv"></span>
+        												</div>
+        											</div>
+        											<div class="">
+        												<div class="life_item pm25">
+        													<em>초미세먼지</em>
+	        												<span id="txt_pm25_index"></span>
+	        												<span id="txt_pm25"></span>
+        												</div>
+        												<div class="life_item ozone">
+        													<em>오존</em>
+	        												<span id="txt_ozone"></span>
+        												</div>
+        											</div>
+        										</div>
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<!-- //날씨 -->
+        					<!-- 지도 -->
+        					<div class="col-xxl-7 col-12 area_conts4">
+        						<div class="inr">
+        							<div class="area_header">
+        								<p class="area_title">지도</p>
+        							</div>
+        							<div class="card">
+        								<form class="form-inline">
+        									<div class="card-header">
+	        									<div class="form-group">
+	        										<label>그룹선택</label>
+	        										<select id="txt_change_group" class="form-control" onChange="doPanAndZoom()">
+	        											<option value="bm_view"selected>범물용지</option>
+		                    							<option value="test_view">스마트시티지원센터</option>
+		                    							<option value="namgu_view">남구무장애주택</option>
+		                    							<option value="total_view">전체</option>
+	        										</select>
+	        									</div>
+	        									<div class="form-group">
+	        										<label class="md-none">기본지도</label>
+	        										<div class="btn-group btn_group_layer" role="group" aria-label="map layer">
+	        											<input id="night" class="btn-check" type="radio" name="options" onClick="baseChange('night')" autocomplete="off">
+				                                        <label class="btn" for="night">야간</label>
+				                                        
+				                                        <input id="vworld" class="btn-check" type="radio" name="options" onClick="baseChange('vworld')" autocomplete="off">
+				                                        <label class="btn" for="vworld">일반</label>
+				                                        
+				                                        <input id="satellite" class="btn-check" type="radio" name="options" onClick="baseChange('satellite')" autocomplete="off" checked>
+				                                        <label class="btn" for="satellite">위성</label>
+				                                    </div>
+	        									</div>
+	        								</div>
+	        								<div class="card-body">
+	        									<div class="inr">
+	        										<div id="map"></div>
+	        										<button id="btn_map_expand" class="btn_map_expand" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="지도확대"></button>
+	        									</div>
+	        								</div>
+        								</form>
+        							</div>
+        						</div>
+        					</div>
+        					<!-- //지도 -->
+        					<!--  -->
+        					<div class="col-xxl-5 col-12 area_conts5">
+        						<div class="inr">
+        							<div class="area_header">
+        								<p class="area_title">발생이벤트</p>
+        								<!-- <p id="event_date" class="date"></p> --> 
+        								<input id="period" class="form_date_range_picker" type="text"> 
+        								<!-- <span id="btn_datepicker"><img src="../../img/overall/ic_datepicker.svg"></span> --> 
+        								<div class="swiper_paging paging2"></div>
+        							</div>
+        							<div class="card swiper-container swiper-conts2 active">
+        								<div class="swiper_controls">       									
+        									<div class="arrow">
+        										<div class="controls prev"></div>
+        										<div class="controls next"></div>
+        									</div>
+        								</div>
+        								<div class="swiper-wrapper">
+        									<div class="swiper-slide">
+        										<div class="inr emergency loading">
+        											<div class="card-header">
+			        									<p class="card-subtitle">응급이벤트</p>
+			        									<p class="card-text">상위 발생 응급이벤트 Top5</p>
+			        								</div>
+			        								<div class="card-body">
+			        									<ul class="list emer">
+			        									<!-- 
+			        										<li>1<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
+			        										<li>2<em id="emer_name2">쓰러짐</em><span id="emer_val2">2</span></li>
+			        										<li>3<em id="emer_name3">쓰러짐</em><span id="emer_val3">1</span></li>
+			        										<!-- <li>4<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
+			        										<li>5<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li> -->
+			        									</ul>
+			        									<div class="graph">
+			        										<div id="divEmerPieEvent" class="graph_inner h-100 w-100" >
+												  				<canvas id="chartEmerPieEvent" style="height:100%;"></canvas>
+												  			</div>
+			        									</div>
+			        								</div>
+        										</div>
+        									</div>
+        									<div class="swiper-slide">
+        										<div class="inr danger loading">
+        											<div class="card-header">
+			        									<p class="card-subtitle">위험이벤트</p>
+			        									<p class="card-text">상위 발생 위험이벤트 Top5</p>
+			        								</div>
+			        								<div class="card-body">
+			        									<ul  class="list danger">
+			        									<!-- 
+			        										<li>1<em id="danger_name1" title="쓰러짐">쓰러짐</em><span id="danger_val1">1</span></li>
+			        										<li>2<em id="danger_name2" title="">쓰러짐</em><span id="danger_val2">2</span></li>
+			        										<li>3<em id="danger_name3" title="">쓰러짐</em><span id="danger_val3">1</span></li>
+			        										<li>4<em id="danger_name4" title="">쓰러짐</em><span id="danger_val4">1</span></li>
+			        										<li>5<em id="danger_name5" title="">쓰러짐</em><span id="danger_val5">1</span></li>
+			        										 -->
+			        									</ul>
+			        									<div class="graph">
+			        										<div id="divDanPieEvent" class="graph_inner h-100 w-100" >
+												  				<canvas id="chartDanPieEvent" style="height:100%;"></canvas>
+												  			</div>
+			        									</div>
+			        								</div>
+        										</div>
+        									</div>
+        									<div class="swiper-slide">
+        										<div class="inr warning loading">
+        											<div class="card-header">
+			        									<p class="card-subtitle">주의이벤트</p>
+			        									<p class="card-text">상위 발생 주의이벤트 Top5</p>
+			        								</div>
+			        								<div class="card-body">
+			        									<ul  class="list warning">
+			        									<!-- 
+			        										<li>1<em id="warning_name1" title="">쓰러짐쓰러짐쓰러짐쓰러짐쓰러짐</em><span id="warning_val1">1</span></li>
+			        										<li>2<em id="warning_name2" title="">쓰러짐</em><span id="warning_val2">2</span></li>
+			        										<li>3<em id="warning_name3" title="">쓰러짐</em><span id="warning_val3">1</span></li>
+			        										<li>4<em id="warning_name4" title="">쓰러짐</em><span id="warning_val4">1</span></li>
+			        										<li>5<em id="warning_name5" title="">쓰러짐</em><span id="warning_val5">1</span></li>
+			        										 -->
+			        									</ul>
+			        									<div class="graph">
+			        										<div id="divWarPieEvent" class="graph_inner h-100 w-100" >
+												  				<canvas id="chartWarPieEvent" style="height:100%;"></canvas>
+												  			</div>
+			        									</div>
+			        								</div>
+        										</div>
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<!-- //날씨 -->
+        				</div>
+                    </div>
+                    <!-- //sub content -->
+                </div>
+            </div>
+            <!-- //content -->
+        </section>
     </div>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        $(function (){
+            //swiper
+            //swiper 일시정지, 시작
+            var playPause = $(".controls.play");
+            
+            playPause.click(function(){
+                var slide = $(this).parents('.swiper-container');
+                if(slide.hasClass('active')){
+                    swiper.autoplay.stop();
+                    playPause.css("background-image","url(../img/overall/controls_play.png)");
+                    slide.removeClass('active').addClass('disabled');
+                }else if(slide.hasClass('disabled')){
+                    swiper.autoplay.start();
+                    playPause.css("background-image","url(../img/overall/controls_pause.png)");
+                    slide.removeClass('disabled').addClass('active');
+                }
+            });
+
+            //bootstrap5 tooltip trigger
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+			  return new bootstrap.Tooltip(tooltipTriggerEl)
+			});
+			//동적으로 생성된 태그의 tooltip trigger
+			$(document.body).tooltip({ selector: "[data-bs-toggle='tooltip']" });
+
+        });
+    </script>
+    <script>
+        //swiper
+        var swiper = new Swiper('.swiper-conts1', {	
+		//var swiper = new Swiper('#slide', {
+			autoplay: {
+				delay: 8000,
+				disableOnInteraction: false,
+			},
+			//loop: true,
+			pagination: {
+				el: ".paging1",
+				type: "fraction",
+			},
+			navigation : {
+				nextEl: ".swiper-conts1 .controls.next",
+				prevEl: ".swiper-conts1 .controls.prev"
+			},
+		});
+
+        var swiper2 = new Swiper('.swiper-conts2', {	
+/* 			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			}, */
+			//loop: true,
+			pagination: {
+				el: ".paging2",
+				type: "fraction",
+			},
+			navigation : {
+				nextEl: ".swiper-conts2 .controls.next",
+				prevEl: ".swiper-conts2 .controls.prev"
+			},
+		        
+		});
+    </script>
 </body>
 </html>
