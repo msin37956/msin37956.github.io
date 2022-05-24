@@ -286,13 +286,13 @@ p {margin-bottom: 0}
 
 .area_house_detail_state .house_content#detail{padding:10px 20px;overflow-y:auto;overflow-x:hidden}
 .area_house_detail_state .area_install_device{display:flex;flex-wrap:wrap;margin-bottom:8px;}
-.area_house_detail_state .area_install_device>li{display:none;min-width:40px;padding:4px 6px;margin-right:4px;margin-bottom:4px;border:1px solid #D5D7E2;border-radius:5px;background-color:#fff;font-size:13px;color:#555967;text-align:center}
+.area_house_detail_state .area_install_device>li{display:inline-block;min-width:40px;padding:4px 6px;margin-right:4px;margin-bottom:4px;border:1px solid #D5D7E2;border-radius:5px;background-color:#fff;font-size:13px;color:#555967;text-align:center}
 .area_house_detail_state .area_install_device>li.active{display:inline-block}
 
 /*개별모니터링 상세 아이템*/
 .area_state_item_wrapper {} /*height:calc(100% - 51px);overflow-y:auto;overflow-x:hidden*/
 
-.state_item {position:relative;display:none;justify-content:space-between;align-items:center;padding:8px 18px 8px 60px;margin-bottom:8px;border:1px solid #EBEBED;border-radius:5px;background-color:#fff;background-repeat:no-repeat;background-position:12px center;}
+.state_item {position:relative;display:flex;justify-content:space-between;align-items:center;padding:8px 18px 8px 60px;margin-bottom:8px;border:1px solid #EBEBED;border-radius:5px;background-color:#fff;background-repeat:no-repeat;background-position:12px center;}
 .state_item .sub_text {font-size:14px;color:#898989}
 .state_item .title {font-size:18px;color:#000;}
 .state_item .val {font-size:30px}
@@ -332,7 +332,7 @@ p {margin-bottom: 0}
 
 .area_house_detail_state .house_content#chart{position:relative;padding: 0 0 0 20px;}
 
-.area_house_detail_state .house_chart_item {display:none;width:calc(100% - 15px);}/**/
+.area_house_detail_state .house_chart_item {display:block;width:calc(100% - 15px);}/**/
 .area_house_detail_state .area_chart_wrapper{}
 .area_house_detail_state .chart_type {min-width:40px;padding:3px 6px;border:1px solid #D5D7E2;border-radius:5px;background-color:#fff;font-size:13px;color:#555967;text-align:center;}
 /*min-width:40px;padding:4px 6px;margin-right:4px;margin-bottom:4px;border:1px solid #D5D7E2;border-radius:5px;background-color:#fff;font-size:13px;color:#555967;text-align:center*/
