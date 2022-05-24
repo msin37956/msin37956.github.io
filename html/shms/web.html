@@ -86,23 +86,23 @@
 													<div class="inr">
 														<div id="btn_house_all" class="house_count all">
 					        								<p>전체</p>
-					        								<span id="txt_status_all"></span>
+					        								<span id="txt_status_all">330</span>
 					        							</div>
 														<div id="btn_house_emergency" class="house_count emergency">
 					        								<p>응급</p>
-					        								<span id="txt_status_emergency"></span>
+					        								<span id="txt_status_emergency">8</span>
 					        							</div>
 					        							<div id="btn_house_danger" class="house_count danger">
 					        								<p>위험</p>
-					        								<span id="txt_status_danger"></span>
+					        								<span id="txt_status_danger">0</span>
 					        							</div>
 					        							<div id="btn_house_warning" class="house_count warning">
 					        								<p>주의</p>
-					        								<span id="txt_status_caution"></span>
+					        								<span id="txt_status_caution">0</span>
 					        							</div>
 					        							<div id="btn_house_error" class="house_count error">
 					        								<p>동작오류</p>
-					        								<span id="txt_status_error"></span>
+					        								<span id="txt_status_error">5</span>
 					        							</div>
 													</div>
 												</div>
@@ -122,27 +122,27 @@
 														<div class="today">
 															<div class="area_body">
 																<div class="today_all">
-																	<span>현재 누적건수 전체 <span id="txt_event_today_all"></span> 건 중</span>
+																	<span>현재 누적건수 전체 <span id="txt_event_today_all">21</span> 건 중</span>
 																</div>
 																<div class="today_type">
 																	<div class="emergency">
 																		<p>응급</p>
-																		<span id="txt_event_today_emergency"></span>
+																		<span id="txt_event_today_emergency">21</span>
 																	</div>
 																	<div class="danger">
 																		<p>위험</p>
-																		<span id="txt_event_today_danger"></span>
+																		<span id="txt_event_today_danger">0</span>
 																	</div>
 																	<div class="warning">
 																		<p>주의</p>
-																		<span id="txt_event_today_warning"></span>
+																		<span id="txt_event_today_warning">0</span>
 																	</div>
 																	<div class="end">
 																		<p>상황종료</p>
-																		<span id="txt_event_today_end"></span>
+																		<span id="txt_event_today_end">0</span>
 																	</div>
 																</div>
-																<div class="today_info">처리되지 않은 이벤트가 <span id="txt_event_today_ongoing"></span>건 있습니다</div>
+																<div class="today_info">처리되지 않은 이벤트가 <span id="txt_event_today_ongoing">21</span>건 있습니다</div>
 															</div>
 														</div>
 														<div class="event_graph">
@@ -180,20 +180,19 @@
 														<div class="btn_list_filter_wrapper">
 					        								<div class="btn_list_filter emergency active">
 					        									<span class="tit">응급</span>
-					        									<span id="txt_today_emergency" class="num"></span>
+					        									<span id="txt_today_emergency" class="num">21</span>
 					        								</div>
 					        								<div class="btn_list_filter danger active">
 					        									<span class="tit">위험</span>
-					        									<span id="txt_today_danger" class="num"></span>
+					        									<span id="txt_today_danger" class="num">0</span>
 					        								</div>
 					        								<div class="btn_list_filter warning">
 					        									<span class="tit">주의</span>
-					        									<span id="txt_today_caution" class="num"></span>
+					        									<span id="txt_today_caution" class="num">0</span>
 					        								</div>
 					        							</div>
 					        							<ul id="event_list" class="list_wrapper">
 					        								<!-- 이벤트 아이템 샘플 -->
-					        								<!-- 
 					        								<li class="list_item danger">
 					        									<button class="btn_resize max" title="최대화"></button>
 					        									<p class="list_status">
@@ -206,10 +205,9 @@
 					        											+ <span>3</span>
 					        										</span>
 				        										</p>
-					        									<p class="list_tit">대구 수성구 범안로 81 (범물용지4단지 401동 1406호)</p>
-					        									<p class="list_date">2021-07-28 08:35:02</p>
+					        									<p class="list_tit">대구 수성구 범안로 00 (범물용지0단지 000동 000호)</p>
+					        									<p class="list_date">yyyy-mm-dd hh:mm:ss</p>
 					        								</li>
- -->
 					        							</ul>
 													</div>
 												</div>
@@ -533,7 +531,7 @@
 			        										<li>1<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
 			        										<li>2<em id="emer_name2">쓰러짐</em><span id="emer_val2">2</span></li>
 			        										<li>3<em id="emer_name3">쓰러짐</em><span id="emer_val3">1</span></li>
-			        										<!-- <li>4<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
+			        										<li>4<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
 			        										<li>5<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li> -->
 			        									</ul>
 			        									<div class="graph">
@@ -656,11 +654,6 @@
 		});
 
         var swiper2 = new Swiper('.swiper-conts2', {	
-/* 			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-			}, */
-			//loop: true,
 			pagination: {
 				el: ".paging2",
 				type: "fraction",
