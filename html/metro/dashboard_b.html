@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대시보드 B타입</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/metro/common_b.css"/>
+    <link rel="stylesheet" href="../../css/metro/dashboard_b.css"/>
+
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- jquery ui script -->
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <!-- bootstrap4 js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <div class="header clearfix">
+			<nav class="header_nav">
+                <a href="#" class="header-item active" data-toggle="tooltip" data-placement="bottom" title="종합현황">
+                    <i class="icon-ic_monitorin_route"></i>
+                </a>
+                <a href="../monitor/monitor.jsp" class="header-item" data-toggle="tooltip" data-placement="bottom" title="모니터링">
+                    <i class="icon-ic_dashboard"></i>
+                </a>
+                <a href="../report/hour.jsp" class="header-item" data-toggle="tooltip" data-placement="bottom" title="통계">
+                    <i class="icon-ic_operation"></i>
+                </a>
+                <a href="../data/log.jsp" class="header-item pr-0" data-toggle="tooltip" data-placement="bottom" title="데이터">
+                    <i class="icon-ic_data"></i>
+                </a>
+                <a href="../config/system_config.jsp" class="header-item pl-1" data-toggle="tooltip" data-placement="bottom" title="시스템설정">
+                    <i class="icon-ic_settings"></i>
+                </a>
+            </nav>
+			<nav class="profile_nav align-content-center">
+				<a href="#" style="cursor:default"> <span>관리자</span></a> 
+				<a href="#"> <span> 로그아웃</span></a> 
+				<a href="#" onClick="popup.openUserconfig()"> <span class="border-0 ">내정보</span></a>
+			</nav>
+		</div>
+        <!-- //header -->
+        <div class="container-fluid">
+            <div class="row"><div class="col-12"></div></div>
+            <div class="title"></div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <div class="card map">
+                            <!-- area_title -->
+                            <div class="card-header">
+                                실시간 초미세먼지 실내공기질정보
+                                <p>(범례: <span><img src="../../img/metro/good.png" alt="미세먼지 범례 좋음"/>좋음</span><span><img src="../../img/metro/normal.png" alt="미세먼지 범례 보통"/>보통</span><span><img src="../../img/metro/bad.png" alt="미세먼지 범례 관리필요"/>관리필요</span><span><img src="../../img/metro/error.png" "미세먼지 범례 통신오류"/>통신오류</span>)</p>
+                                <button id="" class="btn standard position-relative" type="button">범례 자세히보기
+                                    <div class="standard_txt position-absolute">
+                                        <p class="pt-1 pl-2 clearfix w-100 circle">농도 범례
+                                            <span class=" px-3 pt-1 close"><i class="fas fa-times"></i></span>
+                                        </p>
+                                        <ul class="d-flex">
+                                            <li>
+                                                <span><img src="../../img/metro/good.png" alt="미세먼지 범례 좋음"/>좋음</span> <span id="txt_pm_good">(0~30)</span>
+                                            </li>
+                                            <li>
+                                                <span><img src="../../img/metro/normal.png" alt="미세먼지 범례 보통"/>보통</span> <span id="txt_pm_normal">(31~49)</span>
+                                            </li>
+                                            <li>
+                                                <span><img src="../../img/metro/bad.png" alt="미세먼지 범례 관리필요"/>관리필요</span> <span id="txt_pm_bad">(50이상)</span>
+                                            </li>
+                                            <li>
+                                                <span><img src="../../img/metro/error.png" alt="미세먼지 범례 통신오류"/>통신오류</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </button>
+                            </div>
+                            <!-- //area_title -->
+                            <!-- area_map -->
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="line_origin">
+                                        <span class="start">신분당</span>
+                                        <span class="end">신분당</span>
+                                        <!--지하철 라인-->
+                                        <!--활성화 -> 해당 .line에 .active-->
+                                        <!--.line_cont .line:nth-child(1)~(24)-->
+                                        <div class="line_cont">                                         
+                                        </div>
+                                        <!--지하철 역(동그라미)-->
+                                        <!--활성화 -> 해당 .point에 .active-->
+                                        <!--.point_cont .point:nth-child(1)~(23)-->
+                                        <div class="point_cont">                         <!-- 역사명: 역사번호('시스템설정>역사(위치)관리') -->   
+                                        	<!-- 신사: --><span class="point" id="point_1908" ></span>
+                                            <!-- 논현: --><span class="point" id="point_1909" ></span>
+                                            <!-- 신논현: --><span class="point " id="point_1910" ></span>                                           
+                                            <!-- 강남 --><span class="point" id="point_1911" ></span>
+                                            <!-- 양재 --><span class="point" id="point_1912" ></span>
+                                            <!-- 양재시민 --><span class="point " id="point_1913" ></span>
+                                            <!-- 청계산 --><span class="point " id="point_1914" ></span>
+                                            <!-- 판교 --><span class="point " id="point_1915" ></span>
+                                            <!-- 정자 --><span class="point " id="point_1916" ></span>
+                                            <!-- 미금 --><span class="point " id="point_1917" ></span>
+                                            <!-- 동천 --><span class="point " id="point_1918" ></span>
+                                            <!-- 수지구청 --><span class="point " id="point_1919" ></span>
+                                            <!-- 성북 --><span class="point " id="point_1920" ></span>
+                                            <!-- 상현 --><span class="point " id="point_1921" ></span>
+                                            <!-- 광교중앙 --><span class="point " id="point_1922" ></span>
+                                            <!-- 광교 --><span class="point" id="point_1923" ></span>                                                              
+                                        </div>
+                                        <!--PM2.5 미세먼지 농도-->
+                                        <!--활성화 -> 해당 .index에 .active-->
+                                        <!--.pm25_cont .index:nth-child(1)~(23)-->
+                                        <div class="pm25_cont">
+                                        	<!-- good/normal/bad/error -->
+										    <!-- 신사 -->
+                                            <div id="pm2_1908" class="index" >
+                                                <span></span>
+                                            </div>
+                                            <!-- 논현-->
+                                            <div id="pm2_1909" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 신논현 -->
+                                            <div id="pm2_1910" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                        	<!-- 강남 -->
+                                            <div id="pm2_1911" class="index" >
+                                                <span></span>
+                                            </div>
+                                            <!-- 양재-->
+                                            <div id="pm2_1912" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 양재시민의숲 -->
+                                            <div id="pm2_1913" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 청계산입구 -->
+                                            <div id="pm2_1914" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 판교 -->
+                                            <div id="pm2_1915" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 정자 -->
+                                            <div id="pm2_1916" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 미금 -->
+                                            <div id="pm2_1917" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 동천 -->
+                                            <div id="pm2_1918" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 수지구청 -->
+                                            <div id="pm2_1919" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 성복 -->
+                                            <div id="pm2_1920" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 상현 -->
+                                            <div id="pm2_1921" class="index">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 광교중앙 -->
+                                            <div id="pm2_1922" class="index ">
+                                                <span id=""></span>
+                                            </div>
+                                            <!-- 광교 -->
+                                            <div id="pm2_1923" class="index">
+                                                <span id=""></span>
+                                            </div>
+                                            <span class="pm25_label">PM2.5 ▶</span>
+                                        </div>
+                                        <!--역사명-->
+                                        <div class="name_cont d-flex align-items-center">
+                                            <span class="name">신사</span>
+                                            <span class="name">논현</span>
+                                            <span class="name">신논현</span>
+                                            <span class="name">강남</span>
+                                            <span class="name">양재</span>
+                                            <span class="name">양재시민의숲</span>
+                                            <span class="name">청계산입구</span>
+                                            <span class="name">판교</span>
+                                            <span class="name">정자</span>
+                                            <span class="name">미금</span>
+                                            <span class="name">동천</span>
+                                            <span class="name">수지구청</span>
+                                            <span class="name">성복</span>
+                                            <span class="name">상현</span>
+                                            <span class="name">광교중앙</span>
+                                            <span class="name">광교</span>
+                                        </div>
+                                        <!--pm10 미세먼지 농도-->
+                                        <!--활성화 -> 해당 .index에 .active-->
+                                        <!--.pm10_cont .index:nth-child(1)~(23)-->
+                                        <div class="pm10_cont invisible">
+                                            <span class="pm10_label">PM10 ▶</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- //area_map -->
+                        </div>                        
+                    </div>
+                    <!-- area_state -->
+                    <div class="card state">
+                        <div class="card-header clearfix">
+                                <span id="station_name">논현</span>
+                            <div class="btn-group float-right invisible">
+                                <button id="btn_pm_25" class="btn active" type="button">PM2.5</button>
+                                <button id="btn_pm_10" class="btn" type="button">PM10</button>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex">
+                            <div class="box_measure pm25">
+                                <p class="clearfix box_title circle"><span id="dsp_pm_type">초미세먼지(PM 2.5)</span> 농도 <span class="float-right font-weight-normal">(단위:㎍/㎥)</span></p>
+                                <div class="box_inner d-flex">
+                                    <div class="m5 d-flex align-items-end">
+                                        <span id="pm_min">0</span>
+                                    </div>
+                                    <div class="h1 d-flex align-items-end">
+                                        <span id="pm_hour">0</span>
+                                    </div>
+                                    <div class="h24 d-flex align-items-end">
+                                        <span id="pm_day">0</span>
+                                    </div>
+                                    <div class="d1 mr-0 d-flex align-items-end">
+                                        <span id="pm_dayago">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_graph">
+                                <p class="clearfix box_title circle">시간별 변화량</p>
+                                <div id="chartPm" class="box_inner">
+                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center" style="background-color:#eee;color:#666;">그래프 영역</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //area_state -->
+                    <!-- area_station -->
+                    <div class="card station">
+                        <div class="card-header">
+                            <span class="line1"></span> 신분당
+                        </div>
+                        <div class="card-body">
+                            <div class="box_station" id="pm_data_list">
+                                <!--상태 클래스명 => good:좋음, normal:보통, bad:관리필요, error:통신오류-->
+                                <!-- 논현 -->
+                                <div id="" class="pannel good">
+                                    <div id="" class="color large">
+                                        <span id="">12</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">논현</p>
+                                        <span id="" class="state mt-auto">좋음</span>
+                                    </div>
+                                </div>
+                                <!-- //논현 -->                                
+                                <!-- 신논현 -->
+                                <div id="" class="pannel normal">
+                                    <div id="" class="color large">
+                                        <span id="">35</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">신논현</p>
+                                        <span id="" class="state mt-auto">보통</span>
+                                    </div>
+                                </div>
+                                <!-- //신논현 -->
+                                <!-- 양재 -->
+                                <div id="" class="pannel normal">
+                                    <div id="" class="color large">
+                                        <span id="">45</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">양재</p>
+                                        <span id="" class="state mt-auto">보통</span>
+                                    </div>
+                                </div>
+                                <!-- //양재 -->
+                                <!-- 양재시민의숲 -->
+                                <div id="" class="pannel good">
+                                    <div id="" class="color large">
+                                        <span id="">9</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">양재시민의숲</p>
+                                        <span id="" class="state mt-auto">좋음</span>
+                                    </div>
+                                </div>
+                                <!-- //양재시민의숲 -->
+                                <!-- 청계산입구 -->
+                                <div id="" class="pannel bad">
+                                    <div id="" class="color large">
+                                        <span id="">54</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">청계산입구</p>
+                                        <span id="" class="state mt-auto">관리필요</span>
+                                    </div>
+                                </div>
+                                <!-- //청계산입구 -->
+                                <!-- 판교 -->
+                                <div id="" class="pannel bad">
+                                    <div id="" class="color large">
+                                        <span id="">67</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">판교</p>
+                                        <span id="" class="state mt-auto">관리필요</span>
+                                    </div>
+                                </div>
+                                <!-- //판교 -->
+                                <!-- 미금 -->
+                                <div id="" class="pannel good">
+                                    <div id="" class="color large">
+                                        <span id="">10</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">미금</p>
+                                        <span id="" class="state mt-auto">좋음</span>
+                                    </div>
+                                </div>
+                                <!-- //미금 -->
+                                <!-- 수지구청 -->
+                                <div id="" class="pannel normal">
+                                    <div id="" class="color large">
+                                        <span id="">40</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">수지구청</p>
+                                        <span id="" class="state mt-auto">보통</span>
+                                    </div>
+                                </div>
+                                <!-- //수지구청 -->
+                                <!-- 성복 -->
+                                <div id="" class="pannel good">
+                                    <div id="" class="color large">
+                                        <span id="">28</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">성복</p>
+                                        <span id="" class="state mt-auto">좋음</span>
+                                    </div>
+                                </div>
+                                <!-- //성복 -->
+                                <!-- 상현 -->
+                                <div id="" class="pannel bad">
+                                    <div id="" class="color large">
+                                        <span id="">72</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">상현</p>
+                                        <span id="" class="state mt-auto">관리필요</span>
+                                    </div>
+                                </div>
+                                <!-- //상현 -->
+                                <!-- 광교 -->
+                                <div id="" class="pannel good">
+                                    <div id="" class="color large">
+                                        <span id="">29</span>
+                                    </div>
+                                    <div class="color small bad">
+                                        <span id="">32</span>
+                                    </div>
+                                    <div class="pannel_inner d-flex flex-column">
+                                        <p id="" class="station_name">광교</p>
+                                        <span id="" class="state mt-auto">좋음</span>
+                                    </div>
+                                </div>
+                                <!-- //광교 -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //area_station -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".color.small").hide();
+
+            //미세먼지 농도 범례 팝업
+            $(".standard").click(function() {
+                $(".standard_txt").toggleClass('d-block');
+            });
+
+            //sample_point
+            $("#point_1909, #point_1910, #point_1912, #point_1913, #point_1914, #point_1915, #point_1917, #point_1919, #point_1920, #point_1921, #point_1923").addClass('active');
+
+            $(".point").each(function(){
+                if($(this).hasClass('active') && $(this).nextAll('.point:first').hasClass('active')){
+                        $(this).addClass('activeR');
+                    }
+                if($(this).hasClass('active') && $(this).prevAll('.point:first').hasClass('active')){
+                        $(this).addClass('activeL');
+                    }
+            });
+            //sample_index
+            $("#pm2_1909, #pm2_1913, #pm2_1917, #pm2_1920, #pm2_1923").addClass('active good');
+            $("#pm2_1910, #pm2_1912, #pm2_1919").addClass('active normal');
+            $("#pm2_1914, #pm2_1915, #pm2_1921").addClass('active bad');
+            $("#pm2_1909>span").text('12');
+            $("#pm2_1910>span").text('35');
+            $("#pm2_1912>span").text('45');
+            $("#pm2_1913>span").text('9');
+            $("#pm2_1914>span").text('54');
+            $("#pm2_1915>span").text('67');
+            $("#pm2_1917>span").text('10');
+            $("#pm2_1919>span").text('40');
+            $("#pm2_1920>span").text('28');
+            $("#pm2_1921>span").text('72');
+            $("#pm2_1923>span").text('29');
+        });
+    </script>
+</body>
+</html>

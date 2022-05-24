@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/*
+작성자 :신민경
+작성일 : 2020-09-08
+수정일 : 
+*/
+
+/*font*/
+/* font-face 샘플
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: local('notokr-light');
+  src: url('/css/font/notokr-thin.eot');
+  src: url('/css/font/notokr-thin.eot?#iefix') format('embedded-opentype'),
+      url('/css/font/notokr-thin.woff2') format('woff2'),
+      url('/css/font/notokr-thin.woff') format('woff');
+}
+
+*/
+
+/*웹폰트의 경우*/
+/*@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo|Noto+Sans+KR');*/
+
+/*Roboto-light*/
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('fonts/roboto-300.eot'); /* IE9 Compat Modes */
+    src: local('Roboto Light'), local('Roboto-Light'),
+        url('fonts/roboto-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/roboto-300.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/roboto-300.woff') format('woff'), /* Modern Browsers */
+        url('fonts/roboto-300.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/roboto-300.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/*Roboto-regular*/
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('fonts/roboto-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+        url('fonts/roboto-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/roboto-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/roboto-regular.woff') format('woff'), /* Modern Browsers */
+        url('fonts/roboto-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/roboto-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/*Roboto-500 medium*/
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 500;
+    src: url('fonts/roboto-500.eot'); /* IE9 Compat Modes */
+    src: local('Roboto Medium'), local('Roboto-Medium'),
+        url('fonts/roboto-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/roboto-500.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/roboto-500.woff') format('woff'), /* Modern Browsers */
+        url('fonts/roboto-500.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/roboto-500.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/*Roboto-700 bold*/
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 700; 
+    src: url('fonts/roboto-700.eot'); /* IE9 Compat Modes */
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url('fonts/roboto-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/roboto-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/roboto-700.woff') format('woff'), /* Modern Browsers */
+        url('fonts/roboto-700.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/roboto-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/*NotoSansKR regular*/
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+    src: url('fonts/Notokr_regular.eot'); /* IE9 Compat Modes */
+    src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'),
+        url('fonts/Notokr_regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/Notokr_regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/Notokr_regular.woff') format('woff'), /* Modern Browsers */
+        url('fonts/Notokr_regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/Notokr_regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+/*NotoSansKR medium*/
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 500;
+    src: url('fonts/Notokr_medium.eot'); /* IE9 Compat Modes */
+    src: local('Noto Sans KR Medium'), local('NotoSansKR-Medium'),
+        url('fonts/Notokr_medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/Notokr_medium.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/Notokr_medium.woff') format('woff'), /* Modern Browsers */
+        url('fonts/Notokr_medium.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/Notokr_medium.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+/*NotoSansKR bold*/
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+    src: url('fonts/Notokr_bold.eot'); /* IE9 Compat Modes */
+    src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'),
+        url('fonts/Notokr_bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('fonts/Notokr_bold.woff2') format('woff2'), /* Super Modern Browsers */
+        url('fonts/Notokr_bold.woff') format('woff'), /* Modern Browsers */
+        url('fonts/Notokr_bold.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('fonts/Notokr_bold.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+/*reset*/
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, address, dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, select, textarea{margin:0; padding:0;}
+hr{display:none;}
+ul, ol, li{list-style:none;}
+img, fieldset{border:none; vertical-align:middle;}
+h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:800; font-family:'Roboto','Noto Sans KR','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+table{border-collapse:collapse; font-size:100%;}
+address, em, optgroup{font-style:normal;}
+object{vertical-align:top;}
+input, button, select{vertical-align:middle;}
+article, aside, details, figcaption, figure, footer, header, nav, section{display:block;}
+audio, canvas, progress, video{display:inline-block;}
+button{padding:0; box-shadow:none; border:none; font-size:16px; font-family:'Roboto','Noto Sans KR','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+button:hover,
+button:active,
+button:focus{cursor:pointer;}
+button:disabled{cursor:default;pointer-events:none}
+input[type="radio"], input[type="checkbox"]{height:14px; width:14px; vertical-align:middle;}
+
+
+/*linkstyle*/
+a{color:#333; text-decoration:none; background-color:transparent;} /** IE10에서 활성화(active)된 링크의 회색 배경을 제거. */
+a:active,
+a:focus,
+a:hover{text-decoration:none;}
+a[href^="tel"] {color:inherit; text-decoration:none;}
+
+::-webkit-input-placeholder{color:rgba(0,0,0,0.4);}
+:-ms-input-placeholder{color:rgba(0,0,0,0.4);}
+::placeholder{color:rgba(0,0,0,0.4);}
+::selection{background:yellow; color:#333;}
+
+
+/*font*/
+html{color:#333; font-size:16px; font-weight:200; letter-spacing:-1px; -webkit-text-size-adjust:100%; font-family:'Roboto','Noto Sans KR','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif';}
+input, select, textarea{color:#333; background:#fff; font-size:16px; font-family:'Roboto','Noto Sans KR','Nanum Gothic', 'Malgun Gothic', '맑은고딕', 'Dotum', '돋움', 'Montserrat', 'Arial', 'sans-serif'; border-radius:0;}
+input[type="text"],input[type="password"],input[type="number"],select{}
+input[type="text"],input[type="password"],input[type="number"],textarea{ 
+-webkit-ime-mode:active; 
+-moz-ime-mode:active; 
+-ms-ime-mode:active; 
+ime-mode:active; 
+box-sizing:border-box; -webkit-appearance:none;
+}
+
+
+
+
