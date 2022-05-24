@@ -430,10 +430,9 @@
 	        									<div class="form-group">
 	        										<label>그룹선택</label>
 	        										<select id="txt_change_group" class="form-control" onChange="doPanAndZoom()">
-	        											<option value="bm_view"selected>범물용지</option>
-		                    							<option value="test_view">스마트시티지원센터</option>
-		                    							<option value="namgu_view">남구무장애주택</option>
-		                    							<option value="total_view">전체</option>
+                                                        <option value="total_view" selected>전체</option>
+	        											<option value="bm_view">A그룹</option>
+		                    							<option value="test_view">B그룹</option>
 	        										</select>
 	        									</div>
 	        									<div class="form-group">
@@ -480,19 +479,18 @@
         								</div>
         								<div class="swiper-wrapper">
         									<div class="swiper-slide">
-        										<div class="inr emergency loading">
+        										<div class="inr emergency">
         											<div class="card-header">
 			        									<p class="card-subtitle">응급이벤트</p>
 			        									<p class="card-text">상위 발생 응급이벤트 Top5</p>
 			        								</div>
 			        								<div class="card-body">
 			        									<ul class="list emer">
-			        									<!-- 
 			        										<li>1<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
 			        										<li>2<em id="emer_name2">쓰러짐</em><span id="emer_val2">2</span></li>
 			        										<li>3<em id="emer_name3">쓰러짐</em><span id="emer_val3">1</span></li>
 			        										<li>4<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
-			        										<li>5<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li> -->
+			        										<li>5<em id="emer_name1">쓰러짐</em><span id="emer_val1">1</span></li>
 			        									</ul>
 			        									<div class="graph">
 			        										<div id="divEmerPieEvent" class="graph_inner h-100 w-100" >
