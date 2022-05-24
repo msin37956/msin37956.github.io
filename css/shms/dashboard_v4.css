@@ -172,7 +172,7 @@ select.form-control{background-image:url(../../img/shms/overall/select_arrow.svg
 .area_main_conts2 .today .today_type>div.end{border-radius:8px;background-color:rgba(72,71,107,0.9);}
 .area_main_conts2 .today .today_type>div>p{font-size:14px;color:#9BABE6;text-align:center}
 .area_main_conts2 .today .today_type>div>span{font-size:28px;color:#E8E8E8;font-weight:300}
-.area_main_conts2 .today .today_info{width:100%;height:23px;padding-left:54px;border-radius:4px;background-color:rgba(38,37,70,0.6);font-size:13px;color:#BAC0D5;line-height:23px;background-image:url(../img/badge_info.png);background-repeat:no-repeat;background-position:top left;background-size:contain}
+.area_main_conts2 .today .today_info{width:100%;height:23px;padding-left:54px;border-radius:4px;background-color:rgba(38,37,70,0.6);font-size:13px;color:#BAC0D5;line-height:23px;background-image:url(../../img/shms/comm/badge_info.png);background-repeat:no-repeat;background-position:top left;background-size:contain}
 
 /* .area_main_conts2 .others .area_body>div{display:flex}
 .area_main_conts2 .others_th>div {flex:0 0 16.6666%;margin-bottom:6px;font-size:12px;color:#9BA0B4;text-align:center} 
@@ -427,7 +427,7 @@ select.form-control{background-image:url(../../img/shms/overall/select_arrow.svg
 
 /*conts5*/
 .area_conts5 #btn_datepicker {align-self:center;padding:0 4px;margin-left:4px;cursor:pointer}
-.area_conts5 .card{height:calc(100% - 46px)}
+.area_conts5 .card{height:calc(100% - 46px);overflow: hidden;}
 .area_conts5 .card .inr {height:100%}
 .area_conts5 .card .card-body {display:flex;height:calc(100% - 59px);padding-top:15px;}
 .area_conts5 .card .card-body>.list{flex: 1 1 auto;max-width:136px;margin:0;padding:14px 0 0 0;}
