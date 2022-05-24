@@ -1,0 +1,268 @@
+@charset "utf-8";
+*{ margin: 0; padding: 0; font-weight: normal; }
+body{  font-size: 16px;}
+li{ list-style: none;}
+a{ text-decoration: none;}
+a:hover{ text-decoration: none; }
+/*흰색글씨*/
+/*.header a, .title, .card-header, th, .state, .card-text,  .card p { color:white; }*/
+
+html, body{background: whitesmoke}
+
+
+
+html {height: 100%; font-family:  "Roboto", "Segoe UI", sans-serif; overflow: hidden}
+
+body {overflow-x:hidden} /*2020-08-12 : 1024보다 좀 작아졌을 때 가로 스크롤*/
+
+.wrapper {width:1024px; height: 768px; padding-bottom: ;background-color: #f1f1f1; background-image: url(../../img/sfcs/bg_dashboard.png); background-repeat: no-repeat; background-position: right bottom;}
+.header { position:relative;width: 100%; height: 62px; display: flex;background-color: #36404B; padding-left: 20px; padding-right: 20px;}
+#logo>img {height: 52px; padding-top: 8px; margin-right: 20px}
+
+.header nav {vertical-align: top;}
+.header-item {display: inline-block;opacity: 0.5; font-size: 40px; padding: 0 8px; height: 62px; line-height: 66px;color: #fff;}
+.header-item:hover {color: #fff; opacity: 0.8;}
+.header-item.active { opacity: 1; color: #fff}
+
+.profile_nav { font-size: 14px; margin-left: auto;align-self: center;}
+.profile_nav a{ padding-top: 10px; padding-bottom: 10px; line-height: 40px; color: rgba(255,255,255,0.8)}
+.profile_nav a>span{ border-right: 1px solid rgba(255,255,255,0.8); padding-left: 6px; padding-right: 9px; display: inline-block; height: 13px;line-height: 13px;}
+
+
+.container-fluid {padding-right: 20px; padding-left: 20px; position: relative; height: calc(100% - 62px);height: -webkit- calc(100% - 62px); overflow-y: hidden;overflow-x: auto; max-width: 1024px; max-height: 768px;}
+
+#btn_expand {position:absolute;top:20px;left:20px;width:45px;height:45px;border:1px solid #ddd;border-radius:4px;background-color:#FFF;font-size:0}
+#btn_expand>span {font-size:20px;color:#545b62}
+
+.title{text-align: left ; font-size: 20px; height: 58px; line-height: 58px; color:rgba(255,255,255,0.8)}
+.cont_date {font-size: 14px; float: right; margin-top: 26px; color: #fff}
+
+/*card*/ 
+/*.card { padding: 0; margin-bottom: 15px; background-color: transparent; border: 2px solid #222D3D; }
+.card-header { background-color: #222D3D; padding: 8px 15px; font-weight: bold; }
+.card-body { padding: 15px 20px; font-size: 14px; }
+.card-footer { background-color: transparent; padding: 0 15px 15px 15px; border-top: 0;}
+
+.card p, .card-text {font-size: 16px; margin-bottom: 5px}*/
+
+.scroll_cont {height:calc(100% - 108px);height:-webkit-calc(100% - 108px);padding-top:10px;overflow-y:auto; overflow-x: hidden;}/*2020-08-12 스크롤추가*/
+.cont_item {height:100%; align-content:flex-start} /*2020-08-12 스크롤추가 / 2021-03-15 자식아이템 위쪽정렬 추가*/
+.cont_item>div{max-height:195px;} /*2021-03-15 자식아이템 최대높이 추가*/
+
+
+.cont_item .card {margin-bottom: 20px;}
+.cont_item .card-header {height: 70px;padding: 8px 15px 8px 95px;background-color: #fff;position: relative;display: flex}
+.cont_item .card-body {padding: 5px 15px 13px 15px;}
+
+
+
+/*table - 공통 */
+.table,p { margin-bottom: 0; }
+.card .table th,.card .table td { padding: 5px 10px 5px 5px;}
+
+.card .table {font-size: 14px}
+.card .table th {width: 24%; color: rgba(0,0,0,0.5);letter-spacing: -1px}
+.card .table td {text-align: left}
+
+
+.cont_item .card-header>p {font-size: 16px;font-weight: bold;margin-right: auto; align-self: center; letter-spacing: -1px;max-width: 135px; max-height: 48px;}
+.cont_item .card-header>img {position: absolute;top: -11px;left: 10px}
+
+.text_limit_1 {}
+.text_limit_2 { overflow: hidden; text-overflow: ellipsis;word-wrap: break-word;-webkit-line-clamp: 2; -webkit-box-orient: vertical;display: -webkit-box !important;vertical-align: top}
+
+.state {display: flex;flex-direction: column; min-width: 100px;padding: 8px 0 8px 48px;background-repeat: no-repeat;background-position: left center;}
+.state p{font-size: 16px; height: 24px; line-height: 24px}
+.state span{font-size: 12px;color: #7B7B7B;padding-left: 1px}
+.rate_state p {font-size: 18px;}
+
+/* .item.error td[colspan="3"] span {color: #FF0000!important}
+.item.stop td[colspan="3"] span {color: #FF892E!important} */
+.text_error {color:#FF892E!important}
+
+/*개별아이템 운전상태*/
+.run_state{margin-right: 25px;}
+.item.start .run_state { background-image: url(../../img/sfcs/run_start.svg)}
+.item.stop .run_state { background-image: url(../../img/sfcs/run_stop.svg)}
+.item.error .run_state { background-image: url(../../img/sfcs/run_error.svg)}
+.item.error .run_state p {color: #FF0000!important}
+.item.comm_error .run_state { background-image: url(../../img/sfcs/run_error.svg)}
+.item.comm_error .run_state p {color: #FF0000!important}
+
+
+/*통신에러일때*/
+.item.comm_error {background-color:#F6F7FA}
+.item.comm_error .card-header {background-color:#F6F7FA}
+.item.comm_error .card-header p{opacity:0.6}
+.item.comm_error .rate_state {opacity:0.6}
+.item.comm_error .card-body {opacity:0.6}
+
+
+/*통신에러일때*/
+.item.error {background-color:#F6F7FA}
+.item.error .card-header {background-color:#F6F7FA}
+.item.error .card-header p{opacity:0.6}
+.item.error .rate_state {opacity:0.6}
+.item.error .card-body {opacity:0.6}
+
+
+/*개별아이템 부하율*/
+.item.error .rate_state{background-image: url(../../img/sfcs/rate_0.svg)!important}
+.item.comm_error .rate_state{background-image: url(../../img/sfcs/rate_0.svg)!important}
+.item.stop .rate_state {background-image: url(../../img/sfcs/rate_0.svg)!important}
+.item.rate0 .rate_state {background-image: url(../../img/sfcs/rate_0.svg)!important}
+.item.rate50 .rate_state {background-image: url(../../img/sfcs/rate_50.svg)}
+.item.rate75 .rate_state {background-image: url(../../img/sfcs/rate_75.svg)}
+.item.rate100 .rate_state {background-image: url(../../img/sfcs/rate_100.svg)}
+
+/**/
+.item {transition: 0.3s ease;max-height: 175px; cursor: pointer; position: relative}
+.item.error:hover {box-shadow: none!important; cursor:default!important;}
+.item:hover {box-shadow: 0 3px 13px rgba(0,0,0,0.16)}
+
+/*개별 컨트롤 레이어*/
+.item .control_modal {position: absolute; top: 0; left: 0;width: 100%; height: 100%; background: #fff; border: 1px solid #000;box-shadow: 0 3px 13px rgba(0,0,0,0.16);border-radius: 0.25rem;cursor: default}
+/* .item .control_modal .modal-dialog {margin:0;max-width:100%} */
+.item .control_modal .modal-header {border: 0;background-color: transparent;}
+.item .control_modal .modal-header .close>span {margin-right:0!important;}
+.item .control_modal .modal-title {color: #000;font-size: 16px; font-weight: bold}
+.item .control_modal .modal-header .close span {color: #000; font-size: 14px;}
+.item .control_modal .modal-body {text-align: center; height: 115px}
+.item .control_modal .modal-body>div{align-self: center}
+.item .control_modal .modal-body p {margin-bottom: 10px}
+.item .control_modal .modal-dialog {pointer-events: auto; margin:0}
+
+
+
+/*공통*/
+.btn_cont .btn {min-width:85px;height: 38px;font-size: 14px; letter-spacing: -0.13px; text-align: center}
+
+.btn_cont {display: flex}
+
+.control_modal .btn_cont>div:first-child{margin-right: 17px;}
+
+.run_control .btn {background: #FCFDFF; border: 1px solid #B4D6F5; color: #64AFF3}
+.run_control .btn:hover {background: #64B5FF; color: #fff}
+.run_control .btn.active {background: #2D8CF9; color: #fff}
+.run_control .btn.disabled {background:#F1F1F1;border:1px solid #E2E2E2; color: #A2A2A2; pointer-events:none;}
+
+
+.rate_control {}
+.rate_control .btn_rate50 {background:#FAFEF8;border:1px solid #CCEBB8; color: #80AC64}
+.rate_control .btn_rate50:hover {background:#BFEEA7;border:1px solid #CCEBB8; color: #fff}
+.rate_control .btn_rate50.active {background:#A2EE73;border:1px solid #A1E873; color: #000}
+.rate_control .btn_rate50.disabled {background:#F1F1F1;border:1px solid #E2E2E2; color: #A2A2A2; pointer-events:none;}
+.rate_control .btn_rate75 {background:#F1FEF3;border:1px solid #A0E1A5; color: #1AB727}
+.rate_control .btn_rate75:hover {background:#B1EFB5;border:1px solid #A0E1A5; color: #fff}
+.rate_control .btn_rate75.active {background:#77E17E;border:1px solid #A0E1A5; color: #000}
+.rate_control .btn_rate75.disabled {background:#F1F1F1;border:1px solid #E2E2E2; color: #A2A2A2; pointer-events:none;}
+.rate_control .btn_rate100 {background:#F1FEF9;border:1px solid #83cfa3; color: #3D9764}
+.rate_control .btn_rate100:hover {background:#7CDCA3;border:1px solid #6ec993; color: #fff}
+.rate_control .btn_rate100.active {background:#46CE7D;border:1px solid #6ec993; color: #000}
+.rate_control .btn_rate100.disabled {background:#F1F1F1;border:1px solid #E2E2E2; color: #A2A2A2; pointer-events:none;}
+
+/*일괄 제어 버튼 컨테이너*/
+.btn_cont_all{position: relative;margin: 24px 0 14px 0; box-shadow: 0 3px 3px rgba(233,233,233,0.16)}
+.btn_cont_all>div>span {position: absolute; top: -10px;left: 50%;transform: translate(-50%,0);background: linear-gradient(180deg, #F1F1F1 50%, #FFFFFF 50%); padding: 0 5px}
+.btn_cont_all .card-body {padding: 15px; display: flex; justify-content: center}
+.btn_cont_all .card-body span {font-size: 14px; color: #7B7B7B; margin-right: 10px}
+.btn_cont_all .run_control {margin-right: 30px}
+
+
+
+/*모달 재정의*/
+.modal-backdrop {background-color: rgba(255,255,255,0.8);}
+
+/* @media (min-width:576px) {
+    .modal-dialog {margin: 0; max-width: 100%}
+} */
+
+
+/*2020-08-12 :와이드 모드 추가*/
+
+/*2022-03-31 :다크모드 추가*/
+/*mode toggle*/
+.mode_toggle {position:absolute;top:20px;right:20px;min-width:200px;height:0px;}
+.mode_toggle>.inr{position:relative;}
+.mode_toggle button{position:absolute;top:0;right:0;display:none;padding:10px 12px;;border-radius:50px;font-size:13px;cursor:pointer}
+.mode_toggle button.active{z-index:99;display:block}
+.mode_toggle button.show_light {background-color:#202228;border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.7)}/*라이트모드로보기*/
+.mode_toggle button.show_dark {background-color:#Fff;border:1px solid #ddd}/*다크모드로보기*/
+
+.wrapper.dark {background-color:#111;background-image:none}
+/* 대시보드 확장버튼 */
+.wrapper.dark #btn_expand{border:1px solid rgba(255,255,255,0.16);background-color:#202228;}
+.wrapper.dark #btn_expand>span{color:rgba(255,255,255,0.4)}
+/* 일괄제어 */
+.wrapper.dark .btn_cont_all>div>span {background: linear-gradient(180deg, rgba(17,17,17,1) 45%, rgba(32,34,40,1) 45%);}
+.wrapper.dark .btn_cont_all>div>span:after{}
+.wrapper.dark .btn_cont_all {box-shadow:none}
+/* 일괄제어>운전제어, 개별제어>운전제어 */
+.wrapper.dark .run_control .btn {background:#505d76;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);}
+.wrapper.dark .run_control .btn.active {background:#2a96f9;color:#fff}
+.wrapper.dark .run_control .btn:hover {background:#2a96f9;color:#fff}
+.wrapper.dark .run_control .btn.disabled {background:#36404b;border:1px solid rgba(255,255,255,0.16);color:#A2A2A2;}
+/*일괄제어>부하율, 개별제어>부하율*/
+.wrapper.dark .rate_control .btn_rate50 {background:#6f8b5d;border:1px solid rgba(255,255,255,0.3);color:#fff;}
+.wrapper.dark .rate_control .btn_rate75 {background:#478350;border:1px solid rgba(255,255,255,0.3);color:#fff;}
+.wrapper.dark .rate_control .btn_rate100 {background:#127857;border:1px solid rgba(255,255,255,0.3);color:#fff;}
+
+.wrapper.dark .rate_control .btn_rate50.active {background:#77d546;}
+.wrapper.dark .rate_control .btn_rate75.active {background:#39c944;}
+.wrapper.dark .rate_control .btn_rate100.active {background:#00c183;}
+
+.wrapper.dark .rate_control .btn_rate50:hover {background:#77d546;}
+.wrapper.dark .rate_control .btn_rate75:hover {background:#39c944;}
+.wrapper.dark .rate_control .btn_rate100:hover {background:#00c183;}
+
+
+.wrapper.dark .rate_control .btn_rate50.disabled{background:#505d76;border:1px solid rgba(255,255,255,0.16);color:#fff;opacity:0.7}
+.wrapper.dark .rate_control .btn_rate75.disabled{background:#505d76;border:1px solid rgba(255,255,255,0.16);color:#fff;opacity:0.7}
+.wrapper.dark .rate_control .btn_rate100.disabled{background:#505d76;border:1px solid rgba(255,255,255,0.16);color:#fff;opacity:0.7}
+
+
+
+/* card공통 */
+.wrapper.dark .card{border:1px solid rgba(255,255,255,0.16);background-color:#202228}
+.wrapper.dark .card .table th{color:rgba(255,255,255,0.6)}
+.wrapper.dark .card .table td{color:rgba(255,255,255,1)}
+
+/* 장비아이템 */
+.wrapper.dark .item:not(.error):hover {border:1px solid rgba(255,255,255,0.4);box-shadow:0 3px 13px rgba(0,0,0,1)}
+.wrapper.dark .item .card-header {border-bottom:1px solid rgba(255,255,255,0.1);background-color:transparent}
+.wrapper.dark .state p {color:rgba(255,255,255,0.8)}
+.wrapper.dark .state span {color:rgba(255,255,255,0.6)}
+.wrapper.dark .cont_item .card-header>p {color:#fff}
+
+/*장비아이템>에러상태*/
+/* .wrapper.dark .item.error{border:1px solid rgba(255,255,255,0.4);background-color:#121316} */
+/* .wrapper.dark .item.error .card-header>img{opacity:0.6} */
+.wrapper.dark .item.error .card-body{opacity:1}
+.wrapper.dark .item.error .card-header p {opacity:1}
+.wrapper.dark .item.error .card-header>.run_state>p{opacity:1!important}
+
+/*장비아이템>제어모달*/
+.wrapper.dark .item .control_modal {border:1px solid rgba(255,255,255,0.3);background:#202228;}
+.wrapper.dark .item .control_modal .modal-header .close span {color:rgba(255,255,255,0.7)}
+.wrapper.dark .item .control_modal .modal-title {color:rgba(255,255,255,0.8)}
+.wrapper.dark .item .control_modal .modal-body p {color:rgba(255,255,255,1);}
+
+@media screen and (max-width:990px) {
+    body{overflow-x: auto;}
+}
+
+@media screen and (min-width:1025px){
+    body {height:100%}
+	.wrapper {width:100%; height: 100%;}
+	.wrapper .container-fluid {overflow-y: auto;overflow-x: auto; min-width: 1920px; max-height: 100%;}/*.container-fluid로 할 경우 modal에도 영향을 받아서 수정 2021-01-25*/
+    div.col-6 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        max-height:195px;
+    }
+    .cont_item {align-content: start;}
+
+    .btn_cont_all {max-width:765px;margin-left:auto;margin-right:auto;}
+    
+    .btn_cont .btn {min-width:78px;height: 38px;font-size: 14px; letter-spacing: -0.13px; text-align: center}
+}
