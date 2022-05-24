@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트홈 모바일 DEMO</title>
+    <!-- bootstrap4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="../../css/shms/common_m.css"/>
+    <link rel="stylesheet" href="../../css/shms/mobile.css"/>
+    <link rel="stylesheet" href="../../css/shms/icomoon.css"/>
+    
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+    <!-- bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="wrap" class="wrapper mobile">
+        <section id="container" class="house">
+        	<!-- 본문 -->
+            <div id="content" class="">
+				<a href="javascript:history.back();" class="btn_back">
+				</a>
+            	<!-- 알림내역 -->
+           		<div class="btn_alarm_list">
+           			알림이력
+           		</div>
+           		<div class="area_alarm_list_wrapper">
+	           		<div class="area_alarm_list">
+	           			<div class="inr">
+	           				<p class="area_alarm_header">
+	           					 <span id="txt_complex2">범물용지0단지</span> <span id="txt_building2">000</span>동 <span id="txt_unit2">000</span>호
+	           				</p>
+	           				<div id="alarm_list" class="area_alarm_body">
+	           					<ul class="alarm_group_item">
+	           						<li class="date">8.18</li>
+	           						<li>
+	           							<ul class="alarm_item_wrapper">
+	           							    <li class="alarm_item state">
+                                                <div class="inr">
+                                                    <p class="alarm_header">
+                                                        <em>세대</em>
+                                                        <span>10:52:49</span>
+                                                    </p>
+                                                    <p class="alarm_body">
+                                                        <span>응급</span>이(가) 발생했습니다.
+                                                    </p>
+                                                    <p class="alarm_footer">
+                                                        <span>홈캠 - SOS</span>
+                                                    </p>
+                                                </div>
+	           							    </li>
+	           							    <li class="alarm_item homecam">
+                                                <div class="inr">
+                                                    <p class="alarm_header">
+                                                        <em>홈캠</em>
+                                                        <span>10:52:48</span>
+                                                    </p>
+                                                    <p class="alarm_body">
+                                                        <span>SOS</span>이(가) 발생했습니다.
+                                                    </p>
+	           							        </div>
+	           							    </li>
+	           							    <li class="alarm_item tv">
+                                                <div class="inr">
+                                                    <p class="alarm_header">
+                                                        <em>TV</em>
+                                                        <span>09:11:24</span>
+                                                    </p>
+                                                    <p class="alarm_body">
+                                                        <span>움직임 이상</span>이(가) 발생했습니다.
+                                                    </p>
+	           							        </div>
+	           							    </li>
+	           							</ul>
+	           						</li>
+	           					</ul>
+	           					<ul class="alarm_group_item">
+	           						<li class="date">8.17</li>
+	           						<li>
+	           							<ul class="alarm_item_wrapper">
+	           							    <li class="alarm_item ref">
+                                                <div class="inr">
+                                                    <p class="alarm_header">
+                                                        <em>냉장고</em>
+                                                        <span>10:52:48</span>
+                                                    </p>
+                                                    <p class="alarm_body">
+                                                        <span>움직임 이상</span>이(가) 발생했습니다.
+                                                    </p>
+	           							        </div>
+	           							    </li>
+	           							    <li class="alarm_item air">
+                                                <div class="inr">
+                                                    <p class="alarm_header">
+                                                        <em>공기청정기</em>
+                                                        <span>09:47:20</span>
+                                                    </p>
+                                                    <p class="alarm_body">
+                                                        <span>종합청정도 이상</span>이(가) 발생했습니다.
+                                                    </p>
+	           							        </div>
+	           							    </li>
+	           							</ul>
+	           						</li>
+	           					</ul>
+	           				</div>
+	           			</div>
+	           		</div>
+           		</div>
+            	<!-- //알림내역 -->
+				<!-- 개별종합상태 -->
+				<div class="area_house_total_state good">
+					<p class="place"><span id="txt_complex">0단지</span> <span id="txt_building">000</span>동 <span id="txt_unit">000</span>호의</p>
+					<p class="state">현재 종합 상태는 <span id="house_state">좋음</span> 입니다</p>
+				</div>
+				<!-- //개별종합상태 -->
+				<!-- 상세상태 -->
+				<div class="area_house_detail_state">
+					<ul class="house_tab">
+						<li class="active" rel="detail">상세상태</li>
+						<li rel="chart">그래프</li>
+					</ul>
+					<div class="house_content_wrapper">
+						<div id="detail" class="house_content">
+							<ul class="area_install_device">
+								<li id="watermeter" class="">수도검침기</li>
+								<li id="elecmeter" class="">전기검침기</li>
+								<li id="gasmeter" class="">가스검침기</li>
+								<li id="tv" class="">TV</li>
+								<li id="ref" class="">냉장고</li>
+								<li id="air" class="">공기청정기</li>
+								<li id="home" class="">홈캠</li>
+							</ul>
+							<div class="area_state_item_wrapper">
+									<!-- 수도사용량 -->
+									<div id="water_result" class="state_item">
+										<div>
+											<span class="sub_text">검침</span>
+											<p class="title">수도사용량</p>
+										</div>
+										<div>
+											<span id="water_val" class="val"></span>
+											<span class="unit">㎥</span>
+										</div>
+										<button id="btn_water" type="button" class="help" data-container="body" data-placement="right" data-toggle="popover" data-content=""></button>
+										<div class="help_msg">
+											<div class="help_header"><button class="close" type="button"><span><i class="fas fa-times"></i></span></button></div>
+											<div class="help_body">
+												<h5 class="title">수도사용량</h5>
+												<p>0~24시까지 수도사용량입니다.<br>수도사용량이 12시간 이상 감지되지 않을 경우 수도사용량 상태가 이상으로 바뀝니다.</p>
+												<ul class="help_index">
+													<li class="normal"><em></em><span>정상</span></li>
+													<li class="warning"><em></em><span>12시간 이상 사용량 없음</span></li>
+													<li class="error"><em></em><span>데이터 미수신</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- //수도사용량 -->
+									
+									<!-- 전기사용량 -->
+									<div id="elec_result" class="state_item">
+										<div>
+											<span class="sub_text">검침</span>
+											<p class="title">전기사용량</p>
+										</div>
+										<div>
+											<span id="elec_val" class="val"></span>
+											<span class="unit">kWh</span>
+										</div>
+										<button id="btn_elec" class="help" type="button"></button>
+										<div class="help_msg">
+											<div class="help_header"><button class="close" type="button"><span><i class="fas fa-times"></i></span></button></div>
+											<div class="help_body">
+												<h5 class="title">전기사용량</h5>
+												<p>0~24시까지 전기사용량입니다.<br>전기사용량이 12시간 이상 감지되지 않을 경우 전기사용량 상태가 이상으로 바뀝니다.</p>
+												<ul class="help_index">
+													<li class="normal"><em></em><span>정상</span></li>
+													<li class="warning"><em></em><span>12시간 이상 사용량 없음</span></li>
+													<li class="error"><em></em><span>데이터 미수신</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- //전기사용량 -->
+									
+									<!-- 가스사용량 -->
+									<div id="gas_result" class="state_item">
+										<div>
+											<span class="sub_text">검침</span>
+											<p class="title">가스사용량</p>
+										</div>
+										<div>
+											<span id="gas_val" class="val"></span>
+											<span class="unit">N㎥</span>
+										</div>
+										<button id="btn_elec" class="help" type="button"></button>
+										<div class="help_msg">
+											<div class="help_header"><button class="close" type="button"><span><i class="fas fa-times"></i></span></button></div>
+											<div class="help_body">
+												<h5 class="title">가스사용량</h5>
+												<p>0~24시까지 가스사용량입니다.<br>가스사용량이 12시간 이상 감지되지 않을 경우 가스사용량 상태가 이상으로 바뀝니다.</p>
+												<ul class="help_index">
+													<li class="normal"><em></em><span>정상</span></li>
+													<li class="warning"><em></em><span>12시간 이상 사용량 없음</span></li>
+													<li class="error"><em></em><span>데이터 미수신</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- //가스사용량 -->
+									
+									<!-- TV채널 -->
+									<div id="channel_tv_result" class="state_item">
+										<div>
+											<span class="sub_text">TV</span>
+											<p class="title">채널</p>
+										</div>
+										<div>
+											<span id="channel_tv_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_channel_tv" class="help" type="button"></button>
+									</div>
+									<!-- //TV채널 -->
+									
+									<!-- TV 리모컨 -->
+									<div id="remocon_tv_result" class="state_item">
+										<div>
+											<span class="sub_text">TV</span>
+											<p class="title">리모컨</p>
+										</div>
+										<div>
+											<span id="remocon_tv_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_remocon_tv" class="help" type="button"></button>
+									</div>
+									<!-- //TV 리모컨 -->
+									
+									<!-- 냉장고 문열림/닫힘 -->
+									<div id="door_ref_result" class="state_item">
+										<div>
+											<span class="sub_text">냉장고</span>
+											<p class="title">문열림/닫힘</p>
+										</div>
+										<div>
+											<span id="door_ref_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_door_ref" class="help" type="button"></button>
+										
+									</div>
+									<!-- //냉장고 문열림/닫힘 -->
+									
+									<!-- 냉장고 모션 -->
+									<div id="motion_ref_result" class="state_item">
+										<div>
+											<span class="sub_text">냉장고</span>
+											<p class="title">움직임</p>
+										</div>
+										<div>
+											<span id="motion_ref_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_motion_ref" class="help" type="button"></button>
+										<div class="help_msg">
+											<div class="help_header"><button class="close" type="button"><span><i class="fas fa-times"></i></span></button></div>
+											<div class="help_body">
+												<h5 class="title">냉장고 움직임</h5>
+												<p>0~24시까지 냉장고에서 움직임감지 누적 횟수입니다. 수도사용량이 12시간 이상 감지되지 않을 경우 수도사용량 상태가 이상으로 바뀝니다.</p>
+												<ul class="help_index">
+													<li class="normal"><em></em><span>정상</span></li>
+													<li class="warning"><em></em><span>12시간 이상 사용량 없음</span></li>
+													<li class="error"><em></em><span>데이터 미수신</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- //냉장고 모션 -->
+									
+									<!-- 냉장고 온도 -->
+									<div id="temp_ref_result" class="state_item">
+										<div>
+											<span class="sub_text">냉장고</span>
+											<p class="title">온도</p>
+										</div>
+										<div>
+											<span id="temp_ref_val" class="val"></span>
+											<span class="unit">℃</span>
+										</div>
+										<button id="btn_temp_ref" class="help" type="button"></button>
+										<div class="help_msg">
+											<div class="help_header"><button class="close" type="button"><span><i class="fas fa-times"></i></span></button></div>
+											<div class="help_body">
+												<h5 class="title">냉장고 온도</h5>
+												<p>냉장고에서 수집된 현재 실내온도 입니다. 온도가 18~26℃  를 벗어날 경우, 또는 실외 온도와 5℃ 이상 차이날 때  냉장고 온도 상태가 이상으로 바뀝니다.</p>
+												<ul class="help_index">
+													<li class="normal"><em></em><span>18~26℃ 사이</span></li>
+													<li class="warning"><em></em><span>① 정상 범위를 벗어날 경우<br>② 실외 온도와 5℃ 이상 차이날 경우</span></li>
+													<li class="error"><em></em><span>데이터 미수신</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- //냉장고 온도 -->
+									
+									<!-- 냉장고습도 -->
+									<div id="hum_ref_result" class="state_item">
+										<div>
+											<span class="sub_text">냉장고</span>
+											<p class="title">습도</p>
+										</div>
+										<div>
+											<span id="hum_ref_val" class="val"></span>
+											<span class="unit">%</span>
+										</div>
+										<button id="btn_hum_ref" class="help" type="button"></button>
+									</div>
+									<!-- //냉장고습도 -->
+									
+									<!-- 공기청정기 움직임 -->
+									<div id="motion_air_result" class="state_item">
+										<div>
+											<span class="sub_text">공기청정기</span>
+											<p class="title">움직임</p>
+										</div>
+										<div>
+											<span id="motion_air_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_motion_air" class="help" type="button"></button>
+									</div>
+									<!-- 공기청정기 움직임 -->
+									
+									<!-- 공기청정기 온도 -->
+									<div id="temp_air_result" class="state_item">
+										<div>
+											<span class="sub_text">공기청정기</span>
+											<p class="title">온도</p>
+										</div>
+										<div>
+											<span id="temp_air_val" class="val"></span>
+											<span class="unit">℃</span>
+										</div>
+										<button id="btn_temp_air" class="help" type="button"></button>
+									</div>
+									<!-- //공기청정기 온도 -->
+									
+									<!-- 공기청정기 습도 -->
+									<div id="hum_air_result" class="state_item">
+										<div>
+											<span class="sub_text">공기청정기</span>
+											<p class="title">습도</p>
+										</div>
+										<div>
+											<span id="hum_air_val" class="val"></span>
+											<span class="unit">%</span>
+										</div>
+										<button id="btn_hum_air" class="help" type="button"></button>
+									</div>
+									<!-- //공기청정기 습도 -->
+									
+									<!-- 공기청정도 종합청정도 -->
+									<div id="totalair_air_result" class="state_item">
+										<div>
+											<span class="sub_text">공기청정기</span>
+											<p class="title">종합청정도</p>
+										</div>
+										<!-- <div>
+											<span id="hum_air_val" class="val">1</span>
+											<span class="unit">%</span>
+										</div> -->
+										<button id="btn_hum_air" class="help" type="button"></button>
+									</div>
+									<!-- //공기청정도 종합청정도 -->
+									<!-- 홈캠 외출 -->
+									<div id="out_homecam_result" class="state_item">
+										<div>
+											<span class="sub_text">홈캠</span>
+											<p class="title">외출</p>
+										</div> 
+										<div>
+											<span id="out_homecam_val" class="val"></span>
+											<span class="unit">회</span>
+										</div>
+										<button id="btn_out_homecam" class="help" type="button"></button>
+									</div>
+									<!-- 홈캠 외출 -->
+							</div>
+						</div>
+						<div id="chart" class="house_content swiper-container">
+							<div class="swiper-pagination"></div>
+							<div class="area_chart_wrapper swiper-wrapper">
+							
+								<div id="tab_water" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">수도검침기</span>
+										<h5 class="chart_tit">수도 사용량</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 수도 사용량 그래프입니다</p>
+										<div id="divWater" class="graph_inner">
+											<canvas id="chartMeterWater"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_elec" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">전기검침기</span>
+										<h5 class="chart_tit">전기사용량</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 전기 사용량 그래프입니다</p>
+										<div id="divElec" class="graph_inner">
+											<canvas id="chartMeterElec"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_gas" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">가스검침기</span>
+										<h5 class="chart_tit">가스사용량</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 가스 사용량 그래프입니다</p>
+										<div id="divGas" class="graph_inner">
+											<canvas id="chartMeterGas"></canvas>
+										</div>
+									</div>						
+								</div>
+								<div id="tab_house_move_ref" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type" style="visibility:hidden">냉장고</span>
+										<h5 class="chart_tit">대상자 움직임</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 가전에서 수집된 움직임 감지 그래프입니다</p>
+										<div id="divMotionRef" class="graph_inner">
+											<canvas id="chartMotionRef"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_house_move_air" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type" style="visibility:hidden">공기청정기</span>
+										<h5 class="chart_tit">대상자 움직임</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 가전에서 수집된 움직임 감지 그래프입니다</p>
+										<div id="divMotionAir"class="graph_inner">
+											<canvas id="chartMotionAir"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_device_use" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">냉장고</span>
+										<h5 class="chart_tit">냉장고 사용 빈도</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 냉장고의 문열림/닫힘 횟수 그래프입니다</p>
+										<div id="divIot" class="graph_inner">
+											<canvas id="chartIot"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_temphum_ref" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">냉장고</span>
+										<h5 class="chart_tit">온·습도</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 냉장고에서 수집된 온·습도 그래프입니다</p>
+										<div id="divTempHumRef" class="graph_inner">
+											<canvas id="chartTemphumRef"></canvas>
+										</div>
+									</div>
+								</div>
+								<div id="tab_temphum_air" class="house_chart_item swiper-slide">
+									<div class="area_chart_info">
+										<span class="chart_type">공기청정기</span>
+										<h5 class="chart_tit">온·습도</h5>
+									</div>								
+									<div id="" class="chart_cont">
+										<p class="chart_info">최근 24시간 공기청정기에서 수집된 온·습도 그래프입니다</p>
+										<div id="divTempHumAir" class="graph_inner">
+											<canvas id="chartTempHumAir"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+				<!-- 상세상태 -->                         
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    
+    <script> //trigger
+        $(document).ready(function () {
+            $(".state_item").addClass('normal');
+			//탭그래프
+			// $(".house_content").hide();
+            // $(".house_content:first").show();
+
+            $(".house_tab li").click(function () {
+                if ($(this).hasClass("active")) {
+                    return;
+                } else {
+                    $(".house_tab").children().removeClass("active");
+                    $(this).addClass("active");
+                };
+                $(".house_content").hide();
+                var activeTab = $(this).attr("rel");
+                $("#" + activeTab).fadeIn();
+            });
+			
+            
+            $(".btn_alarm_list").on('click', function(){
+            	if($(this).hasClass('on')){
+            		$(this).removeClass('on');
+                	$('.area_alarm_list_wrapper').removeClass('active');
+            	}else{
+            		$(this).addClass('on');
+                	$('.area_alarm_list_wrapper').addClass('active');
+            	}
+            });
+            
+            $(".help").on('click', function(){
+            	var activeMsg = $(this).next('.help_msg');
+            	$('.help_msg').not(activeMsg).hide();
+            	$(this).next('.help_msg').show();
+            });
+            $(".help_msg .close").on('click', function(){
+            	$(this).parents('.help_msg').hide();
+            });
+            
+        });
+
+    </script>
+</body>
+</html>
