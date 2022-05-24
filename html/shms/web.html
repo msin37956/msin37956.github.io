@@ -711,6 +711,22 @@
            view : View
        });
 
+        //지도바꾸기
+        function baseChange(data) {//baseMap 변경
+            var layer = layers[data];
+            if (layer) {
+                layer.setOpacity(1);
+                updateRenderEdgesOnLayer(layer);
+                map.getLayers().setAt(0, layer);
+            }
+        }
+        
+        var updateRenderEdgesOnLayer = function(layer) {// 타일 변경
+            if (layer instanceof ol.layer.Tile) {
+                var source = layer.getSource();
+            }
+        };
+
     </script>
     <script> //응급상황 팝업
 
