@@ -296,7 +296,7 @@
         								</div>
 	        							<div class="swiper-wrapper">
 	        								<div class="swiper-slide" >
-	        									<div class="inr energy_swiper">
+	        									<div class="inr energy_swiper fill">
 		        									<div class="list_box">
 		        										<div class="card-header">
 															<p class="card-subtitle">에너지사용량 관심 세대</p>
@@ -304,7 +304,9 @@
 														</div>
 														<div class="card-body">
 															<div class="inr">
-																<ul id="rank_energy_list" class="list_wrapper rank_energy_list"></ul>
+																<ul id="rank_energy_list" class="list_wrapper rank_energy_list">
+                                                                    <li></li>
+                                                                </ul>
 															</div>
 														</div>
 		        									</div>
@@ -326,8 +328,8 @@
 												</div>
 	        								</div>
 	        								<div class="swiper-slide">
-	        									<div class="inr motion_swiper">
-	        										<div class="list_box">
+	        									<div class="inr motion_swiper empty">
+	        										<div class="list_box">   
 	        											<div class="card-header">
 															<p class="card-subtitle">움직임 관심 세대</p>
 															<p class="card-text">움직임 이상으로 인해 관심이 필요한 세대입니다</p>
@@ -355,53 +357,11 @@
 	        										</div>
 	        									</div>
 	        								</div>
-	        								<!-- <div class="swiper-slide">
-	        									<div class="inr">
-	        										<div class="list_box">
-	        											<div class="card-header">
-															<p class="card-subtitle">동작오류 관심 세대</p>
-															<p class="card-text">동작오류 지속으로 인해 관심이 필요한 세대입니다</p>
-														</div>
-														<div class="card-body">
-															<div class="inr">
-																<ul id="rank_error_list" class="list_wrapper rank_error_list"></ul>
-															</div>
-														</div>
-	        										</div>
-	        										<div class="conts_box">
-	        											
-	        										</div>
-	        									</div>
-	        								</div> -->
 	        							</div>
         							</div>
         						</div>
         					</div>
         					<!-- //관심세대 -->
-        					<!-- 이벤트일별현황 -->
-        					<!-- <div class="col-xxl-7 col-12 area_conts2">
-        						<div class="inr">
-        							<div class="area_header">
-        								<p class="area_title">이벤트 일별 현황</p>
-        							</div>
-        							<div class="card">
-        								<form class="form-inline">
-	        								<div class="card-header">
-	        									<div class="form-group">
-	        										<label>이벤트</label>
-	        										
-	        									</div>
-	        								</div>
-	        								<div class="card-body">
-	        									<div class="inr">
-	        										
-	        									</div>
-	        								</div>
-        								</form>
-       								</div>
-        						</div>
-        					</div> -->
-        					<!-- //이벤트일별현황 -->
         					<!-- 날씨 -->
         					<div class="col-xxl-5 col-12 area_conts3">
         						<div class="inr">
@@ -414,7 +374,7 @@
 			                                </span>
 			                                <span id="btn_area" class="ml-1 btn_change_place">변경</span>
 			                                <span class="ml-auto source" data-bs-toggle="tooltip" data-bs-placement="right" data-html="true" title="날씨정보는 공공데이터를 이용하였습니다." style="margin-right:-4px;margin-top:-2px">
-			                                	<img src="../img/img_opentype01.svg" title="공공누리마크" style="height:20px"/>
+			                                	<img src="../../img/shms/overall/img_opentype01.svg" title="공공누리마크" style="height:20px"/>
 			                                </span>
         								</div>
         								<div class="card-body">
@@ -422,33 +382,33 @@
         										<div class="weather">
         											<div class="inr">
         												<span class="icon">
-					                                    	<img id="weater_icon" src="../../img/w/weather_default.png" />
+					                                    	<img id="weater_icon" src="../../img/shms/overall/weather_Clear_day.png" />
 					                                    </span>
-					                                    <span class="temp" id="txt_temp"></span>
-					                                    <span class="index" id="txt_wfkor"></span>
+					                                    <span class="temp" id="txt_temp">26.7</span>
+					                                    <span class="index" id="txt_wfkor">맑음</span>
         											</div>
         										</div>
         										<div class="life_group">
         											<div class="">
         												<div class="life_item pm10">
 	        												<em>미세먼지</em>
-	        												<span id="txt_pm10_index"></span>
+	        												<span id="txt_pm10_index">좋음</span>
 	        												<span id="txt_pm10"></span>
         												</div>
         												<div class="life_item uv">
         													<em>자외선지수</em>
-	        												<span id="txt_uv"></span>
+	        												<span id="txt_uv">매우높음</span>
         												</div>
         											</div>
         											<div class="">
         												<div class="life_item pm25">
         													<em>초미세먼지</em>
-	        												<span id="txt_pm25_index"></span>
+	        												<span id="txt_pm25_index">좋음</span>
 	        												<span id="txt_pm25"></span>
         												</div>
         												<div class="life_item ozone">
         													<em>오존</em>
-	        												<span id="txt_ozone"></span>
+	        												<span id="txt_ozone">좋음</span>
         												</div>
         											</div>
         										</div>
@@ -605,6 +565,7 @@
     </div>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../../js/openlayers/build/ol.js"></script>
     <script>
         $(function (){
             //swiper
@@ -631,6 +592,19 @@
 			});
 			//동적으로 생성된 태그의 tooltip trigger
 			$(document.body).tooltip({ selector: "[data-bs-toggle='tooltip']" });
+
+            //trigger
+            //지도 확대&지도사이즈 업데이트
+    		$("#btn_map_expand").click(function(){
+    			$('.area_conts4').toggleClass('expand'); //토글클래스
+   				map.updateSize(); //지도 사이즈 업데이트
+   				$(this).tooltip('dispose'); //클릭할때마다 툴팁 숨기기
+   				if($('.area_conts4').hasClass('expand')){
+   					$(this).attr('title','지도축소');
+   				}else{$(this).attr('title','지도확대');}
+   				
+   				//$(this).attr('title', '최소화');
+    		});
 
         });
     </script>
@@ -664,6 +638,82 @@
 			},
 		        
 		});
+    </script>
+    <script>//map
+        //브이월드 WMTS API 호출
+        var layers = {};
+  	
+  	//일반지도
+       layers['vworld'] = new ol.layer.Tile({
+           title : 'VWorld Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+        	   url : 'https://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/Base/{z}/{y}/{x}.png' //수성알파시티 url 인증키
+           })
+       });
+       
+     //야간지도
+       layers['night'] = new ol.layer.Tile({
+           title : 'Night Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+               url : 'http://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/midnight/{z}/{y}/{x}.png' //WMTS 배경지도 사용. 수성알파시티 url 인증키
+           })
+       });
+     
+        //항공지도
+        layers['satellite'] = new ol.layer.Tile({
+           title : 'Satellite Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+               url : 'http://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/Satellite/{z}/{y}/{x}.jpeg' //WMTS 배경지도 사용. 수성알파시티 url 인증키
+           })
+        });
+
+        var View = new ol.View({
+            center : ol.proj.transform([128.646349, 35.819317], 'EPSG:4326', 'EPSG:3857'),
+            zoom : 17 
+        });
+
+        //map control
+        //축척바 
+        var scaleLineControl = new ol.control.ScaleLine(); 
+        //Zoom
+        $('#zoom-out').on('click', function() {
+            var view = map.getView();
+            var zoom = view.getZoom();
+            view.setZoom(zoom - 1);
+        });
+
+        $('#zoom-in').on('click', function() {
+            var view = map.getView();
+            var zoom = view.getZoom();
+            view.setZoom(zoom + 1);
+        });
+
+        // 지도뿌리기
+        var map = new ol.Map({
+           layers : [ layers['satellite']],
+           target : 'map',
+           logo : false,
+           renderer: 'canvas',
+           controls : ol.control.defaults({
+        	   zoom:false,
+               attributionOptions:({
+                   collapsible:false
+               })
+           }).extend([
+               scaleLineControl
+               ]),
+           view : View
+       });
+
+    </script>
+    <script> //응급상황 팝업
+
     </script>
 </body>
 </html>
