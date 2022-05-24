@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트홈 모바일 DEMO</title>
+    <!-- bootstrap5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="../../css/shms/common_m.css"/>
+    <link rel="stylesheet" href="../../css/shms/mobile.css"/>
+    <link rel="stylesheet" href="../../css/shms/icomoon.css"/>
+    
+
+
+    <!-- jquery script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!--  fontAwesome cdn-->
+    <script src="https://kit.fontawesome.com/a517cc2d9b.js" crossorigin="anonymous"></script>
+    <!-- bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../../js/openlayers/build/ol.js"></script>
+    <script>
+        $(function (){
+            // $("#pop_latest_emergency").css('display','block');
+            //swiper
+            //swiper 일시정지, 시작
+            var playPause = $(".controls.play");
+            
+            playPause.click(function(){
+                var slide = $(this).parents('.swiper-container');
+                if(slide.hasClass('active')){
+                    swiper.autoplay.stop();
+                    playPause.css("background-image","url(../img/overall/controls_play.png)");
+                    slide.removeClass('active').addClass('disabled');
+                }else if(slide.hasClass('disabled')){
+                    swiper.autoplay.start();
+                    playPause.css("background-image","url(../img/overall/controls_pause.png)");
+                    slide.removeClass('disabled').addClass('active');
+                }
+            });
+
+            //bootstrap5 tooltip trigger
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+			  return new bootstrap.Tooltip(tooltipTriggerEl)
+			});
+			//동적으로 생성된 태그의 tooltip trigger
+			$(document.body).tooltip({ selector: "[data-bs-toggle='tooltip']" });
+
+            //trigger
+            //지도 확대&지도사이즈 업데이트
+    		$("#btn_map_expand").click(function(){
+    			$('.area_conts4').toggleClass('expand'); //토글클래스
+   				map.updateSize(); //지도 사이즈 업데이트
+   				$(this).tooltip('dispose'); //클릭할때마다 툴팁 숨기기
+   				if($('.area_conts4').hasClass('expand')){
+   					$(this).attr('title','지도축소');
+   				}else{$(this).attr('title','지도확대');}
+   				
+   				//$(this).attr('title', '최소화');
+    		});
+
+        });
+    </script>
+    <script>
+        //swiper
+        var swiper = new Swiper('.swiper-conts1', {	
+		//var swiper = new Swiper('#slide', {
+			autoplay: {
+				delay: 8000,
+				disableOnInteraction: false,
+			},
+			//loop: true,
+			pagination: {
+				el: ".paging1",
+				type: "fraction",
+			},
+			navigation : {
+				nextEl: ".swiper-conts1 .controls.next",
+				prevEl: ".swiper-conts1 .controls.prev"
+			},
+		});
+
+        var swiper2 = new Swiper('.swiper-conts2', {	
+			pagination: {
+				el: ".paging2",
+				type: "fraction",
+			},
+			navigation : {
+				nextEl: ".swiper-conts2 .controls.next",
+				prevEl: ".swiper-conts2 .controls.prev"
+			},
+		        
+		});
+    </script>
+    <script>//map
+        //브이월드 WMTS API 호출
+        var layers = {};
+  	
+  	//일반지도
+       layers['vworld'] = new ol.layer.Tile({
+           title : 'VWorld Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+        	   url : 'https://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/Base/{z}/{y}/{x}.png' //수성알파시티 url 인증키
+           })
+       });
+       
+     //야간지도
+       layers['night'] = new ol.layer.Tile({
+           title : 'Night Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+               url : 'http://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/midnight/{z}/{y}/{x}.png' //WMTS 배경지도 사용. 수성알파시티 url 인증키
+           })
+       });
+     
+        //항공지도
+        layers['satellite'] = new ol.layer.Tile({
+           title : 'Satellite Map',
+           visible : true,
+           type : 'base',
+           source : new ol.source.XYZ({
+               url : 'http://api.vworld.kr/req/wmts/1.0.0/23DD7238-787A-33A3-B413-D254967BF613/Satellite/{z}/{y}/{x}.jpeg' //WMTS 배경지도 사용. 수성알파시티 url 인증키
+           })
+        });
+
+        var View = new ol.View({
+            center : ol.proj.transform([128.646349, 35.819317], 'EPSG:4326', 'EPSG:3857'),
+            zoom : 17 
+        });
+
+        //map control
+        //축척바 
+        var scaleLineControl = new ol.control.ScaleLine(); 
+        //Zoom
+        $('#zoom-out').on('click', function() {
+            var view = map.getView();
+            var zoom = view.getZoom();
+            view.setZoom(zoom - 1);
+        });
+
+        $('#zoom-in').on('click', function() {
+            var view = map.getView();
+            var zoom = view.getZoom();
+            view.setZoom(zoom + 1);
+        });
+
+        // 지도뿌리기
+        var map = new ol.Map({
+           layers : [ layers['satellite']],
+           target : 'map',
+           logo : false,
+           renderer: 'canvas',
+           controls : ol.control.defaults({
+        	   zoom:false,
+               attributionOptions:({
+                   collapsible:false
+               })
+           }).extend([
+               scaleLineControl
+               ]),
+           view : View
+       });
+
+        //지도바꾸기
+        function baseChange(data) {//baseMap 변경
+            var layer = layers[data];
+            if (layer) {
+                layer.setOpacity(1);
+                updateRenderEdgesOnLayer(layer);
+                map.getLayers().setAt(0, layer);
+            }
+        }
+        
+        var updateRenderEdgesOnLayer = function(layer) {// 타일 변경
+            if (layer instanceof ol.layer.Tile) {
+                var source = layer.getSource();
+            }
+        };
+
+    </script>
+    <script> //응급상황 팝업
+
+    </script>
+</body>
+</html>
